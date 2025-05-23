@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Zerong Sun">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://zerong-sun.github.io/travel/汕头：吃吃吃"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汕头：吃吃吃">
+<meta property="og:url" content="https://zerong-sun.github.io/travel/%E6%B1%95%E5%A4%B4%EF%BC%9A%E5%90%83%E5%90%83%E5%90%83">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zerong-sun.github.io/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-05-23T03:20:13.000Z">
+<meta property="article:modified_time" content="2025-05-23T03:54:16.049Z">
+<meta property="article:author" content="Zerong Sun">
+<meta property="article:tag" content="潮汕">
+<meta property="article:tag" content="广东">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zerong-sun.github.io/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/icon.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.jpg">
+    <meta name="theme-color" content="#FF884C">
+    <link rel="shortcut icon" href="/images/icon.jpg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            汕头：吃吃吃 | Zerong&#39; Notes
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Farsan&display=swap" rel="stylesheet">
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"zerong-sun.github.io","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#FF884C","secondary":"#333333","default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Sans SC","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"},"english":{"enable":true,"family":"Farsan","url":"https://fonts.googleapis.com/css2?family=Farsan&display=swap"},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":false,"site_pv":false,"site_uv":false,"post_pv":false},"single_page":true,"preloader":{"enable":false,"custom_message":"one second :)"},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/back.jpg","dark":"/images/back-night.jpg"},"title":"Navigating Science • Design • Discovery","subtitle":{"text":["Boundaries exist to be tested, not accepted.","Every failure is a step toward discovery.","“Design with purpose","explore with passion.”"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#1f1f1f","dark":"#e8e8e8"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":"Zero.de.sun@outlook.com","RedBook":"https://www.xiaohongshu.com/user/profile/62b04442000000001b02a320?xsec_token=YBjXEUYnfwR_Mepcax11TfdZA0cY2MQXPz_jKo7EXCNF8=&xsec_source=app_share&xhsshare=CopyLink&appuid=62b04442000000001b02a320&apptime=1747923553&share_id=5009a7a20dc342e286668d9a23d38bb7"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Xiaohongshu":"https://www.xiaohongshu.com/user/profile/62b04442000000001b02a320?xsec_token=YBjXEUYnfwR_Mepcax11TfdZA0cY2MQXPz_jKo7EXCNF8=&xsec_source=app_share&xhsshare=CopyLink&appuid=62b04442000000001b02a320&apptime=1747921173&share_id=6455cf1e007248aeb1e308279fab73fe","Friends":"/friends"}},"Travel":{"path":"/categories/travel/","icon":"fa-solid fa-signs-post"},"Insights":{"path":"/categories/insights/","icon":"fa-solid fa-fire-flame-curved"},"Bio&BioEng":{"path":"/categories/bio/","icon":"fa-solid fa-x-ray"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":5}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Zerong&#39; Notes
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://www.xiaohongshu.com/user/profile/62b04442000000001b02a320?xsec_token=YBjXEUYnfwR_Mepcax11TfdZA0cY2MQXPz_jKo7EXCNF8=&xsec_source=app_share&xhsshare=CopyLink&appuid=62b04442000000001b02a320&apptime=1747921173&share_id=6455cf1e007248aeb1e308279fab73fe">
+                                                    XIAOHONGSHU
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/friends">
+                                                    FRIENDS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/travel/"
+                                        >
+                                    <i class="fa-solid fa-signs-post fa-fw"></i>
+                                    TRAVEL
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/insights/"
+                                        >
+                                    <i class="fa-solid fa-fire-flame-curved fa-fw"></i>
+                                    INSIGHTS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/bio/"
+                                        >
+                                    <i class="fa-solid fa-x-ray fa-fw"></i>
+                                    BIO&amp;BIOENG
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://www.xiaohongshu.com/user/profile/62b04442000000001b02a320?xsec_token=YBjXEUYnfwR_Mepcax11TfdZA0cY2MQXPz_jKo7EXCNF8=&xsec_source=app_share&xhsshare=CopyLink&appuid=62b04442000000001b02a320&apptime=1747921173&share_id=6455cf1e007248aeb1e308279fab73fe">XIAOHONGSHU</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/friends">FRIENDS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/travel/"
+                        >
+                            <span>
+                                TRAVEL
+                            </span>
+                            
+                                <i class="fa-solid fa-signs-post fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/insights/"
+                        >
+                            <span>
+                                INSIGHTS
+                            </span>
+                            
+                                <i class="fa-solid fa-fire-flame-curved fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/bio/"
+                        >
+                            <span>
+                                BIO&amp;BIOENG
+                            </span>
+                            
+                                <i class="fa-solid fa-x-ray fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">汕头：吃吃吃</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/icon.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Zerong Sun</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-05-23 11:20:13</span>
+        <span class="mobile">2025-05-23 11:20:13</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-05-23 11:54:16</span>
+            <span class="mobile">2025-05-23 11:54:16</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/travel/">travel</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%BD%AE%E6%B1%95/">潮汕</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%B9%BF%E4%B8%9C/">广东</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="汕头！7-1-7-3"><a href="#汕头！7-1-7-3" class="headerlink" title="汕头！7.1-7.3"></a>汕头！7.1-7.3</h1><p>汕头不大 共享电动车刚刚好</p>
+<p>沿海岸有市政府和各领导单位 某家的大门口还提供免费凉茶</p>
+<p>贵的顶的全尝了 燕窝鱼翅花胶都get不到 也就祛魅了</p>
+<p>除了 鹅鹅贵 鹅鹅好吃</p>
+<p>狮头鹅不知道好在哪里 粉肝好吃 人类就是喜欢肥肥的</p>
+<p>耶叔太会找吃的了 跟着吃些小店都是宝藏 汕头篇的小店“石炮台竹槌干面猪红汤”他没给地址 好在热心xhs网友给指明了路口和方向 因为地图上找不到这家店。有一些好奇耶叔都是哪里找到吃的的 总能在一些犄角旮旯找到宝藏小店</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><p>交通：高铁</p>
+<p>住宿：</p>
+<p>汕头帝豪精品酒店(黄山路店)</p>
+<h3 id="吃饭！！"><a href="#吃饭！！" class="headerlink" title="吃饭！！"></a>吃饭！！</h3><h1 id="周一"><a href="#周一" class="headerlink" title="周一"></a>周一</h1><p>午饭</p>
+<p>苏南勤记：司机推荐所以没去盛记，多冰糖略带甜头</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4902.heic"
+                      alt="IMG_4902.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4903.heic"
+                      alt="IMG_4903.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4905.heic"
+                      alt="IMG_4905.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4906.heic"
+                      alt="IMG_4906.heic"
+                ></p>
+<p>春梅里：堆砌元素致恐怖谷x</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4910.heic"
+                      alt="IMG_4910.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4911.heic"
+                      alt="IMG_4911.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4914.heic"
+                      alt="IMG_4914.heic"
+                ></p>
+<p>粉肝：细腻顺滑 香浓厚重</p>
+<p>鹅头：咸</p>
+<p>糖水！</p>
+<p>老潮兴粿品店</p>
+<p>黄&#x2F;乌栀糕：大概是加了鹅蛋，臭臭的（）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4908.heic"
+                      alt="IMG_4908.heic"
+                ></p>
+<p>随机路过</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4915.heic"
+                      alt="IMG_4915.heic"
+                ></p>
+<p>老胡甜汤</p>
+<p>东兴甜汤：关门</p>
+<p>细姨甜汤</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4916.heic"
+                      alt="IMG_4916.heic"
+                ></p>
+<p>鸭母捻：长汤圆</p>
+<p>绿豆爽：绿豆粥勾甜芡</p>
+<p>豆花：双皮奶口感的豆腐脑</p>
+<p>袋子里白色的是木薯，削成片片</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4919.heic"
+                      alt="IMG_4919.heic"
+                ></p>
+<p>晚饭</p>
+<p>不夜粥，（17:30-）. 20:00，不接受预约</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4922.heic"
+                      alt="IMG_4922.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4925.heic"
+                      alt="IMG_4925.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4926.heic"
+                      alt="IMG_4926.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4927.heic"
+                      alt="IMG_4927.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4928.heic"
+                      alt="IMG_4928.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4931.heic"
+                      alt="IMG_4931.heic"
+                ></p>
+<p>酸菜鱼东星斑</p>
+<p>招牌酱鹅肠</p>
+<p>鳗鱼胶</p>
+<p>蚝仔烙</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/46911921f7fda2c5df67a5d433df0d7d.jpeg"
+                      alt="46911921f7fda2c5df67a5d433df0d7d.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/6e957b735f31b4c8e7c1f5397cb54bc6.jpeg"
+                      alt="6e957b735f31b4c8e7c1f5397cb54bc6.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/d6cc6fdbdb7cc597a1def96cc7ef779c.jpeg"
+                      alt="d6cc6fdbdb7cc597a1def96cc7ef779c.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/8797ea94036ae8be1761f4c4be5cd799.jpeg"
+                      alt="8797ea94036ae8be1761f4c4be5cd799.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/142ea29d67e6473195465a934f67c763.jpeg"
+                      alt="142ea29d67e6473195465a934f67c763.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/cb90675a7d830ba307daa5b5e6c8b56e.jpeg"
+                      alt="cb90675a7d830ba307daa5b5e6c8b56e.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/aa668d1db3fc4192daf3e3ee12e6f000.jpeg"
+                      alt="aa668d1db3fc4192daf3e3ee12e6f000.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4993.heic"
+                      alt="IMG_4993.heic"
+                ></p>
+<h1 id="周二"><a href="#周二" class="headerlink" title="周二"></a>周二</h1><h3 id="早饭"><a href="#早饭" class="headerlink" title="早饭"></a>早饭</h3><p>石炮台竹槌干面猪红汤、</p>
+<p>红领巾路和金新路交界路口这里。老板对食物很认真</p>
+<p>老板跟刻板印象的潮汕商人不一样，知道我们是外地旅客之后很欢快，热情介绍食材和酱料，表示向游客介绍潮汕美食很重要。</p>
+<p>店里挂了一些美食节目的牌子。除了我和西西都是当地人。完全没有因为上了很多节目而高傲，大概是出于真的喜欢美食而参与宣传</p>
+<p>向我们展示一片“雪花猪肉”非常漂亮，现杀鲜吃</p>
+<p>点了20+30￥的猪血汤</p>
+<p>以及20￥的干面</p>
+<p>像是甜口麻酱面，咸鲜略甜口</p>
+<p>问老板，展示两种秘制酱汁，一种是肉的卤汁，一种是沙茶混合花生等打成的黄色糊糊。</p>
+<p>面上有农家猪肉，切片片放在面上，口感像日式豚骨拉面的豚骨肉，一抿就碎化。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4933.heic"
+                      alt="IMG_4933.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4934.heic"
+                      alt="IMG_4934.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4936.heic"
+                      alt="IMG_4936.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4938.heic"
+                      alt="IMG_4938.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4940.heic"
+                      alt="IMG_4940.heic"
+                ></p>
+<h3 id="游汕头"><a href="#游汕头" class="headerlink" title="游汕头"></a>游汕头</h3><p>市政府门口的free热茶</p>
+<p>路边很多”古建筑“，简化的仿欧式建筑，有点像SF 5th avenue。</p>
+<p>关帝庙和老妈宫紧挨着。</p>
+<p>立体的嵌瓷装饰非常美丽生动</p>
+<p>还有东正教堂</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4943.heic"
+                      alt="IMG_4943.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4944.heic"
+                      alt="IMG_4944.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4948.heic"
+                      alt="IMG_4948.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4950.heic"
+                      alt="IMG_4950.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4953.heic"
+                      alt="IMG_4953.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4956.heic"
+                      alt="IMG_4956.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4958.heic"
+                      alt="IMG_4958.heic"
+                ></p>
+<h3 id="早午饭"><a href="#早午饭" class="headerlink" title="早午饭"></a>早午饭</h3><p>薏米粥：没想到还是咸口，跟早上差不多的，但是猪肉片很明显差，纯瘦肉，咬不动</p>
+<p>市政府门口的海，黄黄绿绿的，不蓝</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4959.heic"
+                      alt="IMG_4959.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4962.heic"
+                      alt="IMG_4962.heic"
+                ></p>
+<h3 id="午饭"><a href="#午饭" class="headerlink" title="午饭"></a>午饭</h3><p>龙香酒家</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4964.heic"
+                      alt="IMG_4964.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4966.heic"
+                      alt="IMG_4966.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4968.heic"
+                      alt="IMG_4968.heic"
+                ></p>
+<p>鸽吞翅：320￥。造型技法很有趣但没意义</p>
+<h3 id="潮汕博览会"><a href="#潮汕博览会" class="headerlink" title="潮汕博览会"></a>潮汕博览会</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4969.heic"
+                      alt="IMG_4969.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4970.heic"
+                      alt="IMG_4970.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4971.heic"
+                      alt="IMG_4971.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4972.heic"
+                      alt="IMG_4972.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4976.heic"
+                      alt="IMG_4976.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4979.heic"
+                      alt="IMG_4979.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4980.heic"
+                      alt="IMG_4980.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4981.heic"
+                      alt="IMG_4981.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4982.heic"
+                      alt="IMG_4982.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4985.heic"
+                      alt="IMG_4985.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4986.heic"
+                      alt="IMG_4986.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4987.heic"
+                      alt="IMG_4987.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4991.heic"
+                      alt="IMG_4991.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4992.heic"
+                      alt="IMG_4992.heic"
+                ></p>
+<h3 id="晚饭"><a href="#晚饭" class="headerlink" title="晚饭"></a>晚饭</h3><p>东市白粥18:00，含生腌</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4994.heic"
+                      alt="IMG_4994.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4995.heic"
+                      alt="IMG_4995.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4997.heic"
+                      alt="IMG_4997.heic"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/IMG_4998.heic"
+                      alt="IMG_4998.heic"
+                ></p>
+<p>生腌</p>
+<p>普宁豆干</p>
+<h1 id="周三"><a href="#周三" class="headerlink" title="周三"></a>周三</h1><p>早饭</p>
+<p>睡懒觉没吃饭</p>
+<p>午饭</p>
+<p>天山牛肉：没去贵宾牛肉</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/1080abe0b2ad9ea948e5a727b491b0db.jpeg"
+                      alt="1080abe0b2ad9ea948e5a727b491b0db.jpeg"
+                ></p>
+<p>晚饭</p>
+<p>不夜粥！二刷。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/c11261d3b9b556b52efbb261d9d38ade.jpeg"
+                      alt="c11261d3b9b556b52efbb261d9d38ade.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/30d56b00ac6d3b5c4e18606d292f1a4b.jpeg"
+                      alt="30d56b00ac6d3b5c4e18606d292f1a4b.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/9e129324e03e222bafb9655a71f4a07a.jpeg"
+                      alt="9e129324e03e222bafb9655a71f4a07a.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/8bbc733342c9a277945b193f0ff13ff1.jpeg"
+                      alt="8bbc733342c9a277945b193f0ff13ff1.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/c37bb2a4fddaaaa0f4a0d73295fbf462.jpeg"
+                      alt="c37bb2a4fddaaaa0f4a0d73295fbf462.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/c34140c2b90b814fcd095361e417144c.jpeg"
+                      alt="c34140c2b90b814fcd095361e417144c.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/39fc0ef3c9cad54a5364a52dd1206809.jpeg"
+                      alt="39fc0ef3c9cad54a5364a52dd1206809.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/90c43ffcc056cdde73657db0bd36caa6.jpeg"
+                      alt="90c43ffcc056cdde73657db0bd36caa6.jpeg"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/e4bfe5e9a43941148b58578b7c4df4a2.jpeg"
+                      alt="e4bfe5e9a43941148b58578b7c4df4a2.jpeg"
+                ></p>
+<p>或许应该把生腌放在最后</p>
+<h1 id="备选："><a href="#备选：" class="headerlink" title="备选："></a>备选：</h1><p>潮汕牛肉锅</p>
+<p>26 TT今天拍什么发布了一篇小红书笔记，快来看吧！ 😆 C8ADyXfE6EREbAp 😆 <a class="link"   target="_blank" rel="noopener" href="http://xhslink.com/eGNNVN" >http://xhslink.com/eGNNVN<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，复制本条信息，打开【小红书】App查看精彩内容！</p>
+<p>贵宾牛肉火锅</p>
+<p>炸粿条</p>
+<p>粿条</p>
+<p>收好：</p>
+<p>无招牌的小店叫做父子粿条面，只经营上午。</p>
+<p>吃腰花可以去：金贤肾只，阿俊特色炒粿。</p>
+<p>牛肉粿条可以去：老胡牛肉粿，老姿娘米粉。</p>
+<p>炒粿可以去：合意桐坑，雄伟澄海老式粿条（大排档），信宁澄海私房菜（甜炒粿）。</p>
+<p>喝粿条汤：橄榄展猪肚，正记小食，英华……这些只是汕头好吃粿条的很小很小一部分</p>
+<p>牛铃</p>
+<p>糖水</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hi421v7Hi/?spm_id_from=333.999.0.0&vd_source=7e404df3f1ff3e8f200c851e728e1e10" >来汕头必吃潮汕糖水，和广式糖水完全不同。鸭母捻、姜薯、绿豆爽、甜豆花、白果、甜蛋、超浓豆浆，还有潮汕风味gelato！为大家选出五家精华，还有一家网红店避雷_哔哩哔哩_bilibili<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>米雪好美😍✨本期🔍探访5家店✨</p>
+<p>🏠老胡甜汤小吃店(人均13元) ，📍位于：汕头市·金平区梅翠街梅园3栋103房</p>
+<p>🏠老牌福记加浓豆浆包(人均13元) ，📍位于：汕头市·金平区菊园39栋1&#x2F;104号房后面铺面</p>
+<p>🏠潮汕冰麒麟Ice Kirin Gelato(人均37元) ，📍位于：汕头市·龙湖区金涛东街潮汕雅轩5栋102号</p>
+<p>🏠sogalab原来是实验室(人均29元) ，📍位于：汕头市·龙湖区丹霞庄北区10栋2-104室</p>
+<p>🏠东兴甜汤鲎粿(人均13元) ，📍位于：汕头市·金平区东兴二横巷2号108号房</p>
+<p>评论区：</p>
+<p>潮汇 衡山市场旁边 姜薯</p>
+<p>潮汕冰麒麟gelato真的超好吃啊啊啊！用料超扎实！牛铃就是yyds！</p>
+<p>老药吉奶昔</p>
+<p>甜汤</p>
+<p>汕头两家品种较多的甜汤店：老胡，细姨。</p>
+<p>还有一家本地老字号叫做福合沟，也可以试试。每家做的绿豆爽都不太一样。五果汤，推荐一家神店，都是大妈们在经营，名字就叫做：蚝烙甜汤。无米粿推荐三家牛店：姚氏，用猪油煎的。商平路无米粿，杏仁茶和无米粿都做的很好吃，还有鲎粿。不过夏天不卖杏仁茶，有仙草冻，也很好吃。还有一家叫做秋盛小吃店，无米粿等做的很好。豆花：共和老洪豆花，李记老牌豆花。反沙店：普宁反沙番薯芋头，伟顺反沙屋。杏仁茶：彬排福平坊，杨记杏仁茶</p>
+<p>海鲜 奢侈一把</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ww4m1v7Ys/?spm_id_from=333.999.0.0&vd_source=7e404df3f1ff3e8f200c851e728e1e10" >汕头必吃海鲜排档，来汕头只有一顿额度的话，必须是这家掌管海鲜的王，不夜粥_哔哩哔哩_bilibili<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>不夜粥</p>
+<p>吴记富苑</p>
+<p>东市白粥</p>
+<p>龙香酒家-鸽吞翅</p>
+<p>【特厨探店 |推荐推荐推荐！什么是潮汕老牌酒楼的隐藏实力—龙香酒家】 <a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1A1421f7JT/?share_source=copy_web&vd_source=8b9ddc1ebcede4a4240ae1ac921d0008" >https://www.bilibili.com/video/BV1A1421f7JT/?share_source&#x3D;copy_web&amp;vd_source&#x3D;8b9ddc1ebcede4a4240ae1ac921d0008<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>鹅</p>
+<p>汕头 日日香鹅肉是当地的非遗，好吃的。</p>
+<p>盛记在汕头也很有名，好吃的。</p>
+<p>潮州的溪口刘卜鹅肉只卖一年龄以上的鹅。阿雄鹅肉在潮州很有名。以上，视频中涉及。当地好吃的卤鹅还很多，不能一一涉及~</p>
+<p>一只大约56百块，一般我们家庭一顿买个几十元就够一家人吃了，分部位收费，后段贵，前段便宜，其他部位比较贵，鹅掌，鹅翅，头脖子，内脏，这些价格比较高，那些三到五年老鹅一般市场鹅肉档没准备，卤鹅当天吃最好吃，第二天就不好吃了</p>
+<p>无鹅不成宴</p>
+<p>160days </p>
+<p>【汕头工业区里夫妻经营三十年的街边海鲜大排档-哔哩哔哩】 <a class="link"   target="_blank" rel="noopener" href="https://b23.tv/SOxhIeT" >https://b23.tv/SOxhIeT<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/%E6%B1%95%E5%A4%B4%EF%BC%817.1-7.3%0A.assets/55ca33bce26ad8ec048bcffcc54dd3a3.jpeg"
+                      alt="55ca33bce26ad8ec048bcffcc54dd3a3.jpeg"
+                ></p>
+<h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><p>【隐藏在公园里的汕头市博物馆，探秘著名的古沉船南澳一号】 <a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yW4y1S7H8/?share_source=copy_web&vd_source=909429296ab88342bfd86a170fa2ac35" >https://www.bilibili.com/video/BV1yW4y1S7H8/?share_source&#x3D;copy_web&amp;vd_source&#x3D;909429296ab88342bfd86a170fa2ac35<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>汕头濠江区凤岗古村</p>
+<p>潮博中心</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 汕头：吃吃吃</li>
+        <li><strong>Author:</strong> Zerong Sun</li>
+        <li><strong>Created at
+                :</strong> 2025-05-23 11:20:13</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-05-23 11:54:16
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/travel/汕头：吃吃吃
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E6%BD%AE%E6%B1%95/">#潮汕</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E5%B9%BF%E4%B8%9C/">#广东</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/travel/%E6%B1%95%E5%B0%BE%EF%BC%9A%E9%82%A3%E4%B9%88%E8%BF%91%E9%82%A3%E4%B9%88%E7%BE%8E">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">汕尾：那么近那么美</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/travel/%E5%B0%BC%E6%B3%8A%E5%B0%94%EF%BC%9A%E5%8A%A0%E9%83%BD%E5%92%8CMBC">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">尼泊尔：加都和MBC</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">汕头：吃吃吃</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B1%95%E5%A4%B4%EF%BC%817-1-7-3"><span class="nav-text">汕头！7.1-7.3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%83%E9%A5%AD%EF%BC%81%EF%BC%81"><span class="nav-text">吃饭！！</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%A8%E4%B8%80"><span class="nav-text">周一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%A8%E4%BA%8C"><span class="nav-text">周二</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A9%E9%A5%AD"><span class="nav-text">早饭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%B8%E6%B1%95%E5%A4%B4"><span class="nav-text">游汕头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A9%E5%8D%88%E9%A5%AD"><span class="nav-text">早午饭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%88%E9%A5%AD"><span class="nav-text">午饭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BD%AE%E6%B1%95%E5%8D%9A%E8%A7%88%E4%BC%9A"><span class="nav-text">潮汕博览会</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%9A%E9%A5%AD"><span class="nav-text">晚饭</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%A8%E4%B8%89"><span class="nav-text">周三</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%87%E9%80%89%EF%BC%9A"><span class="nav-text">备选：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE"><span class="nav-text">项目</span></a></li></ol></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color"
+        style="font-size:12px;">
+  <div class="info-container py-3 text-center">
+    <!-- 自定义信息（如果有） -->
+    
+
+    <!-- 版权与作者 -->
+    <div class="text-center">
+      &copy;
+      
+        <span>2022</span> –
+      
+      2025
+      &nbsp;&nbsp;<a href="/">Zerong Sun</a>
+    </div>
+  </div>
+</footer>
+
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/libs/anime.min.js"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+</body>
+
+</html>
