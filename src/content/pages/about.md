@@ -1,77 +1,85 @@
 ---
 title: "About"
 date: "2025-05-22"
----
-## Zerong Sun 孙泽荣' Resume
-
-
-## 🎓 Education
-
-- **Southern University of Science and Technology (SUSTech)**  
-  B.S. Biomedical Engineering · Sep 2022 – Jun 2026 (expected)  
-  Major GPA: 3.92/4.0 (rank 5/68)
-- **UC Berkeley, BISP**  
-  Jan 2024 – May 2024 · GPA 4.0/4.0
-
+name: "Zerong Sun"
+nameZh: "孙泽荣"
+tagline: "Biomedical Engineering · Protein Design · Synthetic Biology"
+summary: "Undergraduate at Southern University of Science and Technology (expected 2026), working at the intersection of computational protein design, synthetic biology, and neuro-inspired materials."
 ---
 
-## 💼 Experience
+## Education
 
-**Lin Lab, Johns Hopkins University (MSE)** · Jun 2025 – Sep 2025  
-- Designed I213 protein crystal systems; modulated phase transition via structural/interface engineering  
-- Used RFdiffusion/ProteinMPNN/AlphaFold/Rosetta; validated mutants to study aggregation & crystallization
+### Southern University of Science and Technology (SUSTech)
 
-**Programmable Biomaterials Design Lab, SUSTech** · Aug 2024 – Present  
-- Computationally designed protein & RNA scaffolds for synthetic biology; integrated experimental validation
+B.S. Biomedical Engineering · Sep 2022 – Jun 2026 (expected)  
+Major GPA: 3.92/4.0 · Rank 5/68
 
-**Neurosurgery Internship, Shenzhen Second People’s Hospital** · Jul 2024  
-- EEG and motion analysis for epilepsy; observed aneurysm, meningioma/glioma, cranial reconstruction
+### UC Berkeley, BISP
 
-**Song Lab, SUSTech** · Nov 2023 – Jul 2024  
+Jan 2024 – May 2024 · GPA 4.0/4.0
+
+## Experience
+
+### Lin Lab, Johns Hopkins University (MSE)
+
+*Jun 2025 – Sep 2025*
+
+- Designed I213 protein crystal systems; modulated phase transition via structural/interface engineering
+- Used RFdiffusion, ProteinMPNN, AlphaFold, and Rosetta; validated mutants to study aggregation and crystallization
+
+### Programmable Biomaterials Design Lab, SUSTech
+
+*Aug 2024 – Present*
+
+- Computationally designed protein and RNA scaffolds for synthetic biology; integrated experimental validation
+
+### Neurosurgery Internship, Shenzhen Second People's Hospital
+
+*Jul 2024*
+
+- EEG and motion analysis for epilepsy; observed aneurysm, meningioma/glioma, and cranial reconstruction procedures
+
+### Song Lab, SUSTech
+
+*Nov 2023 – Jul 2024*
+
 - Built brain-organoid learning platform; co-designed flexible stereoscopic micro-electrode arrays
 
-**Neuro-inspired Materials & Devices Lab, SUSTech** · Jul 2023 – Jul 2024  
+### Neuro-inspired Materials & Devices Lab, SUSTech
+
+*Jul 2023 – Jul 2024*
+
 - Developed ionic neuron devices (memristor-based reservoir computing); analyzed anisotropic hydrogels
 
----
+## Highlights
 
-## 🏆 Highlights
+- Gold medals: 25th British Biology Olympiad; 2021 BioOlympiad Initiative USA-China
+- First Prize: 2021 China National Biology Olympiad
+- Poster: "Ionic Memristor-based Reservoir Computing: A Review" (2024 China BME Conference)
 
-- Gold medals: 25th British Biology Olympiad; 2021 BioOlympiad Initiative USA-China  
-- First Prize: 2021 China National Biology Olympiad  
-- Poster: “Ionic Memristor-based Reservoir Computing: A Review” (2024 China BME Conference)
+## Skills
 
----
+**Design & Modeling** — De novo protein design, nucleic acid design, structural prediction
 
-## 🛠 Skills
+**Lab** — EEG recording/analysis, ionic device handling, confocal and microscopy workflows
 
-- **Design & Modeling:** De novo protein design, nucleic acid design, structural prediction  
-- **Lab:** EEG recording/analysis, ionic device handling, confocal & microscopy workflows  
-- **Software:** MATLAB, Python, C, Cinema 4D; RFdiffusion, ProteinMPNN, AlphaFold, Rosetta  
-- **Data:** ImageJ, GraphPad, Origin; scripting with Shell/Git/Markdown/LaTeX
+**Software** — MATLAB, Python, C, Cinema 4D; RFdiffusion, ProteinMPNN, AlphaFold, Rosetta
 
----
+**Data** — ImageJ, GraphPad, Origin; Shell, Git, Markdown, LaTeX
 
-## 🌱 Campus & Leadership
+## Campus & Leadership
 
-**President**, Green Footprint Conservation Club (SUSTech)  
-> Ecological initiatives, field studies, sustainability advocacy.  
-**Rescue member**, Chuanheng Mountaineering Club.
+**President**, Green Footprint Conservation Club (SUSTech) — ecological initiatives, field studies, sustainability advocacy
 
----
+**Rescue member**, Chuanheng Mountaineering Club
 
-## 🌐 Languages
+## Languages
 
-- 中文 (Mandarin)  
-- English  
+中文 (Mandarin) · English
 
----
+## Contact
 
-## 📫 Contact
-
-- ✉️ Email: [zero.de.sun@outlook.com](mailto:zero.de.sun@outlook.com)  
-- ✉️ Email (alt): Sunzr2022@mail.sustech.edu.cn  
-- 🔗 GitHub: [Zerong-Sun](https://github.com/Zerong-Sun)  
-- 🌐 Personal: [zerong-sun.github.io](https://zerong-sun.github.io/)  
-
----
+- Email: [zero.de.sun@outlook.com](mailto:zero.de.sun@outlook.com)
+- Email (SUSTech): [Sunzr2022@mail.sustech.edu.cn](mailto:Sunzr2022@mail.sustech.edu.cn)
+- GitHub: [Zerong-Sun](https://github.com/Zerong-Sun)
+- Website: [zerong-sun.github.io](https://zerong-sun.github.io/)

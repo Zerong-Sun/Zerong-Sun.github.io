@@ -193,4 +193,57 @@
   .note-card--featured:hover {
     border-color: var(--primary);
   }
+
+  .about-profile {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--primary) 6%, var(--panel-bg)),
+      var(--panel-bg)
+    );
+  }
+
+  .about-link-chip {
+    @apply inline-flex items-center rounded-full border border-[var(--border)] px-4 py-1.5 text-sm font-medium transition;
+    background: var(--bg);
+    color: var(--text-secondary);
+  }
+
+  .about-link-chip:hover {
+    border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+    color: var(--primary);
+  }
+
+  .prose-about :where(h2) {
+    @apply mb-5 mt-12 first:mt-0;
+  }
+
+  .prose-about :where(h3) {
+    @apply mb-1 mt-7 text-lg font-semibold text-[var(--text)] md:text-xl;
+  }
+
+  .prose-about :where(h3 + p em),
+  .prose-about :where(h3 + em) {
+    @apply mb-3 block text-sm not-italic text-[var(--text-muted)];
+  }
+
+  .prose-about :where(h3 + p:has(> em:only-child)) {
+    @apply mb-3;
+  }
+
+  .prose-about :where(h3 + ul) {
+    @apply mb-0 mt-2;
+  }
+
+  .prose-about :where(h2 + h3) {
+    @apply mt-0;
+  }
+
+  .prose-about :where(p:has(strong:first-child)) {
+    @apply mb-4 rounded-xl border border-[var(--border)] px-4 py-3;
+    background: color-mix(in srgb, var(--primary) 3%, var(--bg));
+  }
+
+  .prose-about :where(p:has(strong:first-child) strong) {
+    @apply text-[var(--text)];
+  }
 }

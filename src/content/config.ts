@@ -15,6 +15,10 @@ const pages = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date().optional(),
+    name: z.string().optional(),
+    nameZh: z.string().optional(),
+    tagline: z.string().optional(),
+    summary: z.string().optional(),
   }),
 });
 
