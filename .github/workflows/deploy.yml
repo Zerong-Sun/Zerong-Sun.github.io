@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           cp package.json _deps/package.json
-          cd _deps && npm ci
+          cd _deps && npm ci --ignore-scripts
           cd ..
           node scripts/link-deps.mjs
 
