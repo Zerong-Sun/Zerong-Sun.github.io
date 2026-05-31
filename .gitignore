@@ -7,7 +7,3 @@ dist/
 .astro/
 .env
 .env.local
-
-# Legacy Hexo root-owned dirs (remove manually: sudo rm -rf node_modules/hexo-deployer-git)
-node_modules/hexo-deployer-git
-node_modules/luxon

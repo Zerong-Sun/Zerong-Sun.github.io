@@ -25,7 +25,7 @@ jobs:
           node scripts/link-deps.mjs
 
       - name: Build
-        run: node node_modules/astro/astro.js build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
