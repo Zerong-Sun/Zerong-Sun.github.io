@@ -38,6 +38,21 @@ export function formatDate(date: Date): string {
 
 export function readingTime(body: string | undefined): number {
   if (!body) return 1;
-  const words = body.trim().split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.ceil(words / 200));
+  const text = body.replace(/[#>*`\[\]()!_-]/g, ' ').trim();
+  const cjkChars = (text.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g) ?? []).length;
+  const latinWords = text
+    .replace(/[\u4e00-\u9fff\u3400-\u4dbf]/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return Math.max(1, Math.ceil(cjkChars / 400 + latinWords / 200));
+}
+
+export function getAdjacentNotes(notes: Note[], slug: string) {
+  const index = notes.findIndex((n) => n.slug === slug);
+  if (index === -1) return { prev: undefined, next: undefined };
+  return {
+    prev: index < notes.length - 1 ? notes[index + 1] : undefined,
+    next: index > 0 ? notes[index - 1] : undefined,
+  };
 }

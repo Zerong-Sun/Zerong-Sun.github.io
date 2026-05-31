@@ -1,0 +1,68 @@
+---
+import { site } from '../../site.config.ts';
+
+const { friends } = site;
+---
+{friends.length > 0 && (
+  <section class="friends-section mt-12 border-t border-[var(--border)] pt-10">
+    <h2 class="mb-6 text-2xl font-bold text-[var(--text)]">Friends</h2>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {friends.map((friend) => (
+        <a
+          href={friend.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="friend-card group flex flex-col items-center rounded-2xl border border-[var(--border)] p-6 text-center no-underline transition duration-200"
+        >
+          <img
+            src={friend.avatar}
+            alt={`${friend.name} avatar`}
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
+            class="friend-avatar mb-4 h-20 w-20 rounded-full object-cover ring-2 ring-[var(--border)] transition group-hover:ring-primary"
+          />
+          <h3 class="flex items-center gap-1.5 text-base font-semibold text-[var(--text)] group-hover:text-primary">
+            {friend.name}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="opacity-0 transition group-hover:opacity-70"
+              aria-hidden="true"
+            >
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </h3>
+          <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-[var(--text-muted)]">{friend.bio}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .friend-card {
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+  }
+
+  .friend-card:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--primary) 8%, transparent);
+  }
+
+  .friend-avatar {
+    background: var(--code-bg);
+  }
+</style>

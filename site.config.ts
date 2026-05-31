@@ -29,4 +29,24 @@ export const site = {
   },
   footer: { start: '2022-08-17T11:45:14' },
   excerptLength: 200,
+  friends: [
+    {
+      name: 'Jaredan Xiao',
+      url: 'https://jaredanwolfgang.github.io/',
+      avatar: 'https://jaredanwolfgang.github.io/images/avatar.jpg',
+      bio: 'A Hufflepuff 🥏🧗🏋️💻🎵',
+    },
+    {
+      name: 'Dragon Xiaoxingchen',
+      url: 'https://xiaoxingchendragon.github.io/',
+      avatar: 'https://jaredanwolfgang.github.io/images/avatars/xiaoxingchendragon.png',
+      bio: '想成为旅行者, 将触摸和所见的全部 都原本, 珍重地接纳',
+    },
+    {
+      name: 'Xiaoyun Liu',
+      url: 'https://liuxy.space/',
+      avatar: 'https://blogimg.liuxy.space/img/favicons/avatar.JPG',
+      bio: 'Exploring the world through code and curiosity',
+    },
+  ],
 } as const;

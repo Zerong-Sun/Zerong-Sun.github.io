@@ -1,0 +1,38 @@
+---
+import type { Note } from '../lib/notes.ts';
+
+interface Props {
+  prev?: Note;
+  next?: Note;
+}
+
+const { prev, next } = Astro.props;
+---
+{(prev || next) && (
+  <nav class="mt-12 grid gap-4 border-t border-[var(--border)] pt-8 sm:grid-cols-2" aria-label="Article navigation">
+    {prev ? (
+      <a
+        href={`/notes/${prev.slug}/`}
+        class="article-nav-link group rounded-xl border border-[var(--border)] p-4 transition hover:border-primary"
+      >
+        <span class="text-xs font-medium uppercase tracking-wide text-[var(--text-muted)]">Previous</span>
+        <span class="mt-1 block font-medium text-[var(--text)] group-hover:text-primary">{prev.data.title}</span>
+      </a>
+    ) : (
+      <div aria-hidden="true" class="hidden sm:block"></div>
+    )}
+    {next && (
+      <a
+        href={`/notes/${next.slug}/`}
+        class:list={[
+          'article-nav-link group rounded-xl border border-[var(--border)] p-4 transition hover:border-primary',
+          prev && 'sm:col-start-2 sm:text-right',
+          !prev && 'sm:col-start-2',
+        ]}
+      >
+        <span class="text-xs font-medium uppercase tracking-wide text-[var(--text-muted)]">Next</span>
+        <span class="mt-1 block font-medium text-[var(--text)] group-hover:text-primary">{next.data.title}</span>
+      </a>
+    )}
+  </nav>
+)}

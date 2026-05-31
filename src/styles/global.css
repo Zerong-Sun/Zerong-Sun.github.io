@@ -27,35 +27,138 @@
   }
 
   .prose-note {
-    @apply mx-auto max-w-3xl text-base leading-relaxed;
-    font-size: 1.05rem;
-    line-height: 1.75;
+    @apply mx-auto max-w-3xl text-base;
+    font-size: 1.0625rem;
+    line-height: 1.8;
   }
 
   .prose-note :where(h1, h2, h3, h4) {
-    @apply scroll-mt-24 font-semibold tracking-tight;
-    margin-top: 1.75em;
+    @apply scroll-mt-24 font-semibold tracking-tight text-[var(--text)];
   }
 
-  .prose-note :where(p, li) {
-    @apply text-[var(--text-secondary)];
+  .prose-note :where(h2) {
+    @apply mb-4 mt-10 border-b border-[var(--border)] pb-2 text-2xl md:text-[1.65rem];
+  }
+
+  .prose-note :where(h3) {
+    @apply mb-3 mt-8 text-xl md:text-[1.35rem];
+  }
+
+  .prose-note :where(h4) {
+    @apply mb-2 mt-6 text-lg;
+  }
+
+  .prose-note :where(p) {
+    @apply mb-5 text-[var(--text-secondary)];
+  }
+
+  .prose-note :where(p:last-child) {
+    @apply mb-0;
+  }
+
+  .prose-note :where(strong) {
+    @apply font-semibold text-[var(--text)];
+  }
+
+  .prose-note :where(em) {
+    @apply italic;
   }
 
   .prose-note :where(a) {
+    @apply font-medium underline decoration-primary/30 underline-offset-2 transition;
     color: var(--primary);
   }
 
+  .prose-note :where(a:hover) {
+    @apply decoration-primary;
+  }
+
+  .prose-note :where(ul, ol) {
+    @apply mb-5 space-y-2 pl-6 text-[var(--text-secondary)];
+  }
+
+  .prose-note :where(ul) {
+    @apply list-disc;
+  }
+
+  .prose-note :where(ol) {
+    @apply list-decimal;
+  }
+
+  .prose-note :where(li) {
+    @apply leading-relaxed;
+  }
+
+  .prose-note :where(li > p) {
+    @apply mb-2;
+  }
+
+  .prose-note :where(blockquote) {
+    @apply my-6 border-l-4 border-primary/50 py-1 pl-5 italic text-[var(--text-secondary)];
+    background: color-mix(in srgb, var(--primary) 5%, transparent);
+  }
+
+  .prose-note :where(blockquote p) {
+    @apply mb-0;
+  }
+
+  .prose-note :where(hr) {
+    @apply my-10 border-0;
+    border-top: 1px solid var(--border);
+  }
+
   .prose-note :where(img) {
-    @apply mx-auto rounded-[14px];
+    @apply my-6 w-full rounded-xl border border-[var(--border)] shadow-sm;
   }
 
   .prose-note :where(pre) {
-    @apply overflow-x-auto rounded-xl border border-[var(--border)] bg-[var(--code-bg)] p-4 text-sm;
+    @apply my-6 overflow-x-auto rounded-xl border border-[var(--border)] p-4 text-[0.9rem] leading-relaxed;
+    background: var(--code-bg);
+  }
+
+  .prose-note :where(pre code) {
+    @apply bg-transparent p-0 text-inherit;
   }
 
   .prose-note :where(code):not(pre code) {
-    @apply rounded px-1.5 py-0.5 text-sm;
+    @apply rounded px-1.5 py-0.5 text-[0.9em];
     background: var(--code-inline-bg);
+    color: var(--text);
+  }
+
+  .prose-note :where(table) {
+    @apply my-6 w-full border-collapse overflow-hidden rounded-xl text-sm;
+    border: 1px solid var(--border);
+  }
+
+  .prose-note :where(th, td) {
+    @apply border border-[var(--border)] px-4 py-2 text-left;
+  }
+
+  .prose-note :where(th) {
+    @apply font-semibold text-[var(--text)];
+    background: var(--code-bg);
+  }
+
+  .prose-note :where(td) {
+    @apply text-[var(--text-secondary)];
+  }
+
+  .toc-link.is-active {
+    color: var(--primary);
+    font-weight: 500;
+  }
+
+  .toc-item--sub .toc-link {
+    @apply text-xs;
+  }
+
+  .toc-mobile summary {
+    list-style: none;
+  }
+
+  .toc-mobile summary::-webkit-details-marker {
+    display: none;
   }
 
   .tag-chip {
@@ -70,11 +173,24 @@
   }
 
   .note-card {
-    @apply glass-panel block rounded-2xl border border-[var(--border)] p-5 transition;
+    @apply glass-panel block rounded-2xl border border-[var(--border)] p-5 transition duration-200;
   }
 
   .note-card:hover {
     @apply -translate-y-0.5 shadow-lg;
+    border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+  }
+
+  .note-card--featured {
+    @apply p-6 md:p-8;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--primary) 8%, var(--panel-bg)),
+      var(--panel-bg)
+    );
+  }
+
+  .note-card--featured:hover {
     border-color: var(--primary);
   }
 }
