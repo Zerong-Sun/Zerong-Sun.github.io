@@ -1,0 +1,27 @@
+---
+import type { Note } from '../lib/notes.ts';
+import { excerpt, formatDate } from '../lib/notes.ts';
+
+interface Props {
+  note: Note;
+  showExcerpt?: boolean;
+}
+
+const { note, showExcerpt = true } = Astro.props;
+const { title, date, tags, description } = note.data;
+const noteSlug = note.slug;
+const summary = description ?? excerpt(note.body);
+---
+<article class="note-card">
+  <a href={`/notes/${noteSlug}/`} class="block space-y-3 no-underline">
+    <div class="flex flex-wrap items-center gap-2 text-xs text-[var(--text-muted)]">
+      <time datetime={date.toISOString()}>{formatDate(date)}</time>
+      {tags.slice(0, 5).map((tag) => (
+        <span class="tag-chip pointer-events-none">{tag}</span>
+      ))}
+    </div>
+    <h2 class="text-xl font-semibold text-[var(--text)]">{title}</h2>
+    {showExcerpt && summary && <p class="text-sm leading-relaxed text-[var(--text-secondary)]">{summary}</p>}
+    <span class="text-sm font-medium text-primary">Read more →</span>
+  </a>
+</article>

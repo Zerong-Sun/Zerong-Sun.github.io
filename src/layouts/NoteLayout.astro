@@ -1,0 +1,54 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { Note } from '../lib/notes.ts';
+import { formatDate, readingTime } from '../lib/notes.ts';
+
+interface Props {
+  note: Note;
+}
+
+const { note } = Astro.props;
+const { title, date, tags, description } = note.data;
+const { Content, headings } = await note.render();
+const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+<BaseLayout title={title} description={description}>
+  <div class="mx-auto max-w-content px-4 py-10 md:px-6">
+    <article>
+      <header class="mb-8 border-b border-[var(--border)] pb-6">
+        <div class="mb-3 flex flex-wrap items-center gap-2 text-sm text-[var(--text-muted)]">
+          <time datetime={date.toISOString()}>{formatDate(date)}</time>
+          <span>·</span>
+          <span>{readingTime(note.body)} min read</span>
+        </div>
+        <h1 class="text-3xl font-bold leading-tight text-[var(--text)] md:text-4xl">{title}</h1>
+        {tags.length > 0 && (
+          <div class="mt-4 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <a href={`/notes/tags/${encodeURIComponent(tag)}/`} class="tag-chip">{tag}</a>
+            ))}
+          </div>
+        )}
+      </header>
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_220px]">
+        <div class="prose-note min-w-0">
+          <Content />
+        </div>
+        {toc.length > 0 && (
+          <aside class="hidden lg:block">
+            <div class="sticky top-24 glass-panel rounded-xl border border-[var(--border)] p-4">
+              <p class="mb-3 text-sm font-semibold text-[var(--text)]">On this page</p>
+              <ul class="space-y-2 text-sm">
+                {toc.map((h) => (
+                  <li style={`padding-left: ${(h.depth - 2) * 12}px`}>
+                    <a href={`#${h.slug}`} class="text-[var(--text-muted)] hover:text-primary">{h.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        )}
+      </div>
+    </article>
+  </div>
+</BaseLayout>

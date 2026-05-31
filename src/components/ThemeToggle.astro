@@ -1,0 +1,23 @@
+<button
+  id="theme-toggle"
+  type="button"
+  class="fixed bottom-6 right-6 z-50 rounded-full border border-[var(--border)] bg-[var(--panel-bg)] p-3 shadow-lg backdrop-blur transition hover:bg-primary hover:text-white"
+  aria-label="Toggle theme"
+>
+  <span class="theme-icon-dark hidden dark:inline">☀️</span>
+  <span class="theme-icon-light dark:hidden">🌙</span>
+</button>
+<script>
+  const root = document.documentElement;
+  const key = 'notes-theme';
+  const stored = localStorage.getItem(key);
+  if (stored === 'light') root.classList.remove('dark');
+  else {
+    root.classList.add('dark');
+    if (!stored) localStorage.setItem(key, 'dark');
+  }
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const next = root.classList.toggle('dark') ? 'dark' : 'light';
+    localStorage.setItem(key, next);
+  });
+</script>

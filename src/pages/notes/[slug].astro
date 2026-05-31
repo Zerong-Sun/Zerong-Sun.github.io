@@ -1,0 +1,15 @@
+---
+import NoteLayout from '../../layouts/NoteLayout.astro';
+import { getAllNotes } from '../../lib/notes.ts';
+
+export async function getStaticPaths() {
+  const notes = await getAllNotes();
+  return notes.map((note) => ({
+    params: { slug: note.slug },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+---
+<NoteLayout note={note} />

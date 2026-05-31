@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+_deps/node_modules/
+dist/
+.astro/
+.env
+.env.local
+
+# Legacy Hexo root-owned dirs (remove manually: sudo rm -rf node_modules/hexo-deployer-git)
+node_modules/hexo-deployer-git
+node_modules/luxon

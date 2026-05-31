@@ -1,0 +1,80 @@
+@import './theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen font-sans antialiased;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+  }
+
+  .prose-note {
+    @apply mx-auto max-w-3xl text-base leading-relaxed;
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .prose-note :where(h1, h2, h3, h4) {
+    @apply scroll-mt-24 font-semibold tracking-tight;
+    margin-top: 1.75em;
+  }
+
+  .prose-note :where(p, li) {
+    @apply text-[var(--text-secondary)];
+  }
+
+  .prose-note :where(a) {
+    color: var(--primary);
+  }
+
+  .prose-note :where(img) {
+    @apply mx-auto rounded-[14px];
+  }
+
+  .prose-note :where(pre) {
+    @apply overflow-x-auto rounded-xl border border-[var(--border)] bg-[var(--code-bg)] p-4 text-sm;
+  }
+
+  .prose-note :where(code):not(pre code) {
+    @apply rounded px-1.5 py-0.5 text-sm;
+    background: var(--code-inline-bg);
+  }
+
+  .tag-chip {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium transition;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+  }
+
+  .tag-chip:hover {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .note-card {
+    @apply glass-panel block rounded-2xl border border-[var(--border)] p-5 transition;
+  }
+
+  .note-card:hover {
+    @apply -translate-y-0.5 shadow-lg;
+    border-color: var(--primary);
+  }
+}
