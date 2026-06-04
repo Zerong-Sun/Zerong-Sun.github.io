@@ -1,6 +1,6 @@
 ---
 title: "高反备药备忘录"
-date: "2026-05-31"
+date: "2026-06-02"
 slug: "altitude-sickness-medication-memo"
 tags:
   - "户外"

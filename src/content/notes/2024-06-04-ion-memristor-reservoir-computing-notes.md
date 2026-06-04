@@ -1,6 +1,6 @@
 ---
 title: "Reservoir Computing Networks in Ion Memristor Devices"
-date: "2026-06-04"
+date: "2024-06-04"
 tags:
   - "research"
   - "neuromorphic"

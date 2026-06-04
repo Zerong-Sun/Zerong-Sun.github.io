@@ -1,6 +1,6 @@
 ---
 title: "Ionic Memristor-based Reservoir Computing: A Review"
-date: "2026-06-04"
+date: "2024-06-04"
 tags:
   - "research"
   - "neuromorphic"
