@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://zerong-sun.github.io',
-  base: '/',
+  base: '/archive/',
   output: 'static',
   trailingSlash: 'always',
   markdown: {

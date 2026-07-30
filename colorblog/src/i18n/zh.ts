@@ -66,6 +66,7 @@ export const ui = {
     subscribe: '链接',
     backToTop: '回到顶部',
     blurb: 'Stay curious — 科学、旅行、美食与日常记录。',
+    archive: '旧版站点存档',
   },
   lang: {
     switchTo: 'EN',

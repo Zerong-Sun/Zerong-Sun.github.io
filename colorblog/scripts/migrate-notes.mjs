@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
-const SRC = path.join(ROOT, 'src/content/notes');
+const SRC = path.join(ROOT, 'archive/root-site/src/content/notes');
 const DEST = path.resolve(__dirname, '../src/content/notes');
 
 const FOOD_SLUGS = new Set([

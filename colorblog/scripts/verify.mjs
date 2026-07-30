@@ -70,6 +70,8 @@ const requiredDist = [
   'notes/index.html',
   'notes/category/food/index.html',
   'notes/2026-07-30-world-spice-cooking-handbook/index.html',
+  'notes/byd-cairo/index.html',
+  'contact/index.html',
   '404.html',
 ];
 

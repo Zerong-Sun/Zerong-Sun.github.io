@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "node scripts/sync-assets.mjs && node scripts/generate-redirects.mjs",
     "dev": "astro dev",
+    "prebuild": "node scripts/sync-assets.mjs && node scripts/generate-redirects.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "fetch-covers": "node scripts/fetch-covers.mjs",

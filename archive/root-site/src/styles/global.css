@@ -44,6 +44,11 @@
     @apply mb-3 mt-8 text-xl md:text-[1.35rem];
   }
 
+  .prose-note :where(h3.recipe-entry) {
+    @apply mt-10 scroll-mt-24 rounded-xl border border-[var(--border)] px-4 py-3;
+    background: color-mix(in srgb, var(--panel-bg) 85%, transparent);
+  }
+
   .prose-note :where(h4) {
     @apply mb-2 mt-6 text-lg;
   }

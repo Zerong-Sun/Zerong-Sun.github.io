@@ -68,6 +68,7 @@ export const ui: UiDict = {
     subscribe: 'Links',
     backToTop: 'Back to top',
     blurb: 'Stay curious — science, travel, food, and everyday notes.',
+    archive: 'Previous site archive',
   },
   lang: {
     switchTo: '中文',

@@ -1,0 +1,23 @@
+{
+  "name": "zerong-notes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node node_modules/astro/astro.js dev",
+    "build": "node node_modules/astro/astro.js build",
+    "preview": "node node_modules/astro/astro.js preview",
+    "migrate": "node scripts/migrate-hexo-content.mjs",
+    "handbook:sync": "node scripts/spice-handbook-to-note.mjs",
+    "postinstall": "node scripts/link-deps.mjs"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.7.10",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "typescript": "^5.8.3"
+  }
+}
