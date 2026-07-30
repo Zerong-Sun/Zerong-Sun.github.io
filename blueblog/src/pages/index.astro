@@ -1,9 +1,37 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroPlate from '../components/home/HeroPlate.astro';
+import SectionRule from '../components/design/SectionRule.astro';
+import DualEntry from '../components/home/DualEntry.astro';
+import FeaturedCard from '../components/home/FeaturedCard.astro';
+import NowModule from '../components/home/NowModule.astro';
+import ArchivePreview from '../components/home/ArchivePreview.astro';
 ---
 
 <BaseLayout title="Home" description="Research Notebook × Founder's Atelier">
-  <div class="min-h-screen flex items-center justify-center">
-    <h1 class="font-serif text-ink">Blue Engraving Archive</h1>
-  </div>
+  <HeroPlate />
+
+  <SectionRule />
+
+  <DualEntry />
+
+  <SectionRule />
+
+  <section class="mx-auto max-w-content px-6 pb-section">
+    <FeaturedCard
+      category="RESEARCH NOTE"
+      title="Comparative Motif Logic in Regeneration-Associated Chromatin"
+      excerpt="An exploration of the shared and divergent regulatory motifs that govern regenerative competence across species, from planarians to mammals."
+      date="July 2026"
+      readTime="12 min read"
+    />
+  </section>
+
+  <SectionRule />
+
+  <NowModule />
+
+  <SectionRule />
+
+  <ArchivePreview />
 </BaseLayout>
