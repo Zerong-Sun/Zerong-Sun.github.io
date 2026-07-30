@@ -1,0 +1,13 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class={`flex items-center justify-center gap-3 py-12 ${className ?? ''}`}>
+  <span class="flex-1 h-px bg-pale-dust max-w-[120px]"></span>
+  <span class="text-durer select-none text-lg leading-none">&loz;</span>
+  <span class="flex-1 h-px bg-pale-dust max-w-[120px]"></span>
+</div>
