@@ -30,7 +30,14 @@ function initAssemble() {
     { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
   );
 
-  items.forEach((el) => io.observe(el));
+  items.forEach((el) => {
+    // Main article content can exceed the viewport; intersection ratio may never reach threshold.
+    if (el.classList.contains('article-body') || el.classList.contains('prose')) {
+      el.classList.add('is-in');
+      return;
+    }
+    io.observe(el);
+  });
   routes.forEach((el) => io.observe(el));
   nodes.forEach((el) => io.observe(el));
 }

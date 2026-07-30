@@ -78,6 +78,13 @@
     transform 0.5s ease;
 }
 
+/* Never hide primary reading content behind scroll-triggered animation */
+.article-body[data-assemble],
+.prose[data-assemble] {
+  opacity: 1;
+  transform: none;
+}
+
 [data-assemble].is-in {
   opacity: 1;
   transform: translateY(0) rotate(0);
