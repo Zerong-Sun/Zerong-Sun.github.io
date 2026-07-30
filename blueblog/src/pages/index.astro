@@ -9,29 +9,39 @@ import ArchivePreview from '../components/home/ArchivePreview.astro';
 ---
 
 <BaseLayout title="Home" description="Research Notebook × Founder's Atelier">
-  <HeroPlate />
+  <div class="animate-entry">
+    <HeroPlate />
+  </div>
 
   <SectionRule />
 
-  <DualEntry />
+  <div class="animate-entry">
+    <DualEntry />
+  </div>
 
   <SectionRule />
 
-  <section class="mx-auto max-w-content px-6 pb-section">
-    <FeaturedCard
-      category="RESEARCH NOTE"
-      title="Comparative Motif Logic in Regeneration-Associated Chromatin"
-      excerpt="An exploration of the shared and divergent regulatory motifs that govern regenerative competence across species, from planarians to mammals."
-      date="July 2026"
-      readTime="12 min read"
-    />
-  </section>
+  <div class="animate-entry">
+    <section class="mx-auto max-w-content px-6 pb-section">
+      <FeaturedCard
+        category="RESEARCH NOTE"
+        title="Comparative Motif Logic in Regeneration-Associated Chromatin"
+        excerpt="An exploration of the shared and divergent regulatory motifs that govern regenerative competence across species, from planarians to mammals."
+        date="July 2026"
+        readTime="12 min read"
+      />
+    </section>
+  </div>
 
   <SectionRule />
 
-  <NowModule />
+  <div class="animate-entry">
+    <NowModule />
+  </div>
 
   <SectionRule />
 
-  <ArchivePreview />
+  <div class="animate-entry">
+    <ArchivePreview />
+  </div>
 </BaseLayout>
