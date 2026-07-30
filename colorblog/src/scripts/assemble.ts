@@ -1,3 +1,21 @@
+function shouldRevealImmediately(el: HTMLElement): boolean {
+  if (el.classList.contains('article-body') || el.classList.contains('prose')) {
+    return true;
+  }
+
+  // Blocks taller than the viewport may never reach ratio-based thresholds.
+  if (el.scrollHeight > window.innerHeight * 0.85) {
+    return true;
+  }
+
+  return false;
+}
+
+function isInViewport(el: HTMLElement): boolean {
+  const rect = el.getBoundingClientRect();
+  return rect.bottom > 0 && rect.top < window.innerHeight;
+}
+
 function initAssemble() {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const items = document.querySelectorAll<HTMLElement>('[data-assemble]');
@@ -27,12 +45,11 @@ function initAssemble() {
         io.unobserve(el);
       }
     },
-    { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
+    { rootMargin: '0px 0px -5% 0px', threshold: 0 },
   );
 
   items.forEach((el) => {
-    // Main article content can exceed the viewport; intersection ratio may never reach threshold.
-    if (el.classList.contains('article-body') || el.classList.contains('prose')) {
+    if (shouldRevealImmediately(el) || isInViewport(el)) {
       el.classList.add('is-in');
       return;
     }

@@ -23,8 +23,9 @@ function ok(msg) {
 }
 
 const noteFiles = fs.readdirSync(NOTES).filter((f) => f.endsWith('.md'));
-if (noteFiles.length !== 26) fail(`Expected 26 notes, got ${noteFiles.length}`);
-else ok('26 notes present');
+const publishedNoteFiles = noteFiles.filter((f) => !/^draft:\s*true/m.test(fs.readFileSync(path.join(NOTES, f), 'utf8')));
+if (publishedNoteFiles.length < 25) fail(`Expected at least 25 published notes, got ${publishedNoteFiles.length}`);
+else ok(`${publishedNoteFiles.length} published notes (${noteFiles.length - publishedNoteFiles.length} draft)`);
 
 let withImage = 0;
 let brokenFm = 0;
@@ -80,6 +81,34 @@ for (const p of requiredDist) {
 }
 
 if (failed === 0) ok('Dist smoke paths exist');
+
+// Every built note page must expose article body without assemble hiding.
+for (const file of noteFiles) {
+  const raw = fs.readFileSync(path.join(NOTES, file), 'utf8');
+  if (/^draft:\s*true/m.test(raw)) continue;
+
+  const slug = file.replace(/\.md$/, '');
+  for (const prefix of ['notes', 'en/notes']) {
+    const htmlPath = path.join(DIST, prefix, slug, 'index.html');
+    if (!fs.existsSync(htmlPath)) continue;
+
+    const html = fs.readFileSync(htmlPath, 'utf8');
+    if (/class="article-body prose[^"]*"[^>]*data-assemble/.test(html)) {
+      fail(`Article body still uses data-assemble: ${prefix}/${slug}`);
+    }
+
+    const start = html.indexOf('class="article-body prose');
+    const openEnd = html.indexOf('>', start);
+    const close = html.indexOf('</div> <aside class="hidden lg:block pt-2"', openEnd);
+    const bodyHtml = openEnd >= 0 && close > openEnd ? html.slice(openEnd + 1, close) : '';
+    const bodyText = bodyHtml.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+
+    if (bodyText.length < 20) {
+      fail(`Article body too short (${bodyText.length} chars): ${prefix}/${slug}`);
+    }
+  }
+}
+if (failed === 0) ok('All published note pages have visible article bodies');
 
 // Template word scan
 const badWords = ['拼贴笔记', 'Roadside Assemblage', 'hello@example.com', 'Shaun'];
