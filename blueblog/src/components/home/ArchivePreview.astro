@@ -1,0 +1,66 @@
+---
+const recentPosts = [
+  {
+    title: 'Comparative Motif Logic in Regeneration-Associated Chromatin',
+    date: 'Jul 2026',
+    category: 'Research Note',
+    categoryColor: 'text-durer',
+  },
+  {
+    title: 'On the Interface Between Genomics and Protein Design',
+    date: 'Jun 2026',
+    category: 'Essay',
+    categoryColor: 'text-durer',
+  },
+  {
+    title: 'What I Learned Building a Scientific Tooling Platform',
+    date: 'May 2026',
+    category: 'Venture Log',
+    categoryColor: 'text-bronze',
+  },
+];
+---
+
+<section class="mx-auto max-w-wide px-6 py-section">
+  <h2 class="font-serif font-semibold text-ink mb-8" style="font-size: var(--text-section-title);">
+    Recent Writing
+  </h2>
+
+  <ul class="space-y-6" role="list">
+    {recentPosts.map((post) => (
+      <li class="group">
+        <a href="#" class="block no-underline">
+          <div class="flex items-baseline gap-3 mb-1 flex-wrap">
+            <span
+              class={`font-mono tracking-wider uppercase shrink-0 ${post.categoryColor}`}
+              style="font-size: var(--text-tag); letter-spacing: 0.08em;"
+            >
+              {post.category}
+            </span>
+            <span
+              class="font-mono text-ink-soft"
+              style="font-size: var(--text-caption);"
+            >
+              {post.date}
+            </span>
+          </div>
+          <h3
+            class="font-serif font-semibold text-ink group-hover:text-prussian transition-colors duration-300"
+            style="font-size: var(--text-card-title);"
+          >
+            {post.title}
+          </h3>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <div style="margin-top: var(--element-gap-lg);">
+    <a
+      href="/archive/"
+      class="inline-flex items-center font-sans text-sm text-durer hover:text-prussian transition-colors duration-300 no-underline"
+    >
+      View Archive &rarr;
+    </a>
+  </div>
+</section>
