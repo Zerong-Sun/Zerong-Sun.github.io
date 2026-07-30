@@ -1,0 +1,53 @@
+@import './design-tokens.css';
+@import './typography.css';
+@import './textures.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  position: relative;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-durer-blue);
+  text-decoration: none;
+  transition: color var(--duration-hover) ease;
+}
+
+a:hover {
+  color: var(--color-prussian);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-durer-blue);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--color-durer-blue);
+  color: var(--color-paper);
+}
