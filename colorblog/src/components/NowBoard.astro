@@ -1,0 +1,49 @@
+---
+import { site } from '../../site.config';
+import { t, type Locale } from '../lib/locale';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const ui = t(locale);
+
+const rows = [
+  { label: ui.now.reading, value: site.now.reading },
+  { label: ui.now.making, value: site.now.making },
+  { label: ui.now.listening, value: site.now.listening },
+  { label: ui.now.visited, value: site.now.visited },
+  { label: ui.now.learning, value: site.now.learning },
+];
+---
+
+<section class="container-page section-pad" data-assemble>
+  <h2 class="heading-lg mb-2">{ui.sections.now}</h2>
+  <div class="section-line">
+    <div class="section-line__dots" aria-hidden="true"><span /><span /><span /><span /></div>
+  </div>
+
+  <div
+    class="relative bg-board border-[3px] border-ink p-5 md:p-7 shadow-card"
+    style="background-image: radial-gradient(rgba(32,42,32,0.06) 1px, transparent 1px); background-size: 12px 12px;"
+  >
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" data-stagger data-assemble>
+      {
+        rows.map((row, i) => (
+          <div
+            class:list={[
+              'bg-paper border-2 border-ink p-4',
+              i % 2 === 0 ? 'rotate-[-0.3deg]' : 'rotate-[0.4deg]',
+            ]}
+          >
+            <p class="font-ui text-[11px] font-bold uppercase tracking-wider text-brick mb-1">
+              {row.label}
+            </p>
+            <p class="font-display text-base leading-snug">{row.value}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

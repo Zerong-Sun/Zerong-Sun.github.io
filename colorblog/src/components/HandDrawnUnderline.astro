@@ -1,0 +1,11 @@
+---
+interface Props {
+  color?: 'sky' | 'brick' | 'mustard';
+}
+
+const { color = 'brick' } = Astro.props;
+---
+
+<span class:list={['hand-underline', `hand-underline--${color}`]}>
+  <slot />
+</span>

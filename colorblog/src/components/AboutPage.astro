@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import RouteTimeline from '../components/RouteTimeline.astro';
+import { site } from '../../site.config';
+import { t, type Locale } from '../lib/locale';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const ui = t(locale);
+
+const colorMap: Record<string, string> = {
+  brick: 'bg-brick text-white',
+  mustard: 'bg-mustard text-forest',
+  sky: 'bg-sky text-white',
+  moss: 'bg-moss text-white',
+  lilac: 'bg-lilac text-white',
+  teal: 'bg-teal text-forest',
+};
+---
+
+<BaseLayout title={ui.about.title} description={ui.about.intro} locale={locale}>
+  <PageHeader title={ui.about.title} eyebrow={ui.about.eyebrow} underline="mustard" />
+
+  <section class="container-page pb-12">
+    <div class="grid lg:grid-cols-[5fr_7fr] gap-10 items-start mb-16">
+      <div class="photo-frame" data-assemble>
+        <span class="photo-frame__tape" aria-hidden="true" />
+        <img src="/images/covers/2026-03-06-tanzania-kilimanjaro.jpg" alt={site.author} class="!aspect-[4/5] object-cover" />
+      </div>
+
+      <div class="space-y-5" data-assemble data-delay="2">
+        <p class="heading-md">{site.authorZh} · {site.author}</p>
+        <p class="font-ui text-sm text-ink-muted tracking-wide">{ui.about.tagline}</p>
+        <p class="text-lg text-ink-muted leading-relaxed">{ui.about.intro}</p>
+      </div>
+    </div>
+
+    <div class="max-w-content mb-16 prose" data-assemble>
+      <h2>Education</h2>
+      <h3>Southern University of Science and Technology (SUSTech)</h3>
+      <p>B.S. Biomedical Engineering · Sep 2022 – Jun 2026 (expected)<br />Major GPA: 3.92/4.0 · Rank 5/68</p>
+      <h3>UC Berkeley, BISP</h3>
+      <p>Jan 2024 – May 2024 · GPA 4.0/4.0</p>
+
+      <h2>Experience</h2>
+      <h3>Lin Lab, Johns Hopkins University</h3>
+      <p><em>Jun 2025 – Sep 2025</em> — Protein crystal systems; RFdiffusion, ProteinMPNN, AlphaFold, Rosetta.</p>
+      <h3>Programmable Biomaterials Design Lab, SUSTech</h3>
+      <p><em>Aug 2024 – Present</em> — Computational protein and RNA scaffold design.</p>
+      <h3>Neuro-inspired Materials & Devices Lab, SUSTech</h3>
+      <p><em>Jul 2023 – Jul 2024</em> — Ionic neuron devices; memristor-based reservoir computing.</p>
+
+      <h2>Highlights</h2>
+      <ul>
+        <li>Gold medals: British Biology Olympiad; BioOlympiad Initiative USA-China</li>
+        <li>First Prize: China National Biology Olympiad (2021)</li>
+        <li>Poster: Ionic Memristor-based Reservoir Computing (2024 China BME Conference)</li>
+      </ul>
+    </div>
+
+    <div class="mb-16" data-assemble>
+      <h2 class="heading-lg mb-6">{ui.sections.timeline}</h2>
+      <RouteTimeline items={[...site.timeline]} />
+    </div>
+
+    <div class="mb-16" data-assemble>
+      <h2 class="heading-lg mb-4">{ui.sections.interests}</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3" data-stagger data-assemble>
+        {
+          site.interests.map((item) => (
+            <div
+              class:list={[
+                'border-2 border-ink p-4 text-center font-display font-semibold hover-lift text-sm',
+                colorMap[item.color] ?? 'bg-board',
+              ]}
+            >
+              {locale === 'zh' ? item.labelZh : item.label}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-board border-2 border-ink p-6" data-assemble>
+        <h2 class="heading-md mb-4">{ui.sections.status}</h2>
+        <ul class="space-y-3 font-ui text-sm">
+          <li><strong>{ui.about.status.location}:</strong> Shenzhen</li>
+          <li><strong>{ui.about.status.focus}:</strong> {site.now.making}</li>
+          <li><strong>{ui.about.status.learning}:</strong> {site.now.learning}</li>
+          <li><strong>{ui.about.status.working}:</strong> {site.now.reading}</li>
+        </ul>
+      </div>
+      <div class="bg-paper border-2 border-ink p-6 flex flex-col justify-between" data-assemble data-delay="2">
+        <div>
+          <h2 class="heading-md mb-3">{ui.sections.contact}</h2>
+          <p class="text-ink-muted mb-6 leading-relaxed">{ui.about.contactPrompt}</p>
+        </div>
+        <a href={`mailto:${site.social.email}`} class="license-plate self-start">
+          ✉ {site.social.email}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

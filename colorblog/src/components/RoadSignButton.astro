@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  variant?: 'brick' | 'teal' | 'sky' | 'mustard';
+  arrow?: boolean;
+}
+
+const { href, label, variant = 'brick', arrow = true } = Astro.props;
+---
+
+<a href={href} class:list={['sign-btn', `sign-btn--${variant}`]}>
+  {label}
+  {arrow && <span class="btn-arrow" aria-hidden="true">→</span>}
+</a>

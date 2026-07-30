@@ -1,0 +1,65 @@
+---
+import { site } from '../../site.config';
+import { t, localePath, type Locale } from '../lib/locale';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const ui = t(locale);
+---
+
+<footer class="mt-auto bg-forest text-paper relative overflow-hidden">
+  <div class="container-page relative section-pad grid gap-10 md:grid-cols-3">
+    <div data-assemble>
+      <p class="font-display text-2xl mb-3">{ui.siteTitle}</p>
+      <p class="text-paper/80 text-[0.95rem] leading-relaxed max-w-sm">{ui.footer.blurb}</p>
+      <p class="meta-text text-paper/50 mt-4">
+        © {site.footer.start}–{new Date().getFullYear()} {site.author}
+      </p>
+    </div>
+
+    <div data-assemble data-delay="2">
+      <p class="heading-sub text-mustard mb-3">{ui.footer.contact}</p>
+      <ul class="space-y-2 font-ui text-sm">
+        <li>
+          <a class="hover:text-mustard transition-colors" href={`mailto:${site.social.email}`}>
+            {site.social.email}
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-teal transition-colors" href={site.social.github} target="_blank" rel="noopener">
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-sky transition-colors" href={localePath(locale, '/notes/')}>
+            {ui.nav.allNotes} →
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex flex-col items-start md:items-end gap-4" data-assemble data-delay="3">
+      <a
+        href="#top"
+        class="sign-btn sign-btn--mustard"
+        style="clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0 50%);"
+      >
+        <span class="btn-arrow" aria-hidden="true">▲</span>
+        {ui.footer.backToTop}
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement | null;
+    const link = t?.closest('a[href="#top"]');
+    if (!link) return;
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>

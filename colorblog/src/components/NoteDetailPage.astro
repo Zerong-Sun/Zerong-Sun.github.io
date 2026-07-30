@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CategoryBadge from './CategoryBadge.astro';
+import DatePlate from './DatePlate.astro';
+import TagChip from './TagChip.astro';
+import PreviousNextSign from './PreviousNextSign.astro';
+import RelatedNotes from './RelatedNotes.astro';
+import {
+  getAdjacentNotes,
+  getRelatedNotes,
+  formatDate,
+  readingTime,
+} from '../lib/notes';
+import { t, localePath, type Locale } from '../lib/locale';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  note: CollectionEntry<'notes'>;
+  locale: Locale;
+}
+
+const { note, locale } = Astro.props;
+const ui = t(locale);
+const { Content } = await note.render();
+const { prev, next } = await getAdjacentNotes(note);
+const related = await getRelatedNotes(note);
+const mins = readingTime(note.body);
+const dateStr = formatDate(note.data.date, locale);
+---
+
+<BaseLayout
+  title={note.data.title}
+  description={note.data.description ?? note.data.title}
+  image={note.data.image}
+  locale={locale}
+>
+  <article class="pb-16">
+    <header class="container-page pt-10 pb-8 max-w-wide">
+      <div class="max-w-content" data-assemble>
+        {
+          note.data.category ? (
+            <div class="mb-4"><CategoryBadge category={note.data.category} locale={locale} size="md" /></div>
+          ) : note.data.tags[0] ? (
+            <div class="mb-4"><CategoryBadge tag={note.data.tags[0]} locale={locale} size="md" /></div>
+          ) : null
+        }
+        <h1 class="heading-xl mb-4">{note.data.title}</h1>
+        {
+          note.data.description && (
+            <p class="text-lg text-ink-muted leading-relaxed mb-5">{note.data.description}</p>
+          )
+        }
+        <DatePlate date={dateStr} location={note.data.location} readingMinutes={mins} locale={locale} />
+      </div>
+
+      {
+        note.data.image && (
+          <figure class="img-framed mt-8 max-w-wide mx-auto" data-assemble data-delay="2">
+            <img src={note.data.image} alt="" class="w-full aspect-[3/2] object-cover" />
+            <figcaption class="img-caption px-2 flex flex-wrap gap-3 justify-between">
+              <span>{note.data.location ?? ''}</span>
+              <span>{dateStr}</span>
+            </figcaption>
+          </figure>
+        )
+      }
+    </header>
+
+    <div class="container-page">
+      <div class="grid lg:grid-cols-[140px_minmax(0,720px)_160px] gap-8 justify-center">
+        <aside class="hidden lg:block meta-text space-y-3 pt-2" data-assemble>
+          <p class="font-ui text-[11px] uppercase tracking-wider font-bold text-ink">{ui.notes.info}</p>
+          <p>{dateStr}</p>
+          {note.data.location && <p>⌖ {note.data.location}</p>}
+          <p>{mins} {ui.notes.readingTime}</p>
+        </aside>
+
+        <div class="article-body prose min-w-0" data-assemble data-delay="2">
+          <Content />
+        </div>
+
+        <aside class="hidden lg:block pt-2" data-assemble data-delay="3">
+          <p class="font-ui text-[11px] uppercase tracking-wider font-bold text-ink mb-3">{ui.notes.tags}</p>
+          <div class="flex flex-col gap-2">
+            {note.data.tags.map((tag) => <TagChip tag={tag} locale={locale} />)}
+          </div>
+        </aside>
+      </div>
+
+      <div class="max-w-content mx-auto mt-12">
+        <div class="flex flex-wrap gap-2 mb-6 lg:hidden">
+          {note.data.tags.map((tag) => <TagChip tag={tag} locale={locale} />)}
+        </div>
+
+        <PreviousNextSign prev={prev} next={next} locale={locale} />
+        <RelatedNotes notes={related} locale={locale} />
+
+        <p class="mt-8">
+          <a href={localePath(locale, '/notes/')} class="sign-btn sign-btn--teal inline-flex">
+            ← {ui.notes.backToAll}
+          </a>
+        </p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

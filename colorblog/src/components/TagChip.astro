@@ -1,0 +1,32 @@
+---
+import { site } from '../../site.config';
+
+interface Props {
+  tag: string;
+  locale?: 'zh' | 'en';
+}
+
+const { tag, locale = 'zh' } = Astro.props;
+const color = site.tagColors[tag] ?? 'moss';
+const prefix = locale === 'en' ? '/en' : '';
+
+const bg: Record<string, string> = {
+  sky: 'bg-sky/20 text-sky border-sky',
+  mustard: 'bg-mustard/30 text-forest border-mustard',
+  moss: 'bg-moss/20 text-moss border-moss',
+  lilac: 'bg-lilac/25 text-forest border-lilac',
+  brick: 'bg-brick/20 text-brick border-brick',
+  teal: 'bg-teal/25 text-forest border-teal',
+  coral: 'bg-coral/25 text-forest border-coral',
+};
+---
+
+<a
+  href={`${prefix}/notes/tags/${encodeURIComponent(tag)}/`}
+  class:list={[
+    'inline-flex items-center px-2.5 py-1 font-ui text-xs font-semibold border-2 rounded-full transition-transform hover:-translate-y-0.5',
+    bg[color] ?? 'bg-board border-line',
+  ]}
+>
+  #{tag}
+</a>

@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import NoteCard from '../components/NoteCard.astro';
+import TagChip from '../components/TagChip.astro';
+import { getNotesGroupedByYear, getAllTags } from '../lib/notes';
+import { t, type Locale } from '../lib/locale';
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale: Locale = Astro.props.locale ?? 'zh';
+const ui = t(locale);
+const grouped = await getNotesGroupedByYear();
+const tags = await getAllTags();
+const total = [...grouped.values()].reduce((n, arr) => n + arr.length, 0);
+const variants = ['wood', 'sign', 'paper'] as const;
+---
+
+<BaseLayout title={ui.notes.allTitle} description={ui.notes.allDescription} locale={locale}>
+  <PageHeader title={ui.notes.allTitle} eyebrow={`${total} ${ui.notes.count}`} underline="sky" />
+
+  <section class="container-page pb-16">
+    {
+      tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-10" data-assemble>
+          {tags.slice(0, 12).map(({ tag }) => (
+            <TagChip tag={tag} locale={locale} />
+          ))}
+        </div>
+      )
+    }
+
+    {
+      [...grouped.entries()].map(([year, notes]) => (
+        <div class="mb-12" data-assemble>
+          <h2 class="font-display text-3xl font-semibold mb-4 hand-underline hand-underline--brick inline-block">
+            {year}
+          </h2>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {notes.map((note, i) => (
+              <NoteCard note={note} variant={variants[i % 3]} locale={locale} />
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </section>
+</BaseLayout>

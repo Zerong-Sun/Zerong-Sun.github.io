@@ -1,0 +1,20 @@
+---
+interface Props {
+  quote: string;
+  variant?: 'default' | 'teal' | 'lilac';
+  cite?: string;
+}
+
+const { quote, variant = 'default', cite } = Astro.props;
+---
+
+<blockquote
+  class:list={[
+    'quote-board',
+    variant === 'teal' && 'quote-board--teal',
+    variant === 'lilac' && 'quote-board--lilac',
+  ]}
+>
+  <p>{quote}</p>
+  {cite && <footer class="mt-3 font-ui text-sm text-ink-muted">— {cite}</footer>}
+</blockquote>

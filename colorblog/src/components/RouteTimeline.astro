@@ -1,0 +1,46 @@
+---
+interface Item {
+  year: string;
+  title: string;
+  place: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<ol class="relative pl-2 md:pl-4 space-y-8">
+  <svg
+    class="absolute left-6 md:left-8 top-2 bottom-2 w-6 h-[calc(100%-1rem)] pointer-events-none"
+    viewBox="0 0 24 600"
+    fill="none"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path
+      class="route-draw"
+      d="M12 0 C6 80 18 140 10 220 C4 300 20 360 12 440 C8 500 14 540 12 600"
+      stroke="var(--brick)"
+      stroke-width="3"
+      stroke-linecap="round"
+      fill="none"
+    />
+  </svg>
+
+  {
+    items.map((item, i) => (
+      <li class="relative flex gap-4 md:gap-6 timeline-node" data-assemble data-delay={String((i % 5) + 1)}>
+        <div class="relative z-10 shrink-0 w-14 md:w-16">
+          <span class="metal-plate !px-1.5 !text-[10px] justify-center w-full">{item.year}</span>
+        </div>
+        <div class="flex-1 bg-paper border-2 border-ink p-4 rounded-small hover-lift">
+          <p class="font-display text-lg font-semibold">{item.title}</p>
+          <p class="meta-text mt-1">⌖ {item.place}</p>
+        </div>
+      </li>
+    ))
+  }
+</ol>

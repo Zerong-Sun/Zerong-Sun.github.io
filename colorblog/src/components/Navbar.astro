@@ -1,0 +1,147 @@
+---
+import { site } from '../../site.config';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { t, localePath, type Locale } from '../lib/locale';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const ui = t(locale);
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { key: 'home', href: localePath(locale, '/') },
+  { key: 'food', href: localePath(locale, '/notes/category/food/') },
+  { key: 'travel', href: localePath(locale, '/notes/category/travel/') },
+  { key: 'cooking', href: localePath(locale, '/notes/category/cooking/') },
+  { key: 'essay', href: localePath(locale, '/notes/category/essay/') },
+  { key: 'about', href: localePath(locale, '/about/') },
+] as const;
+
+function isActive(href: string) {
+  if (href.endsWith('/') && (href === localePath(locale, '/') || href === '/en/')) {
+    return pathname === href || pathname === href.replace(/\/$/, '');
+  }
+  return pathname === href || pathname.startsWith(href);
+}
+
+const colorCycle = ['brick', 'sky', 'moss', 'mustard', 'lilac', 'teal'];
+---
+
+<header class="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur-sm border-b-2 border-ink/10">
+  <div class="container-page flex items-center justify-between h-[var(--nav-height)] gap-3">
+    <a href={localePath(locale, '/')} class="group flex flex-col leading-tight shrink-0 min-w-0">
+      <span class="font-display text-lg md:text-2xl font-semibold text-ink group-hover:hand-underline truncate">
+        {ui.siteTitle}
+      </span>
+      <span class="font-ui text-[10px] md:text-[11px] tracking-widest uppercase text-ink-muted truncate">
+        {ui.siteSubtitle}
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-1 flex-wrap justify-end" aria-label={ui.lang.navLabel}>
+      {
+        navItems.map((item, i) => (
+          <a
+            href={item.href}
+            class:list={[
+              'sign-nav-item',
+              `sign-nav-item--${colorCycle[i]}`,
+              isActive(item.href) && 'is-active',
+            ]}
+          >
+            <span class="sign-arrow" aria-hidden="true">▸</span>
+            {ui.nav[item.key]}
+            <span class="nav-underline" aria-hidden="true" />
+          </a>
+        ))
+      }
+      <LanguageSwitcher locale={locale} class="ml-2" />
+    </nav>
+
+    <div class="flex items-center gap-2 lg:hidden">
+      <LanguageSwitcher locale={locale} />
+      <button
+        type="button"
+        class="sign-btn sign-btn--mustard !py-2 !px-3 !text-sm"
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+      >
+        {ui.lang.menu} <span class="btn-arrow" aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mobile-drawer" class="fixed inset-0 z-[60] hidden" aria-hidden="true">
+  <div class="drawer-backdrop absolute inset-0 bg-forest/50" data-drawer-close></div>
+  <aside
+    class="drawer-panel absolute right-0 top-0 h-full w-[min(100%,320px)] bg-board border-l-4 border-ink p-6 flex flex-col gap-4 shadow-card"
+    role="dialog"
+    aria-label={ui.lang.navLabel}
+  >
+    <div class="flex items-center justify-between">
+      <span class="font-ui text-sm font-bold uppercase tracking-wider text-ink-muted">{ui.lang.navLabel}</span>
+      <button type="button" class="metal-plate" data-drawer-close aria-label={ui.lang.close}>{ui.lang.close}</button>
+    </div>
+    <nav class="flex flex-col gap-3 mt-4">
+      {
+        navItems.map((item, i) => (
+          <a
+            href={item.href}
+            class:list={[
+              'sign-nav-item w-full justify-center',
+              `sign-nav-item--${colorCycle[i]}`,
+              isActive(item.href) && 'is-active',
+            ]}
+            data-drawer-close
+          >
+            <span class="sign-arrow" aria-hidden="true">▸</span>
+            {ui.nav[item.key]}
+          </a>
+        ))
+      }
+    </nav>
+  </aside>
+</div>
+
+<script>
+  function setupDrawer() {
+    const toggle = document.getElementById('menu-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    if (!toggle || !drawer) return;
+
+    const open = () => {
+      drawer.classList.remove('hidden');
+      drawer.setAttribute('aria-hidden', 'false');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const close = () => {
+      drawer.classList.add('hidden');
+      drawer.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
+    toggle.onclick = () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      expanded ? close() : open();
+    };
+
+    drawer.querySelectorAll('[data-drawer-close]').forEach((el) => {
+      el.addEventListener('click', close);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  }
+
+  setupDrawer();
+  document.addEventListener('astro:page-load', setupDrawer);
+</script>

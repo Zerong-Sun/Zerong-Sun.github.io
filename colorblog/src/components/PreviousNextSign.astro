@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { t, type Locale } from '../lib/locale';
+
+interface Props {
+  prev: CollectionEntry<'notes'> | null;
+  next: CollectionEntry<'notes'> | null;
+  locale?: Locale;
+}
+
+const { prev, next, locale = 'zh' } = Astro.props;
+const ui = t(locale);
+const prefix = locale === 'en' ? '/en' : '';
+---
+
+<nav class="grid sm:grid-cols-2 gap-4 my-10" aria-label={ui.notes.prev}>
+  {
+    prev ? (
+      <a
+        href={`${prefix}/notes/${prev.slug}/`}
+        class="sign-btn sign-btn--teal justify-start"
+        style="clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0 50%);"
+      >
+        <span class="btn-arrow" aria-hidden="true">◀</span>
+        <span class="text-left min-w-0">
+          <span class="block text-[10px] uppercase tracking-wider opacity-80">{ui.notes.prev}</span>
+          <span class="line-clamp-1">{prev.data.title}</span>
+        </span>
+      </a>
+    ) : (
+      <div />
+    )
+  }
+  {
+    next ? (
+      <a href={`${prefix}/notes/${next.slug}/`} class="sign-btn justify-between sm:justify-self-end">
+        <span class="text-right min-w-0">
+          <span class="block text-[10px] uppercase tracking-wider opacity-80">{ui.notes.next}</span>
+          <span class="line-clamp-1">{next.data.title}</span>
+        </span>
+        <span class="btn-arrow" aria-hidden="true">▶</span>
+      </a>
+    ) : null
+  }
+</nav>

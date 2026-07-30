@@ -1,0 +1,12 @@
+---
+import CategoryPage from '../../../../components/CategoryPage.astro';
+
+export async function getStaticPaths() {
+  const cats = ['food', 'travel', 'cooking', 'essay'] as const;
+  return cats.map((category) => ({ params: { category } }));
+}
+
+const { category } = Astro.params;
+---
+
+<CategoryPage category={category!} locale="en" />

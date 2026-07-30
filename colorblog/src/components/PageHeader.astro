@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  eyebrow?: string;
+  underline?: 'sky' | 'brick' | 'mustard';
+}
+
+const { title, eyebrow, underline = 'brick' } = Astro.props;
+---
+
+<header class="container-page pt-10 pb-6" data-assemble>
+  {eyebrow && <p class="heading-sub mb-3" data-assemble data-effect="stick" data-delay="1">{eyebrow}</p>}
+  <h1 class:list={['heading-xl', `hand-underline hand-underline--${underline}`]}>{title}</h1>
+  <div class="section-line mt-6">
+    <div class="section-line__dots" aria-hidden="true"><span /><span /><span /><span /></div>
+  </div>
+</header>

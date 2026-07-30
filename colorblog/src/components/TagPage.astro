@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import NoteCard from '../components/NoteCard.astro';
+import { getNotesByTag } from '../lib/notes';
+import { t, localePath, type Locale } from '../lib/locale';
+
+interface Props {
+  tag: string;
+  locale: Locale;
+}
+
+const { tag, locale } = Astro.props;
+const ui = t(locale);
+const notes = await getNotesByTag(tag);
+const variants = ['wood', 'sign', 'paper'] as const;
+---
+
+<BaseLayout title={`#${tag}`} locale={locale}>
+  <PageHeader title={`#${tag}`} eyebrow={`${notes.length} ${ui.notes.count}`} underline="sky" />
+
+  <section class="container-page pb-16">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {notes.map((note, i) => (
+        <NoteCard note={note} variant={variants[i % 3]} locale={locale} />
+      ))}
+    </div>
+    <p class="mt-10">
+      <a href={localePath(locale, '/notes/')} class="sign-btn sign-btn--teal inline-flex">
+        ← {ui.notes.backToAll}
+      </a>
+    </p>
+  </section>
+</BaseLayout>

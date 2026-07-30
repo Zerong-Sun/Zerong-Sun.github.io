@@ -1,0 +1,147 @@
+@keyframes assemble-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) rotate(-0.8deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes stick-on {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) rotate(-1.2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes arrow-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes node-glow {
+  from {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+[data-assemble] {
+  opacity: 0;
+  transform: translateY(16px) rotate(-0.8deg);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+[data-assemble].is-in {
+  opacity: 1;
+  transform: translateY(0) rotate(0);
+  animation: assemble-in 0.55s ease-out both;
+}
+
+[data-assemble][data-effect='stick'].is-in {
+  animation: stick-on 0.4s ease-out both;
+}
+
+[data-assemble][data-delay='1'].is-in { animation-delay: 40ms; }
+[data-assemble][data-delay='2'].is-in { animation-delay: 80ms; }
+[data-assemble][data-delay='3'].is-in { animation-delay: 120ms; }
+[data-assemble][data-delay='4'].is-in { animation-delay: 160ms; }
+[data-assemble][data-delay='5'].is-in { animation-delay: 200ms; }
+[data-assemble][data-delay='6'].is-in { animation-delay: 260ms; }
+
+[data-stagger] > *.is-in {
+  animation: stick-on 0.4s ease-out both;
+}
+
+.timeline-node.is-in {
+  animation: node-glow 0.45s ease-out both;
+}
+
+.drawer-panel {
+  animation: drawer-in 0.3s ease-out both;
+}
+
+.drawer-backdrop {
+  animation: fade-in 0.25s ease-out both;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.35s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-assemble] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .route-draw {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}

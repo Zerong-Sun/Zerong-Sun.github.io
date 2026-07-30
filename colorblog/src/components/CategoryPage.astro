@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import NoteCard from '../components/NoteCard.astro';
+import { getNotesByCategory } from '../lib/notes';
+import { t, isCategoryKey, type Locale, type CategoryKey } from '../lib/locale';
+
+interface Props {
+  category: string;
+  locale: Locale;
+}
+
+const { category, locale } = Astro.props;
+
+if (!isCategoryKey(category)) {
+  throw new Error(`Invalid category: ${category}`);
+}
+
+const ui = t(locale);
+const notes = await getNotesByCategory(category);
+const catUi = ui.categories[category];
+const variants = ['wood', 'sign', 'paper'] as const;
+---
+
+<BaseLayout title={catUi.label} description={catUi.description} locale={locale}>
+  <PageHeader title={catUi.label} eyebrow={catUi.description} underline="mustard" />
+
+  <section class="container-page pb-16">
+    <p class="meta-text mb-6">{notes.length} {ui.notes.count}</p>
+    {
+      notes.length === 0 ? (
+        <p class="text-ink-muted">{locale === 'zh' ? '暂无文章' : 'No posts yet.'}</p>
+      ) : (
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {notes.map((note, i) => (
+            <NoteCard note={note} variant={variants[i % 3]} locale={locale} />
+          ))}
+        </div>
+      )
+    }
+  </section>
+</BaseLayout>

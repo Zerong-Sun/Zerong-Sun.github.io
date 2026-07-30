@@ -1,0 +1,59 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { getLocaleFromUrl, t, type Locale } from '../lib/locale';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale ?? getLocaleFromUrl(Astro.url);
+const ui = t(locale);
+
+const {
+  title,
+  description = ui.description,
+  image,
+} = Astro.props;
+
+const fullTitle = title ? `${title} · ${ui.siteTitle}` : ui.siteTitle;
+const htmlLang = locale === 'zh' ? 'zh-CN' : 'en';
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    {image && <meta property="og:image" content={image} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"
+      rel="stylesheet"
+    />
+    <title>{fullTitle}</title>
+    <ClientRouter />
+  </head>
+  <body id="top" class="page-grain min-h-screen flex flex-col">
+    <Navbar locale={locale} />
+    <main class="flex-1 pt-[var(--nav-height)]">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <script src="../scripts/assemble.ts"></script>
+  </body>
+</html>
