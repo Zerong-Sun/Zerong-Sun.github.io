@@ -7,9 +7,11 @@ interface Props {
   category?: CategoryKey;
   size?: 'sm' | 'md';
   locale?: Locale;
+  /** Render as span when already inside another link (e.g. note cards). */
+  static?: boolean;
 }
 
-const { tag, category, size = 'sm', locale = 'zh' } = Astro.props;
+const { tag, category, size = 'sm', locale = 'zh', static: isStatic = false } = Astro.props;
 const ui = t(locale);
 
 let href = '#';
@@ -37,13 +39,27 @@ const bg: Record<string, string> = {
 };
 ---
 
-<a
-  href={href}
-  class:list={[
-    'inline-flex items-center font-ui font-semibold border-2 border-ink rounded-small transition-transform hover:-translate-y-0.5',
-    size === 'sm' ? 'text-[11px] px-2 py-0.5' : 'text-xs px-2.5 py-1',
-    bg[color] ?? 'bg-board text-ink',
-  ]}
->
-  {label}
-</a>
+{
+  isStatic ? (
+    <span
+      class:list={[
+        'inline-flex items-center font-ui font-semibold border-2 border-ink rounded-small',
+        size === 'sm' ? 'text-[11px] px-2 py-0.5' : 'text-xs px-2.5 py-1',
+        bg[color] ?? 'bg-board text-ink',
+      ]}
+    >
+      {label}
+    </span>
+  ) : (
+    <a
+      href={href}
+      class:list={[
+        'inline-flex items-center font-ui font-semibold border-2 border-ink rounded-small transition-transform hover:-translate-y-0.5',
+        size === 'sm' ? 'text-[11px] px-2 py-0.5' : 'text-xs px-2.5 py-1',
+        bg[color] ?? 'bg-board text-ink',
+      ]}
+    >
+      {label}
+    </a>
+  )
+}

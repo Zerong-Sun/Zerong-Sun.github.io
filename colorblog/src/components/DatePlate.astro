@@ -6,13 +6,14 @@ interface Props {
   location?: string;
   readingMinutes?: number;
   locale?: Locale;
+  class?: string;
 }
 
-const { date, location, readingMinutes, locale = 'zh' } = Astro.props;
+const { date, location, readingMinutes, locale = 'zh', class: className } = Astro.props;
 const ui = t(locale);
 ---
 
-<div class="flex flex-wrap items-center gap-2">
+<div class:list={['flex flex-wrap items-center gap-2', className]}>
   <span class="metal-plate">{date}</span>
   {
     location && (

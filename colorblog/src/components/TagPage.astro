@@ -20,7 +20,7 @@ const variants = ['wood', 'sign', 'paper'] as const;
   <PageHeader title={`#${tag}`} eyebrow={`${notes.length} ${ui.notes.count}`} underline="sky" />
 
   <section class="container-page pb-16">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
       {notes.map((note, i) => (
         <NoteCard note={note} variant={variants[i % 3]} locale={locale} />
       ))}

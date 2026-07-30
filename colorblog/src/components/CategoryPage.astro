@@ -31,7 +31,7 @@ const variants = ['wood', 'sign', 'paper'] as const;
       notes.length === 0 ? (
         <p class="text-ink-muted">{locale === 'zh' ? '暂无文章' : 'No posts yet.'}</p>
       ) : (
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
           {notes.map((note, i) => (
             <NoteCard note={note} variant={variants[i % 3]} locale={locale} />
           ))}

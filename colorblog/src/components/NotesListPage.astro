@@ -38,7 +38,7 @@ const variants = ['wood', 'sign', 'paper'] as const;
           <h2 class="font-display text-3xl font-semibold mb-4 hand-underline hand-underline--brick inline-block">
             {year}
           </h2>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
             {notes.map((note, i) => (
               <NoteCard note={note} variant={variants[i % 3]} locale={locale} />
             ))}
