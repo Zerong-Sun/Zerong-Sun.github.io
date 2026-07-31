@@ -36,7 +36,7 @@ const dateStr = formatDate(note.data.date, locale);
 >
   <article class="pb-16">
     <header class="container-page pt-10 pb-8 max-w-wide">
-      <div class="max-w-content" data-assemble>
+      <div class="max-w-article" data-assemble>
         {
           note.data.category ? (
             <div class="mb-4"><CategoryBadge category={note.data.category} locale={locale} size="md" /></div>
@@ -67,7 +67,7 @@ const dateStr = formatDate(note.data.date, locale);
     </header>
 
     <div class="container-page">
-      <div class="grid lg:grid-cols-[140px_minmax(0,720px)_160px] gap-8 justify-center">
+      <div class="grid lg:grid-cols-[120px_minmax(0,860px)_140px] gap-8 justify-center">
         <aside class="hidden lg:block meta-text space-y-3 pt-2" data-assemble>
           <p class="font-ui text-[11px] uppercase tracking-wider font-bold text-ink">{ui.notes.info}</p>
           <p>{dateStr}</p>
@@ -87,7 +87,7 @@ const dateStr = formatDate(note.data.date, locale);
         </aside>
       </div>
 
-      <div class="max-w-content mx-auto mt-12">
+      <div class="max-w-article mx-auto mt-12">
         <div class="flex flex-wrap gap-2 mb-6 lg:hidden">
           {note.data.tags.map((tag) => <TagChip tag={tag} locale={locale} />)}
         </div>

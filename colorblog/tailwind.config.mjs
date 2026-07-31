@@ -27,6 +27,7 @@ export default {
       },
       maxWidth: {
         content: '720px',
+        article: '860px',
         page: '1240px',
         wide: '1080px',
       },

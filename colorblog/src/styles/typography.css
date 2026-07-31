@@ -4,7 +4,7 @@
   font-size: 18px;
   line-height: 1.9;
   letter-spacing: 0.01em;
-  max-width: var(--content-width);
+  max-width: var(--article-width, var(--content-width));
   color: var(--ink);
 }
 
