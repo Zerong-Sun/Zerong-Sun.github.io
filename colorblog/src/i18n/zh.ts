@@ -46,6 +46,7 @@ export const ui = {
     readingTime: '分钟阅读',
     tags: '标签',
     info: '文章信息',
+    toc: '目录',
     backToAll: '返回全部笔记',
   },
   about: {

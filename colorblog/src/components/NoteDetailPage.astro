@@ -5,6 +5,7 @@ import DatePlate from './DatePlate.astro';
 import TagChip from './TagChip.astro';
 import PreviousNextSign from './PreviousNextSign.astro';
 import RelatedNotes from './RelatedNotes.astro';
+import ArticleToc from './ArticleToc.astro';
 import {
   getAdjacentNotes,
   getRelatedNotes,
@@ -21,7 +22,8 @@ interface Props {
 
 const { note, locale } = Astro.props;
 const ui = t(locale);
-const { Content } = await note.render();
+const { Content, headings } = await note.render();
+const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
 const { prev, next } = await getAdjacentNotes(note);
 const related = await getRelatedNotes(note);
 const mins = readingTime(note.body);
@@ -67,16 +69,15 @@ const dateStr = formatDate(note.data.date, locale);
     </header>
 
     <div class="container-page">
-      <div class="grid lg:grid-cols-[120px_minmax(0,860px)_140px] gap-8 justify-center">
-        <aside class="hidden lg:block meta-text space-y-3 pt-2" data-assemble>
-          <p class="font-ui text-[11px] uppercase tracking-wider font-bold text-ink">{ui.notes.info}</p>
-          <p>{dateStr}</p>
-          {note.data.location && <p>⌖ {note.data.location}</p>}
-          <p>{mins} {ui.notes.readingTime}</p>
-        </aside>
+      <div class="grid lg:grid-cols-[minmax(170px,200px)_minmax(0,860px)_minmax(110px,130px)] gap-6 justify-center">
+        <ArticleToc items={toc} title={ui.notes.toc} variant="sidebar" />
 
-        <div class="article-body prose min-w-0">
-          <Content />
+        <div class="min-w-0">
+          <ArticleToc items={toc} title={ui.notes.toc} variant="mobile" />
+
+          <div class="article-body prose min-w-0">
+            <Content />
+          </div>
         </div>
 
         <aside class="hidden lg:block pt-2" data-assemble data-delay="3">

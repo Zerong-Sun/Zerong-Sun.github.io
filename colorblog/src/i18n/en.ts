@@ -48,6 +48,7 @@ export const ui: UiDict = {
     readingTime: 'min read',
     tags: 'Tags',
     info: 'Info',
+    toc: 'On this page',
     backToAll: 'Back to all notes',
   },
   about: {
