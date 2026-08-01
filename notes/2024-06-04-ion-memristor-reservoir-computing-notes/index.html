@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Outline of ion memristor reservoir computing—RC basics, hardware implementation, and outlook."><meta property="og:title" content="Reservoir Computing Networks in Ion Memristor Devices · Zerong' Notes"><meta property="og:description" content="Outline of ion memristor reservoir computing—RC basics, hardware implementation, and outlook."><meta property="og:image" content="/images/covers/2024-06-04-ion-memristor-reservoir-computing-notes.jpg"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"><title>Reservoir Computing Networks in Ion Memristor Devices · Zerong&#39; Notes</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CDGfc0hd.js"></script><link rel="stylesheet" href="/_astro/about.DQDZ8i_P.css"></head> <body id="top" class="page-grain min-h-screen flex flex-col"> <header class="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur-sm border-b-2 border-ink/10"> <div class="container-page flex items-center justify-between h-[var(--nav-height)] gap-3"> <a href="/" class="group flex flex-col leading-tight shrink-0 min-w-0"> <span class="font-display text-lg md:text-2xl font-semibold text-ink group-hover:hand-underline truncate"> Zerong&#39; Notes </span> <span class="font-ui text-[10px] md:text-[11px] tracking-widest uppercase text-ink-muted truncate"> 孙泽荣 </span> </a> <nav class="hidden lg:flex items-center gap-1 flex-wrap justify-end" aria-label="导航"> <a href="/" class="sign-nav-item sign-nav-item--brick"> <span class="sign-arrow" aria-hidden="true">▸</span> 首页 <span class="nav-underline" aria-hidden="true"></span> </a><a href="/notes/category/food/" class="sign-nav-item sign-nav-item--sky"> <span class="sign-arrow" aria-hidden="true">▸</span> 美食 <span class="nav-underline" aria-hidden="true"></span> </a><a href="/notes/category/travel/" class="sign-nav-item sign-nav-item--moss"> <span class="sign-arrow" aria-hidden="true">▸</span> 旅行 <span class="nav-underline" aria-hidden="true"></span> </a><a href="/notes/category/cooking/" class="sign-nav-item sign-nav-item--mustard"> <span class="sign-arrow" aria-hidden="true">▸</span> 做饭 <span class="nav-underline" aria-hidden="true"></span> </a><a href="/notes/category/essay/" class="sign-nav-item sign-nav-item--lilac"> <span class="sign-arrow" aria-hidden="true">▸</span> 随笔 <span class="nav-underline" aria-hidden="true"></span> </a><a href="/about/" class="sign-nav-item sign-nav-item--teal"> <span class="sign-arrow" aria-hidden="true">▸</span> 关于我 <span class="nav-underline" aria-hidden="true"></span> </a> <a href="/en/notes/2024-06-04-ion-memristor-reservoir-computing-notes/" class="inline-flex items-center justify-center min-w-[2.5rem] px-2 py-1 font-ui text-xs font-bold border-2 border-ink rounded-small bg-paper hover:bg-board transition-colors ml-2" aria-label="Switch to English"> EN </a> </nav> <div class="flex items-center gap-2 lg:hidden"> <a href="/en/notes/2024-06-04-ion-memristor-reservoir-computing-notes/" class="inline-flex items-center justify-center min-w-[2.5rem] px-2 py-1 font-ui text-xs font-bold border-2 border-ink rounded-small bg-paper hover:bg-board transition-colors" aria-label="Switch to English"> EN </a> <button type="button" class="sign-btn sign-btn--mustard !py-2 !px-3 !text-sm" id="menu-toggle" aria-expanded="false" aria-controls="mobile-drawer"> 菜单 <span class="btn-arrow" aria-hidden="true">☰</span> </button> </div> </div> </header> <div id="mobile-drawer" class="fixed inset-0 z-[60] hidden" aria-hidden="true"> <div class="drawer-backdrop absolute inset-0 bg-forest/50" data-drawer-close></div> <aside class="drawer-panel absolute right-0 top-0 h-full w-[min(100%,320px)] bg-board border-l-4 border-ink p-6 flex flex-col gap-4 shadow-card" role="dialog" aria-label="导航"> <div class="flex items-center justify-between"> <span class="font-ui text-sm font-bold uppercase tracking-wider text-ink-muted">导航</span> <button type="button" class="metal-plate" data-drawer-close aria-label="关闭">关闭</button> </div> <nav class="flex flex-col gap-3 mt-4"> <a href="/" class="sign-nav-item w-full justify-center sign-nav-item--brick" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 首页 </a><a href="/notes/category/food/" class="sign-nav-item w-full justify-center sign-nav-item--sky" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 美食 </a><a href="/notes/category/travel/" class="sign-nav-item w-full justify-center sign-nav-item--moss" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 旅行 </a><a href="/notes/category/cooking/" class="sign-nav-item w-full justify-center sign-nav-item--mustard" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 做饭 </a><a href="/notes/category/essay/" class="sign-nav-item w-full justify-center sign-nav-item--lilac" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 随笔 </a><a href="/about/" class="sign-nav-item w-full justify-center sign-nav-item--teal" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 关于我 </a> </nav> </aside> </div> <script type="module">function a(){const t=document.getElementById("menu-toggle"),e=document.getElementById("mobile-drawer");if(!t||!e)return;const r=()=>{e.classList.remove("hidden"),e.setAttribute("aria-hidden","false"),t.setAttribute("aria-expanded","true"),document.body.style.overflow="hidden"},n=()=>{e.classList.add("hidden"),e.setAttribute("aria-hidden","true"),t.setAttribute("aria-expanded","false"),document.body.style.overflow=""};t.onclick=()=>{t.getAttribute("aria-expanded")==="true"?n():r()},e.querySelectorAll("[data-drawer-close]").forEach(d=>{d.addEventListener("click",n)}),document.addEventListener("keydown",d=>{d.key==="Escape"&&n()})}a();document.addEventListener("astro:page-load",a);</script> <main class="flex-1 pt-[var(--nav-height)]">  <article class="pb-16"> <header class="container-page pt-10 pb-8 max-w-wide"> <div class="max-w-article" data-assemble> <div class="mb-4"><a href="/notes/tags/research/" class="inline-flex items-center font-ui font-semibold border-2 border-ink rounded-small transition-transform hover:-translate-y-0.5 text-xs px-2.5 py-1 bg-brick text-white">research</a></div> <h1 class="heading-xl mb-4">Reservoir Computing Networks in Ion Memristor Devices</h1> <p class="text-lg text-ink-muted leading-relaxed mb-5">Outline of ion memristor reservoir computing—RC basics, hardware implementation, and outlook.</p> <div class="flex flex-wrap items-center gap-2"> <span class="metal-plate">2024.06.04</span>  <span class="font-ui text-xs text-ink-muted">18 分钟阅读</span> </div> </div> <figure class="img-framed mt-8 max-w-wide mx-auto" data-assemble data-delay="2"> <img src="/images/covers/2024-06-04-ion-memristor-reservoir-computing-notes.jpg" alt="" class="w-full aspect-[3/2] object-cover"> <figcaption class="img-caption px-2 flex flex-wrap gap-3 justify-between"> <span></span> <span>2024.06.04</span> </figcaption> </figure> </header> <div class="container-page"> <div class="grid lg:grid-cols-[minmax(170px,200px)_minmax(0,860px)_minmax(110px,130px)] gap-6 justify-center"> <aside class="article-toc article-toc--sidebar hidden lg:block"><nav class="article-toc__nav border-2 border-ink bg-paper rounded-small p-3" aria-label="目录"><p class="font-ui text-[11px] uppercase tracking-wider font-bold text-ink mb-3">目录</p><ul class="article-toc__list"><li class="article-toc__item"><a href="#basics-of-reservoir-computing" class="article-toc__link" data-toc-link>Basics of Reservoir Computing</a></li><li class="article-toc__item"><a href="#hardware-implementation-and-performance" class="article-toc__link" data-toc-link>Hardware Implementation and Performance</a></li><li class="article-toc__item"><a href="#case-studies" class="article-toc__link" data-toc-link>Case Studies</a></li><li class="article-toc__item"><a href="#insights" class="article-toc__link" data-toc-link>Insights</a></li><li class="article-toc__item"><a href="#challenges-and-future-outlook" class="article-toc__link" data-toc-link>Challenges and Future Outlook</a></li><li class="article-toc__item"><a href="#references" class="article-toc__link" data-toc-link>References</a></li></ul></nav></aside><script type="module">function c(){const o=document.querySelectorAll("[data-toc-link]"),i=[...document.querySelectorAll(".article-body h2[id], .article-body h3[id]")];if(!o.length||!i.length)return;const r=t=>{o.forEach(e=>{e.classList.toggle("is-active",e.getAttribute("href")===`#${t}`)})},s=new IntersectionObserver(t=>{const e=t.filter(n=>n.isIntersecting).sort((n,l)=>n.boundingClientRect.top-l.boundingClientRect.top);e.length>0&&r(e[0].target.id)},{rootMargin:"-88px 0px -70% 0px",threshold:0});i.forEach(t=>s.observe(t)),r(i[0].id)}c();document.addEventListener("astro:page-load",c);</script> <div class="min-w-0"> <details class="article-toc article-toc--mobile lg:hidden mb-8 border-2 border-ink bg-paper rounded-small"><summary class="cursor-pointer px-4 py-3 font-ui text-sm font-bold text-ink">目录</summary><nav class="border-t-2 border-ink px-3 py-3" aria-label="目录"><ul class="article-toc__list"><li class="article-toc__item"><a href="#basics-of-reservoir-computing" class="article-toc__link" data-toc-link>Basics of Reservoir Computing</a></li><li class="article-toc__item"><a href="#hardware-implementation-and-performance" class="article-toc__link" data-toc-link>Hardware Implementation and Performance</a></li><li class="article-toc__item"><a href="#case-studies" class="article-toc__link" data-toc-link>Case Studies</a></li><li class="article-toc__item"><a href="#insights" class="article-toc__link" data-toc-link>Insights</a></li><li class="article-toc__item"><a href="#challenges-and-future-outlook" class="article-toc__link" data-toc-link>Challenges and Future Outlook</a></li><li class="article-toc__item"><a href="#references" class="article-toc__link" data-toc-link>References</a></li></ul></nav></details> <div class="article-body prose min-w-0"> <h2 id="basics-of-reservoir-computing">Basics of Reservoir Computing</h2>
+<p><strong>Concept</strong></p>
+<p>Reservoir Computing (RC) uses a fixed, random network to process
+temporal data. It’s based on the premise that a dynamic “reservoir” of
+nodes can project the input into a higher-dimensional space, enabling
+the capture of temporal characteristics of the data.</p>
+<p><a href="https://www.nature.com/articles/s41928-022-00867-y">https://www.nature.com/articles/s41928-022-00867-y</a></p>
+<p><strong>History</strong></p>
+<p>The early concept of RC can be traced back to the context reverberation
+network, where an input layer feeds into a high-dimensional dynamical
+system, which is then read out by a trainable single-layer perceptron.
+This architecture included both recurrent neural networks with fixed
+random weights and continuous reaction–diffusion systems, which were
+inspired by Alan Turing’s model of morphogenesis. These systems provided
+a dynamic “context” for the inputs, essentially serving as the
+reservoir.</p>
+<p>One of the foundational models in the RC framework is the Echo State
+Network (ESN), which represents a generalization of the RC framework to
+tree-structured data. ESNs are characterized by their ‘echo state’
+property, which ensures that the network state is uniquely determined by
+past inputs, making them powerful tools for modeling memory in time
+series.</p>
+<p>Another cornerstone model within the RC domain is the Liquid State
+Machine (LSM), which employs spiking neurons to create a liquid or
+reservoir. The LSM is particularly adept at processing time-varying
+patterns, due to its ability to preserve the temporal structure of the
+inputs within the high-dimensional state space of the reservoir.</p>
+<p>The field of RC has evolved over time to include various forms such as
+Deep Reservoir Computing and Quantum Reservoir Computing. Deep Reservoir
+Computing extends the RC framework towards deep learning, enabling
+hierarchical processing of temporal data and exploring the role of
+layered composition in recurrent neural networks. On the other hand,
+Quantum Reservoir Computing leverages the nonlinear nature of quantum
+mechanical interactions to form reservoirs and represents an emerging
+field that combines machine learning with quantum devices, leading to
+new research in quantum neuromorphic computing.</p>
+<p>Throughout its development, RC has been highlighted for its low training
+cost since only the weights connecting to the final readout layer need
+to be trained, which is often done with a linear regression model. This
+attribute of RC, along with its capacity to handle complex temporal
+patterns, has made it a valuable tool in fields ranging from
+neuroscience to machine learning and beyond.</p>
+<p><strong>Advantages</strong></p>
+<p>The primary advantage of RC is its ability to handle time-series data
+and dynamic systems efficiently. Since only the readout weights need to
+be trained, RC systems offer a low training cost compared to other
+neural network architectures. This makes RC ideal for applications that
+involve complex temporal pattern recognition, such as speech recognition
+and time-series forecasting.</p>
+<blockquote>
+<p>Key point: only the readout layer is usually trainable, while the reservoir remains fixed.</p>
+</blockquote>
+<p><strong>Equations and graphs</strong></p>
+<h2 id="hardware-implementation-and-performance">Hardware Implementation and Performance</h2>
+<p><strong>Network Integration</strong></p>
+<p>Memristors are integrated into reservoir computing networks as dynamic
+elements that can modulate their conductance in response to electrical
+signals. This behavior is crucial since it allows memristors to act as
+dynamic weights in the network, adapting to the temporal patterns of the
+inputs they process. This dynamic state change in response to input
+pulses allows memristors to effectively capture and represent the
+time-varying features of the input signal, providing a rich set of
+states for the reservoir.</p>
+<p><strong>Adaptive Learning</strong></p>
+<p>In reservoir computing, the output neurons in the readout layer are
+trained to interpret these states, thus adapting to recognize patterns
+or perform computations based on the input data. This online weight
+updating mechanism is analogous to long-term plasticity observed in
+biological neural networks. The memristor’s inherent properties allow
+the emulation of such plastic behaviors, as their conductance states can
+be adjusted in response to electrical stimuli, effectively capturing the
+temporal dynamics of the inputs.</p>
+<p><strong>Memristor’s Role</strong></p>
+<p>Memristors facilitate adaptability in the network by providing a
+mechanism for dynamic change and memory. Their conductance states can be
+finely tuned, which is essential for the network to adapt and learn from
+temporal input patterns.</p>
+<p>The use of memristors enhances the processing and memory capabilities of
+reservoir computing networks. Due to their non-volatile memory
+characteristics and ability to perform computations, memristors can
+maintain a history of past inputs, boosting the network’s ability to
+process complex temporal sequences.</p>
+<p><strong>Architecture</strong></p>
+<p>Memristor-based hardware architectures for reservoir networks take
+advantage of the intrinsic properties of memristors, such as their
+non-linear I-V characteristics and stateful memory. These architectures
+can be designed with various configurations, such as rings or random
+networks, to optimize performance for specific applications.</p>
+<p><strong>Benefits</strong></p>
+<p>The computational efficiency of memristor-based reservoir computing
+systems is significantly higher compared to conventional neural
+networks, due to their reduced network size and the lower number of
+trainable weights. This leads to less energy consumption and the ability
+for real-time processing. Additionally, memristor networks can exhibit
+complex dynamics, which are beneficial for the reservoir state, enabling
+the system to handle various computational tasks efficiently.</p>
+<p>Computational efficiency, energy conservation, real-time processing</p>
+<h2 id="case-studies">Case Studies</h2>
+<p><strong>Examples</strong></p>
+<ul>
+<li>Speech recognition</li>
+<li>Time-series forecasting</li>
+</ul>
+<p>For instance, the work demonstrated with LiNbO3 dynamic memristors for
+reservoir computing shows the potential for recognizing digit patterns
+through adaptive learning and dynamic response to input pulse trains.
+Furthermore, the fully analogue reservoir computing system developed
+by Yan et al. highlights the low-power benefits and high-accuracy
+capabilities of memristor-based reservoir computing in applications such
+as arrhythmia detection and dynamic gesture recognition.</p>
+<p>Moreover, the self-organizing nanowire networks discussed in the Nature
+Materials article expand on the concept of in-materia reservoir
+computing, which employs fully memristive architectures and showcases
+the field’s progress towards creating more efficient computational
+models inspired by the brain.</p>
+<h2 id="insights">Insights</h2>
+<p>Memristor-based reservoir computing is valuable because it uses the device’s own nonlinear dynamics and memory effects as computational resources. This makes it especially suitable for time-series processing, low-power edge computing, and neuromorphic hardware.</p>
+<h2 id="challenges-and-future-outlook">Challenges and Future Outlook</h2>
+<p><strong>Technical Challenges</strong></p>
+<p>The challenges of integrating ionic memristors with reservoir computing
+primarily revolve around the memristor’s dynamic characteristics and how
+they interact with the system architecture. Memristors exhibit intricate
+I-V hysteresis curves and their current decay follows an exponential
+relationship, crucial for their role in temporal signal processing
+within a reservoir computing system. The system’s architecture,
+particularly the length of the mask sequence and the number of
+reservoirs in parallel, significantly affects performance. A balance
+must be struck to avoid state saturation or limited signal processing
+capability due to overly long or short mask lengths. Future research
+must refine these parameters to optimize performance.</p>
+<p><strong>Future Directions</strong></p>
+<p>The future outlook for ionic memristors in reservoir computing is
+promising, with potential for fast and energy-efficient temporal data
+analysis and prediction. Hardware implementations could significantly
+reduce computing time and energy requirements, though challenges in
+physical device integration remain. Advancements in memristor dynamics
+and system architecture will be key to harnessing their full potential
+for tasks like waveform classification and beyond.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Nature Electronics article on reservoir computing / memristor systems: <a href="https://www.nature.com/articles/s41928-022-00867-y">https://www.nature.com/articles/s41928-022-00867-y</a></li>
+</ul> </div> </div> <aside class="hidden lg:block pt-2" data-assemble data-delay="3"> <p class="font-ui text-[11px] uppercase tracking-wider font-bold text-ink mb-3">标签</p> <div class="flex flex-col gap-2"> <a href="/notes/tags/research/" class="inline-flex items-center px-2.5 py-1 font-ui text-xs font-semibold border-2 rounded-full transition-transform hover:-translate-y-0.5 bg-brick/20 text-brick border-brick">
+#research </a><a href="/notes/tags/neuromorphic/" class="inline-flex items-center px-2.5 py-1 font-ui text-xs font-semibold border-2 rounded-full transition-transform hover:-translate-y-0.5 bg-moss/20 text-moss border-moss">
+#neuromorphic </a> </div> </aside> </div> <div class="max-w-article mx-auto mt-12"> <div class="flex flex-wrap gap-2 mb-6 lg:hidden"> <a href="/notes/tags/research/" class="inline-flex items-center px-2.5 py-1 font-ui text-xs font-semibold border-2 rounded-full transition-transform hover:-translate-y-0.5 bg-brick/20 text-brick border-brick">
+#research </a><a href="/notes/tags/neuromorphic/" class="inline-flex items-center px-2.5 py-1 font-ui text-xs font-semibold border-2 rounded-full transition-transform hover:-translate-y-0.5 bg-moss/20 text-moss border-moss">
+#neuromorphic </a> </div> <nav class="grid sm:grid-cols-2 gap-4 my-10" aria-label="上一篇"> <a href="/notes/2024-06-04-ionic-memristor-reservoir-computing-review/" class="sign-btn sign-btn--teal justify-start" style="clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0 50%);"> <span class="btn-arrow" aria-hidden="true">◀</span> <span class="text-left min-w-0"> <span class="block text-[10px] uppercase tracking-wider opacity-80">上一篇</span> <span class="line-clamp-1">Ionic Memristor-based Reservoir Computing: A Review</span> </span> </a> <a href="/notes/2024-11-19-dual-blood-input-function-dynamic-pet/" class="sign-btn justify-between sm:justify-self-end"> <span class="text-right min-w-0"> <span class="block text-[10px] uppercase tracking-wider opacity-80">下一篇</span> <span class="line-clamp-1">双血输入函数动态 PET：肝炎与肺癌诊断中的定量建模方法</span> </span> <span class="btn-arrow" aria-hidden="true">▶</span> </a> </nav> <section class="my-12" data-assemble><h2 class="heading-md mb-4">相关文章</h2><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start"><article class="card-irregular card-irregular--wood overflow-hidden flex flex-col" data-assemble> <a href="/notes/2024-06-04-ionic-memristor-reservoir-computing-review/" class="flex flex-col flex-1 p-4 md:p-5 group min-h-0"> <div class="flex items-start justify-between gap-2 mb-3 shrink-0"> <span class="inline-flex items-center font-ui font-semibold border-2 border-ink rounded-small text-[11px] px-2 py-0.5 bg-brick text-white">research</span> <span class="staple-mark shrink-0" aria-hidden="true"></span> </div> <div class="mb-3 overflow-hidden border-2 border-ink/80 rounded-small bg-board shrink-0"> <img src="/images/covers/2024-06-04-ionic-memristor-reservoir-computing-review.jpg" alt="" class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] aspect-[4/3]" loading="lazy"> </div> <h3 class="font-display font-semibold leading-snug mb-2 group-hover:hand-underline line-clamp-2 shrink-0 text-lg"> Ionic Memristor-based Reservoir Computing: A Review </h3> <p class="text-sm leading-relaxed mb-4 flex-1 line-clamp-3 min-h-0 text-ink-muted"> Review of reservoir computing with ionic memristors—fundamentals, MRC, and applications. </p> <div class="flex flex-wrap items-center gap-2 mt-auto shrink-0"> <span class="metal-plate">2024.06.04</span>  <span class="font-ui text-xs text-ink-muted">1 分钟阅读</span> </div> </a> </article><article class="card-irregular card-irregular--sign overflow-hidden flex flex-col" data-assemble> <a href="/notes/2025-06-01-crizotinib-precision-targeted-drug-development/" class="flex flex-col flex-1 p-4 md:p-5 group min-h-0"> <div class="flex items-start justify-between gap-2 mb-3 shrink-0"> <span class="inline-flex items-center font-ui font-semibold border-2 border-ink rounded-small text-[11px] px-2 py-0.5 bg-brick text-white">research</span> <span class="staple-mark shrink-0" aria-hidden="true"></span> </div> <div class="mb-3 overflow-hidden border-2 border-ink/80 rounded-small bg-board shrink-0"> <img src="/images/covers/2025-06-01-crizotinib-precision-targeted-drug-development.jpg" alt="" class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] aspect-[4/3]" loading="lazy"> </div> <h3 class="font-display font-semibold leading-snug mb-2 group-hover:hand-underline line-clamp-2 shrink-0 text-lg text-white"> 克唑替尼：小分子靶向药物研发范式的革新 </h3> <p class="text-sm leading-relaxed mb-4 flex-1 line-clamp-3 min-h-0 text-white/85"> 从 ALK 靶点发现到伴随诊断同步审批，梳理克唑替尼代表的精准靶向药研发范式。 </p> <div class="flex flex-wrap items-center gap-2 mt-auto shrink-0"> <span class="metal-plate">2025.06.01</span>  <span class="font-ui text-xs text-ink-muted">1 分钟阅读</span> </div> </a> </article><article class="card-irregular card-irregular--paper overflow-hidden flex flex-col" data-assemble> <a href="/notes/2025-06-01-group13-esports-wrist-biomechanics-proposal/" class="flex flex-col flex-1 p-4 md:p-5 group min-h-0"> <div class="flex items-start justify-between gap-2 mb-3 shrink-0"> <span class="inline-flex items-center font-ui font-semibold border-2 border-ink rounded-small text-[11px] px-2 py-0.5 bg-brick text-white">research</span> <span class="staple-mark shrink-0" aria-hidden="true"></span> </div> <div class="mb-3 overflow-hidden border-2 border-ink/80 rounded-small bg-board shrink-0"> <img src="/images/covers/2025-06-01-group13-esports-wrist-biomechanics-proposal.jpg" alt="" class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] aspect-[4/3]" loading="lazy"> </div> <h3 class="font-display font-semibold leading-snug mb-2 group-hover:hand-underline line-clamp-2 shrink-0 text-lg"> Biomechanical Assessment of Wrist Load During Esports Mouse Use </h3> <p class="text-sm leading-relaxed mb-4 flex-1 line-clamp-3 min-h-0 text-ink-muted"> Group 13 proposal on esports mouse use, wrist kinematics, and OpenSim load simulation. </p> <div class="flex flex-wrap items-center gap-2 mt-auto shrink-0"> <span class="metal-plate">2025.06.01</span>  <span class="font-ui text-xs text-ink-muted">1 分钟阅读</span> </div> </a> </article></div></section> <p class="mt-8"> <a href="/notes/" class="sign-btn sign-btn--teal inline-flex">
+← 返回全部笔记 </a> </p> </div> </div> </article>  </main> <footer class="mt-auto bg-forest text-paper relative overflow-hidden"> <div class="container-page relative section-pad grid gap-10 md:grid-cols-3"> <div data-assemble> <p class="font-display text-2xl mb-3">Zerong&#39; Notes</p> <p class="text-paper/80 text-[0.95rem] leading-relaxed max-w-sm">Stay curious — 科学、旅行、美食与日常记录。</p> <p class="meta-text text-paper/50 mt-4">
+© 2022–2026 Zerong Sun </p> </div> <div data-assemble data-delay="2"> <p class="heading-sub text-mustard mb-3">联系</p> <ul class="space-y-2 font-ui text-sm"> <li> <a class="hover:text-mustard transition-colors" href="mailto:Zero.de.sun@outlook.com"> Zero.de.sun@outlook.com </a> </li> <li> <a class="hover:text-teal transition-colors" href="https://github.com/zerong-sun" target="_blank" rel="noopener">
+GitHub
+</a> </li> <li> <a class="hover:text-sky transition-colors" href="/notes/"> 全部笔记 →
+</a> </li> <li> <a class="hover:text-paper/70 transition-colors" href="/archive/"> 旧版站点存档 →
+</a> </li> </ul> </div> <div class="flex flex-col items-start md:items-end gap-4" data-assemble data-delay="3"> <a href="#top" class="sign-btn sign-btn--mustard" style="clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0 50%);"> <span class="btn-arrow" aria-hidden="true">▲</span> 回到顶部 </a> </div> </div> </footer> <script type="module">document.addEventListener("click",t=>{t.target?.closest('a[href="#top"]')&&(t.preventDefault(),window.scrollTo({top:0,behavior:"smooth"}))});</script> <script type="module">function L(e){return!!(e.classList.contains("article-body")||e.classList.contains("prose")||e.scrollHeight>window.innerHeight*.85)}function p(e){const n=e.getBoundingClientRect();return n.bottom>0&&n.top<window.innerHeight}function v(){const e=window.matchMedia("(prefers-reduced-motion: reduce)").matches,n=document.querySelectorAll("[data-assemble]"),a=document.querySelectorAll(".route-draw"),c=document.querySelectorAll(".timeline-node");if(e){n.forEach(t=>t.classList.add("is-in")),a.forEach(t=>t.classList.add("is-in")),c.forEach(t=>t.classList.add("is-in"));return}const r=new IntersectionObserver(t=>{for(const i of t){if(!i.isIntersecting)continue;const o=i.target;o.classList.add("is-in"),o.hasAttribute("data-stagger")&&[...o.children].forEach((d,l)=>{window.setTimeout(()=>d.classList.add("is-in"),l*60)}),r.unobserve(o)}},{rootMargin:"0px 0px -5% 0px",threshold:0});n.forEach(t=>{if(L(t)||p(t)){t.classList.add("is-in");return}r.observe(t)}),a.forEach(t=>r.observe(t)),c.forEach(t=>r.observe(t))}function w(){document.querySelectorAll("[data-photo-strip]").forEach(e=>{let n=!1,a=0,c=0,r=0,t=0,i=0,o=0;const d=()=>{o&&cancelAnimationFrame(o),o=0},l=()=>{if(Math.abs(r)<.2){d();return}e.scrollLeft-=r,r*=.92,o=requestAnimationFrame(l)};e.addEventListener("pointerdown",s=>{s.pointerType!=="touch"&&(n=!0,d(),e.classList.add("is-dragging"),a=s.pageX-e.offsetLeft,c=e.scrollLeft,t=s.pageX,i=performance.now(),e.setPointerCapture(s.pointerId))}),e.addEventListener("pointermove",s=>{if(!n)return;s.preventDefault();const g=s.pageX-e.offsetLeft;e.scrollLeft=c-(g-a)*1.15;const u=performance.now(),h=u-i||1;r=(s.pageX-t)/h*14,t=s.pageX,i=u});const f=()=>{n&&(n=!1,e.classList.remove("is-dragging"),o=requestAnimationFrame(l))};e.addEventListener("pointerup",f),e.addEventListener("pointercancel",f),e.addEventListener("pointerleave",f)})}function m(){v(),w()}m();document.addEventListener("astro:page-load",m);</script> </body> </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en" class="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="DBIF 动态 PET 在肝脏炎症与肺肿瘤药代动力学建模中的概念、方法与临床意义。"><link rel="icon" href="/images/icon.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"><title>双血输入函数动态 PET：肝炎与肺癌诊断中的定量建模方法 | Zerong&#39; Notes</title><link rel="stylesheet" href="/archive/_astro/about.p5-5uD0n.css"></head> <body> <header class="sticky top-0 z-50 border-b border-[var(--border)] backdrop-blur-md" style="background: var(--nav-bg);"> <nav class="mx-auto flex max-w-home items-center justify-between px-4 py-3 md:px-6"> <a href="/" class="text-lg font-semibold tracking-tight text-[var(--text)] hover:text-primary"> Zerong&#39; Notes </a> <ul class="flex flex-wrap items-center gap-1 md:gap-2"> <li> <a href="/" class="rounded-lg px-3 py-2 text-sm font-medium transition text-[var(--text-secondary)] hover:bg-[var(--panel-bg)] hover:text-[var(--text)]"> Home </a> </li><li> <a href="/about/" class="rounded-lg px-3 py-2 text-sm font-medium transition text-[var(--text-secondary)] hover:bg-[var(--panel-bg)] hover:text-[var(--text)]"> About </a> </li><li> <a href="/notes/" class="rounded-lg px-3 py-2 text-sm font-medium transition text-[var(--text-secondary)] hover:bg-[var(--panel-bg)] hover:text-[var(--text)]"> Notes </a> </li><li> <a href="/contact/" class="rounded-lg px-3 py-2 text-sm font-medium transition text-[var(--text-secondary)] hover:bg-[var(--panel-bg)] hover:text-[var(--text)]"> Contact </a> </li> </ul> </nav> </header> <main>  <div class="mx-auto max-w-content px-4 py-8 md:px-6 md:py-10"> <a href="/notes/" class="mb-6 inline-flex items-center gap-1.5 text-sm text-[var(--text-muted)] hover:text-primary"> <span aria-hidden="true">←</span>
+All notes
+</a> <article> <header class="mb-8 border-b border-[var(--border)] pb-8"> <div class="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[var(--text-muted)]"> <time datetime="2024-11-19T00:00:00.000Z">2024-11-19</time> <span aria-hidden="true">·</span> <span>9 min read</span> </div> <h1 class="text-3xl font-bold leading-tight tracking-tight text-[var(--text)] md:text-4xl lg:text-[2.75rem] lg:leading-[1.15]"> 双血输入函数动态 PET：肝炎与肺癌诊断中的定量建模方法 </h1> <p class="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--text-secondary)]">DBIF 动态 PET 在肝脏炎症与肺肿瘤药代动力学建模中的概念、方法与临床意义。</p> <div class="mt-5 flex flex-wrap gap-2"> <a href="/notes/tags/research/" class="tag-chip">research</a><a href="/notes/tags/pet/" class="tag-chip">pet</a> </div> </header> <details class="toc-mobile glass-panel mb-8 rounded-xl border border-[var(--border)] lg:hidden"><summary class="cursor-pointer px-4 py-3 text-sm font-semibold text-[var(--text)]">
+On this page
+</summary><nav class="border-t border-[var(--border)] px-4 py-3"><ul class="space-y-2 text-sm"><li style="padding-left: 0px"><a href="#引言为什么需要双血输入函数" class="text-[var(--text-muted)] hover:text-primary">引言：为什么需要双血输入函数</a></li><li style="padding-left: 0px"><a href="#肝脏场景双血供使-sbif-不够充分" class="text-[var(--text-muted)] hover:text-primary">肝脏场景：双血供使 SBIF 不够充分</a></li><li style="padding-left: 0px"><a href="#肺部场景肿瘤血供改变让-dbif-更有意义" class="text-[var(--text-muted)] hover:text-primary">肺部场景：肿瘤血供改变让 DBIF 更有意义</a></li><li style="padding-left: 0px"><a href="#18f-fdg-与动态-pet从亮不亮到为什么亮" class="text-[var(--text-muted)] hover:text-primary">18F-FDG 与动态 PET：从“亮不亮”到“为什么亮”</a></li><li style="padding-left: 0px"><a href="#药代动力学参数的解释" class="text-[var(--text-muted)] hover:text-primary">药代动力学参数的解释</a></li><li style="padding-left: 0px"><a href="#肝炎-dbif-模型优化推导的输入函数提高参数可信度" class="text-[var(--text-muted)] hover:text-primary">肝炎 DBIF 模型：优化推导的输入函数提高参数可信度</a></li><li style="padding-left: 0px"><a href="#肺肿瘤-dbif-模型总身动态-pet-带来高时间分辨率" class="text-[var(--text-muted)] hover:text-primary">肺肿瘤 DBIF 模型：总身动态 PET 带来高时间分辨率</a></li><li style="padding-left: 0px"><a href="#临床意义与局限" class="text-[var(--text-muted)] hover:text-primary">临床意义与局限</a></li><li style="padding-left: 12px"><a href="#局限与未来方向" class="text-[var(--text-muted)] hover:text-primary">局限与未来方向</a></li><li style="padding-left: 0px"><a href="#结论" class="text-[var(--text-muted)] hover:text-primary">结论</a></li><li style="padding-left: 0px"><a href="#参考文献" class="text-[var(--text-muted)] hover:text-primary">参考文献</a></li></ul></nav></details> <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_220px]"> <div class="prose-note min-w-0"> <p>根据《QP Pre ppt》整理 | Zerong SUN, Qi WANG | 2024-11-19</p>
+<p><strong>摘要：</strong> 本文基于原 PPT 内容整理双血输入函数（DBIF）动态 PET 的核心概念、建模逻辑与应用价值。文章重点讨论 18F-FDG PET 在肝脏炎症和肺肿瘤中的药代动力学建模，说明为什么单血输入函数在双血供器官中可能不足，以及 DBIF 如何提高参数估计、疾病分级和组织区分的可靠性。</p>
+<h2 id="引言为什么需要双血输入函数">引言：为什么需要双血输入函数</h2>
+<p>18F-FDG PET 能通过葡萄糖代谢活性反映炎症和肿瘤等病理过程，但传统静态 SUV 或单血输入函数模型往往把复杂血供简化为一个输入源。对于肝脏和肺部，这种简化尤其容易造成偏差：肝脏同时接受肝动脉和门静脉供血；肺部病灶则处在肺循环与支气管循环共同影响下。双血输入函数（dual-blood input function, DBIF）的核心价值，正是在动态 PET 与药代动力学模型中显式区分不同血源，使示踪剂进入组织的过程更接近真实生理。</p>
+<h2 id="肝脏场景双血供使-sbif-不够充分">肝脏场景：双血供使 SBIF 不够充分</h2>
+<p>肝脏约四分之三血流来自门静脉，约四分之一来自肝动脉。非酒精性脂肪性肝病（NAFLD）已成为全球重要健康问题，系统综述估计其全球患病率约为 25% [1]。在炎症或纤维化评估中，如果只用单血输入函数（SBIF）表示血浆放射性输入，就会忽略门静脉与肝动脉到达时间、浓度曲线和贡献比例的差异。DBIF 模型因此更适合描述肝组织中 18F-FDG 的真实输入过程。</p>
+<p><img src="/assets/notes/dbif-dynamic-pet/image4.png" alt="图1  肝脏双血供示意：肝动脉与门静脉共同决定示踪剂输入。来源：原 PPT 配图。"></p>
+<p>图1  肝脏双血供示意：肝动脉与门静脉共同决定示踪剂输入。来源：原 PPT 配图。</p>
+<h2 id="肺部场景肿瘤血供改变让-dbif-更有意义">肺部场景：肿瘤血供改变让 DBIF 更有意义</h2>
+<p>肺组织具有两套循环系统：肺动脉提供去氧血，支气管动脉提供氧合血。正常肺组织中支气管动脉贡献较小，常可近似忽略；但肺肿瘤发生血管生成后，支气管动脉供血比例可能升高。肺癌仍是全球癌症死亡的首要原因，WHO 报告 2022 年全球约有 250 万新发病例和 180 万死亡 [2]。因此，能够更早、更稳健地区分肿瘤组织与正常肺组织的定量 PET 模型，具有明确的临床意义。</p>
+<p><img src="/assets/notes/dbif-dynamic-pet/image6.png" alt="图2  肺部双循环系统：肺动脉与支气管动脉构成肺部 DBIF 建模基础。来源：原 PPT 配图。"></p>
+<p>图2  肺部双循环系统：肺动脉与支气管动脉构成肺部 DBIF 建模基础。来源：原 PPT 配图。</p>
+<h2 id="18f-fdg-与动态-pet从亮不亮到为什么亮">18F-FDG 与动态 PET：从“亮不亮”到“为什么亮”</h2>
+<p>18F-FDG 是葡萄糖类似物，可通过 GLUT 转运进入细胞，并被己糖激酶磷酸化为 FDG-6-phosphate。由于 FDG-6-phosphate 难以继续参与糖酵解，它会在代谢活跃细胞中滞留，因此炎症细胞和肿瘤细胞常表现为 FDG 摄取升高。动态 PET 不只记录某一时刻的分布，而是连续追踪示踪剂摄取、清除和代谢转化过程；再结合药代动力学模型，就可以估计 K1、k2、k3、k4 和血容量分数 Vb 等参数。</p>
+<p><img src="/assets/notes/dbif-dynamic-pet/image7.png" alt="图3  18F-FDG 分子结构。FDG 的葡萄糖类似物特性使其可用于代谢显像。来源：原 PPT 配图。"></p>
+<p>图3  18F-FDG 分子结构。FDG 的葡萄糖类似物特性使其可用于代谢显像。来源：原 PPT 配图。</p>
+<h2 id="药代动力学参数的解释">药代动力学参数的解释</h2>
+<p>经典两组织室模型把示踪剂状态分为血液中游离 FDG、组织中游离 FDG，以及组织中已磷酸化的 FDG-6P。K1 表示 FDG 从血液进入组织的转运速率；k2 表示从组织回到血液的清除速率；k3 表示磷酸化速率；k4 表示去磷酸化速率；Vb 表示血容量分数。对于肝炎和肿瘤等病变，K1、k3 与 Vb 的改变可能反映血流、转运蛋白活性和代谢活性的综合变化。</p>
+<p><img src="/assets/notes/dbif-dynamic-pet/image18.png" alt="图4  18F-FDG 两组织室模型：血液、组织游离 FDG 与组织 FDG-6P 构成动力学分析框架。来源：原 PPT 配图。"></p>
+<p>图4  18F-FDG 两组织室模型：血液、组织游离 FDG 与组织 FDG-6P 构成动力学分析框架。来源：原 PPT 配图。</p>
+<h2 id="肝炎-dbif-模型优化推导的输入函数提高参数可信度">肝炎 DBIF 模型：优化推导的输入函数提高参数可信度</h2>
+<p>Wang 等在人体肝炎动态 PET 研究中比较了三种模型：使用图像推导单血输入函数的传统模型、基于群体平均的 DBIF 模型，以及通过联合估计框架优化推导 DBIF 的模型 [4]。结果显示，优化推导 DBIF 模型具有更小的 AIC 和更强的 F 检验表现；其估计的 K1 与病理炎症分级显著相关，而其他模型未达到同样的统计显著性。Zuo 等进一步从结构和实际可辨识性角度分析了肝脏双输入建模，提示模型参数能否稳定估计本身就是临床转化前必须回答的问题 [3]。</p>
+<p><img src="/assets/notes/dbif-dynamic-pet/image19.jpeg" alt="图5  肝脏双血输入模型框架：将动脉输入和门静脉输入合并为组织输入函数。来源：原 PPT 配图，参见文献 [3,4]。"></p>
+<p>图5  肝脏双血输入模型框架：将动脉输入和门静脉输入合并为组织输入函数。来源：原 PPT 配图，参见文献 [3,4]。</p>
+<h2 id="肺肿瘤-dbif-模型总身动态-pet-带来高时间分辨率">肺肿瘤 DBIF 模型：总身动态 PET 带来高时间分辨率</h2>
+<p>在肺肿瘤研究中，Wang 等利用总身动态 PET 的高时间分辨率，将右心室输入近似为肺动脉输入，将左心室输入近似为支气管动脉输入，并建立包含时间延迟、血容量分数和支气管动脉贡献比例的 DBIF 模型 [5]。研究显示，DBIF 在区分肺组织与肺肿瘤方面更稳健；模型估计的支气管动脉贡献也更接近文献参考值。换言之，DBIF 不只是拟合曲线更漂亮，而是把肿瘤血供改变这一生理事实纳入了定量参数。</p>
+<p><img src="/assets/notes/dbif-dynamic-pet/image27.jpeg" alt="图6  肺肿瘤 DBIF 模型：右心室/左心室输入分别近似肺动脉与支气管动脉输入。来源：原 PPT 配图，参见文献 [5]。"></p>
+<p>图6  肺肿瘤 DBIF 模型：右心室/左心室输入分别近似肺动脉与支气管动脉输入。来源：原 PPT 配图，参见文献 [5]。</p>
+<p><img src="/assets/notes/dbif-dynamic-pet/image36.jpeg" alt="图7  肺部模型比较结果示例：DBIF 用于提高肿瘤与正常肺组织区分性能。来源：原 PPT 配图，参见文献 [5]。"></p>
+<p>图7  肺部模型比较结果示例：DBIF 用于提高肿瘤与正常肺组织区分性能。来源：原 PPT 配图，参见文献 [5]。</p>
+<h2 id="临床意义与局限">临床意义与局限</h2>
+<p>DBIF 动态 PET 的意义可以概括为三点。第一，它提升了示踪剂动力学参数的精确性，使 K1、Ki、Vb 等指标更具有生理解释力。第二，它支持个体化评估，因为不同患者的血流比例、输入延迟和组织代谢状态可能不同。第三，它可能为炎症分级和肿瘤评估提供非侵入性补充，减少单纯依赖活检或静态影像的局限。与此同时，该技术仍面临样本量较小、PET 空间分辨率有限、病理与影像空间配准困难、模型复杂度增加等问题。未来需要更大规模验证、高分辨率 PET 技术、病理-影像精确配准，以及面向具体疾病机制的模型优化。</p>
+<p><img src="/assets/notes/dbif-dynamic-pet/image42.png" alt="图8  肺肿瘤 DBIF 参数统计表。来源：原 PPT 配图，参见文献 [5]。"></p>
+<p>图8  肺肿瘤 DBIF 参数统计表。来源：原 PPT 配图，参见文献 [5]。</p>
+<h3 id="局限与未来方向">局限与未来方向</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>当前局限</th><th>未来方向</th></tr></thead><tbody><tr><td>样本量较小</td><td>开展多中心、大样本验证研究</td></tr><tr><td>PET 空间分辨率有限</td><td>应用高分辨率 PET 与总身动态 PET 技术</td></tr><tr><td>病理与影像空间配准困难</td><td>建立更精确的病理-影像配准流程</td></tr><tr><td>模型参数更多、估计更复杂</td><td>优化模型约束并探索更明确的生理机制</td></tr></tbody></table>
+<h2 id="结论">结论</h2>
+<p>双血输入函数动态 PET 将“器官和肿瘤真实接受哪几路血供”这一生理问题放回成像模型之中。对于肝炎，它能更合理地处理肝动脉与门静脉输入；对于肺肿瘤，它能刻画肺动脉和支气管动脉共同作用下的示踪剂动力学。现有研究表明，DBIF 可提升模型拟合质量、参数可解释性和组织区分能力。随着总身 PET、高时间分辨率采集和更稳健的参数估计方法发展，DBIF 有望成为炎症与肿瘤定量 PET 诊断中的重要技术路线。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>[1] Younossi, Z. M., et al. (2016). Global epidemiology of nonalcoholic fatty liver disease: Meta-analytic assessment of prevalence, incidence, and outcomes. Hepatology, 64(1), 73-84. <a href="https://doi.org/10.1002/hep.28431">https://doi.org/10.1002/hep.28431</a></p>
+<p>[2] World Health Organization. (2025). Lung cancer fact sheet. <a href="https://www.who.int/news-room/fact-sheets/detail/lung-cancer">https://www.who.int/news-room/fact-sheets/detail/lung-cancer</a></p>
+<p>[3] Zuo, Y., Sarkar, S., Corwin, M. T., Olson, K., Badawi, R. D., &#x26; Wang, G. (2019). Structural and practical identifiability of dual-input kinetic modeling in dynamic PET of liver inflammation. Physics in Medicine and Biology, 64(17), 175023. <a href="https://doi.org/10.1088/1361-6560/ab1f29">https://doi.org/10.1088/1361-6560/ab1f29</a></p>
+<p>[4] Wang, G., Corwin, M. T., Olson, K. A., Badawi, R. D., &#x26; Sarkar, S. (2018). Dynamic PET of human liver inflammation: Impact of kinetic modeling with optimization-derived dual-blood input function. Physics in Medicine and Biology, 63(15), 155004. <a href="https://doi.org/10.1088/1361-6560/aac8cb">https://doi.org/10.1088/1361-6560/aac8cb</a></p>
+<p>[5] Wang, Y., Abdelhafez, Y. G., Spencer, B. A., et al. (2024). High-temporal-resolution kinetic modeling of lung tumors with dual-blood input function using total-body dynamic PET. Journal of Nuclear Medicine, 65(5), 714-721. <a href="https://doi.org/10.2967/jnumed.123.267036">https://doi.org/10.2967/jnumed.123.267036</a></p> </div> <aside class="hidden lg:block"><nav class="sticky top-24 glass-panel rounded-xl border border-[var(--border)] p-4"><p class="mb-3 text-sm font-semibold text-[var(--text)]">On this page</p><ul class="toc-list space-y-1.5 text-sm"><li class="toc-item" data-slug="引言为什么需要双血输入函数"><a href="#引言为什么需要双血输入函数" class="toc-link block py-0.5 text-[var(--text-muted)] hover:text-primary">引言：为什么需要双血输入函数</a></li><li class="toc-item" data-slug="肝脏场景双血供使-sbif-不够充分"><a href="#肝脏场景双血供使-sbif-不够充分" class="toc-link block py-0.5 text-[var(--text-muted)] hover:text-primary">肝脏场景：双血供使 SBIF 不够充分</a></li><li class="toc-item" data-slug="肺部场景肿瘤血供改变让-dbif-更有意义"><a href="#肺部场景肿瘤血供改变让-dbif-更有意义" class="toc-link block py-0.5 text-[var(--text-muted)] hover:text-primary">肺部场景：肿瘤血供改变让 DBIF 更有意义</a></li><li class="toc-item" data-slug="18f-fdg-与动态-pet从亮不亮到为什么亮"><a href="#18f-fdg-与动态-pet从亮不亮到为什么亮" class="toc-link block py-0.5 text-[var(--text-muted)] hover:text-primary">18F-FDG 与动态 PET：从“亮不亮”到“为什么亮”</a></li><li class="toc-item" data-slug="药代动力学参数的解释"><a href="#药代动力学参数的解释" class="toc-link block py-0.5 text-[var(--text-muted)] hover:text-primary">药代动力学参数的解释</a></li><li class="toc-item" data-slug="肝炎-dbif-模型优化推导的输入函数提高参数可信度"><a href="#肝炎-dbif-模型优化推导的输入函数提高参数可信度" class="toc-link block py-0.5 text-[var(--text-muted)] hover:text-primary">肝炎 DBIF 模型：优化推导的输入函数提高参数可信度</a></li><li class="toc-item" data-slug="肺肿瘤-dbif-模型总身动态-pet-带来高时间分辨率"><a href="#肺肿瘤-dbif-模型总身动态-pet-带来高时间分辨率" class="toc-link block py-0.5 text-[var(--text-muted)] hover:text-primary">肺肿瘤 DBIF 模型：总身动态 PET 带来高时间分辨率</a></li><li class="toc-item" data-slug="临床意义与局限"><a href="#临床意义与局限" class="toc-link block py-0.5 text-[var(--text-muted)] hover:text-primary">临床意义与局限</a></li><li class="toc-item toc-item--sub" data-slug="局限与未来方向"><a href="#局限与未来方向" class="toc-link block py-0.5 text-[var(--text-muted)] hover:text-primary">局限与未来方向</a></li><li class="toc-item" data-slug="结论"><a href="#结论" class="toc-link block py-0.5 text-[var(--text-muted)] hover:text-primary">结论</a></li><li class="toc-item" data-slug="参考文献"><a href="#参考文献" class="toc-link block py-0.5 text-[var(--text-muted)] hover:text-primary">参考文献</a></li></ul></nav></aside><script type="module">const r=document.querySelectorAll(".toc-link"),s=[...document.querySelectorAll(".prose-note h2, .prose-note h3")];if(r.length&&s.length){const n=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting){const c=t.target.id;r.forEach(o=>{o.classList.toggle("is-active",o.getAttribute("href")===`#${c}`)})}})},{rootMargin:"-80px 0px -70% 0px",threshold:0});s.forEach(e=>n.observe(e))}</script> </div> <nav class="mt-12 grid gap-4 border-t border-[var(--border)] pt-8 sm:grid-cols-2" aria-label="Article navigation"><a href="/notes/2024-06-04-ion-memristor-reservoir-computing-notes/" class="article-nav-link group rounded-xl border border-[var(--border)] p-4 transition hover:border-primary"><span class="text-xs font-medium uppercase tracking-wide text-[var(--text-muted)]">Previous</span><span class="mt-1 block font-medium text-[var(--text)] group-hover:text-primary">Reservoir Computing Networks in Ion Memristor Devices</span></a><a href="/notes/2024-12-04-fall-of-france-1940/" class="article-nav-link group rounded-xl border border-[var(--border)] p-4 transition hover:border-primary sm:col-start-2 sm:text-right"><span class="text-xs font-medium uppercase tracking-wide text-[var(--text-muted)]">Next</span><span class="mt-1 block font-medium text-[var(--text)] group-hover:text-primary">Why France Fell So Quickly in 1940</span></a></nav> </article> </div>  </main> <footer class="mt-16 border-t border-[var(--border)] py-8" style="background: var(--footer-bg);"> <div class="mx-auto max-w-content px-4 text-center text-sm text-[var(--text-muted)] md:px-6"> <p>
+© 2026 Zerong Sun · 26 notes
+</p> <p class="mt-2" id="runtime"></p> </div> </footer> <script>(function(){const startMs = 1660736714000;
+
+  const el = document.getElementById('runtime');
+  if (el) {
+    const days = Math.floor((Date.now() - startMs) / 86400000);
+    el.textContent = `Running ${days} days since Aug 17, 2022`;
+  }
+})();</script> <button id="theme-toggle" type="button" class="fixed bottom-6 right-6 z-50 rounded-full border border-[var(--border)] bg-[var(--panel-bg)] p-3 shadow-lg backdrop-blur transition hover:bg-primary hover:text-white" aria-label="Toggle theme"> <span class="theme-icon-dark hidden dark:inline">☀️</span> <span class="theme-icon-light dark:hidden">🌙</span> </button> <script type="module">const e=document.documentElement,t="notes-theme",o=localStorage.getItem(t);o==="light"?e.classList.remove("dark"):(e.classList.add("dark"),o||localStorage.setItem(t,"dark"));document.getElementById("theme-toggle")?.addEventListener("click",()=>{const s=e.classList.toggle("dark")?"dark":"light";localStorage.setItem(t,s)});</script> </body></html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Review of reservoir computing with ionic memristors—fundamentals, MRC, and applications."><meta property="og:title" content="Ionic Memristor-based Reservoir Computing: A Review · Zerong' Notes"><meta property="og:description" content="Review of reservoir computing with ionic memristors—fundamentals, MRC, and applications."><meta property="og:image" content="/images/covers/2024-06-04-ionic-memristor-reservoir-computing-review.jpg"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"><title>Ionic Memristor-based Reservoir Computing: A Review · Zerong&#39; Notes</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CDGfc0hd.js"></script><link rel="stylesheet" href="/_astro/about.DQDZ8i_P.css"></head> <body id="top" class="page-grain min-h-screen flex flex-col"> <header class="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur-sm border-b-2 border-ink/10"> <div class="container-page flex items-center justify-between h-[var(--nav-height)] gap-3"> <a href="/" class="group flex flex-col leading-tight shrink-0 min-w-0"> <span class="font-display text-lg md:text-2xl font-semibold text-ink group-hover:hand-underline truncate"> Zerong&#39; Notes </span> <span class="font-ui text-[10px] md:text-[11px] tracking-widest uppercase text-ink-muted truncate"> 孙泽荣 </span> </a> <nav class="hidden lg:flex items-center gap-1 flex-wrap justify-end" aria-label="导航"> <a href="/" class="sign-nav-item sign-nav-item--brick"> <span class="sign-arrow" aria-hidden="true">▸</span> 首页 <span class="nav-underline" aria-hidden="true"></span> </a><a href="/notes/category/food/" class="sign-nav-item sign-nav-item--sky"> <span class="sign-arrow" aria-hidden="true">▸</span> 美食 <span class="nav-underline" aria-hidden="true"></span> </a><a href="/notes/category/travel/" class="sign-nav-item sign-nav-item--moss"> <span class="sign-arrow" aria-hidden="true">▸</span> 旅行 <span class="nav-underline" aria-hidden="true"></span> </a><a href="/notes/category/cooking/" class="sign-nav-item sign-nav-item--mustard"> <span class="sign-arrow" aria-hidden="true">▸</span> 做饭 <span class="nav-underline" aria-hidden="true"></span> </a><a href="/notes/category/essay/" class="sign-nav-item sign-nav-item--lilac"> <span class="sign-arrow" aria-hidden="true">▸</span> 随笔 <span class="nav-underline" aria-hidden="true"></span> </a><a href="/about/" class="sign-nav-item sign-nav-item--teal"> <span class="sign-arrow" aria-hidden="true">▸</span> 关于我 <span class="nav-underline" aria-hidden="true"></span> </a> <a href="/en/notes/2024-06-04-ionic-memristor-reservoir-computing-review/" class="inline-flex items-center justify-center min-w-[2.5rem] px-2 py-1 font-ui text-xs font-bold border-2 border-ink rounded-small bg-paper hover:bg-board transition-colors ml-2" aria-label="Switch to English"> EN </a> </nav> <div class="flex items-center gap-2 lg:hidden"> <a href="/en/notes/2024-06-04-ionic-memristor-reservoir-computing-review/" class="inline-flex items-center justify-center min-w-[2.5rem] px-2 py-1 font-ui text-xs font-bold border-2 border-ink rounded-small bg-paper hover:bg-board transition-colors" aria-label="Switch to English"> EN </a> <button type="button" class="sign-btn sign-btn--mustard !py-2 !px-3 !text-sm" id="menu-toggle" aria-expanded="false" aria-controls="mobile-drawer"> 菜单 <span class="btn-arrow" aria-hidden="true">☰</span> </button> </div> </div> </header> <div id="mobile-drawer" class="fixed inset-0 z-[60] hidden" aria-hidden="true"> <div class="drawer-backdrop absolute inset-0 bg-forest/50" data-drawer-close></div> <aside class="drawer-panel absolute right-0 top-0 h-full w-[min(100%,320px)] bg-board border-l-4 border-ink p-6 flex flex-col gap-4 shadow-card" role="dialog" aria-label="导航"> <div class="flex items-center justify-between"> <span class="font-ui text-sm font-bold uppercase tracking-wider text-ink-muted">导航</span> <button type="button" class="metal-plate" data-drawer-close aria-label="关闭">关闭</button> </div> <nav class="flex flex-col gap-3 mt-4"> <a href="/" class="sign-nav-item w-full justify-center sign-nav-item--brick" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 首页 </a><a href="/notes/category/food/" class="sign-nav-item w-full justify-center sign-nav-item--sky" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 美食 </a><a href="/notes/category/travel/" class="sign-nav-item w-full justify-center sign-nav-item--moss" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 旅行 </a><a href="/notes/category/cooking/" class="sign-nav-item w-full justify-center sign-nav-item--mustard" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 做饭 </a><a href="/notes/category/essay/" class="sign-nav-item w-full justify-center sign-nav-item--lilac" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 随笔 </a><a href="/about/" class="sign-nav-item w-full justify-center sign-nav-item--teal" data-drawer-close> <span class="sign-arrow" aria-hidden="true">▸</span> 关于我 </a> </nav> </aside> </div> <script type="module">function a(){const t=document.getElementById("menu-toggle"),e=document.getElementById("mobile-drawer");if(!t||!e)return;const r=()=>{e.classList.remove("hidden"),e.setAttribute("aria-hidden","false"),t.setAttribute("aria-expanded","true"),document.body.style.overflow="hidden"},n=()=>{e.classList.add("hidden"),e.setAttribute("aria-hidden","true"),t.setAttribute("aria-expanded","false"),document.body.style.overflow=""};t.onclick=()=>{t.getAttribute("aria-expanded")==="true"?n():r()},e.querySelectorAll("[data-drawer-close]").forEach(d=>{d.addEventListener("click",n)}),document.addEventListener("keydown",d=>{d.key==="Escape"&&n()})}a();document.addEventListener("astro:page-load",a);</script> <main class="flex-1 pt-[var(--nav-height)]">  <article class="pb-16"> <header class="container-page pt-10 pb-8 max-w-wide"> <div class="max-w-article" data-assemble> <div class="mb-4"><a href="/notes/tags/research/" class="inline-flex items-center font-ui font-semibold border-2 border-ink rounded-small transition-transform hover:-translate-y-0.5 text-xs px-2.5 py-1 bg-brick text-white">research</a></div> <h1 class="heading-xl mb-4">Ionic Memristor-based Reservoir Computing: A Review</h1> <p class="text-lg text-ink-muted leading-relaxed mb-5">Review of reservoir computing with ionic memristors—fundamentals, MRC, and applications.</p> <div class="flex flex-wrap items-center gap-2"> <span class="metal-plate">2024.06.04</span>  <span class="font-ui text-xs text-ink-muted">75 分钟阅读</span> </div> </div> <figure class="img-framed mt-8 max-w-wide mx-auto" data-assemble data-delay="2"> <img src="/images/covers/2024-06-04-ionic-memristor-reservoir-computing-review.jpg" alt="" class="w-full aspect-[3/2] object-cover"> <figcaption class="img-caption px-2 flex flex-wrap gap-3 justify-between"> <span></span> <span>2024.06.04</span> </figcaption> </figure> </header> <div class="container-page"> <div class="grid lg:grid-cols-[minmax(170px,200px)_minmax(0,860px)_minmax(110px,130px)] gap-6 justify-center"> <aside class="article-toc article-toc--sidebar hidden lg:block"><nav class="article-toc__nav border-2 border-ink bg-paper rounded-small p-3" aria-label="目录"><p class="font-ui text-[11px] uppercase tracking-wider font-bold text-ink mb-3">目录</p><ul class="article-toc__list"><li class="article-toc__item"><a href="#abstract" class="article-toc__link" data-toc-link>Abstract</a></li><li class="article-toc__item"><a href="#introduction" class="article-toc__link" data-toc-link>Introduction</a></li><li class="article-toc__item"><a href="#reservoir-computing" class="article-toc__link" data-toc-link>Reservoir Computing</a></li><li class="article-toc__item"><a href="#memristor-based-reservoir-computing-mrc" class="article-toc__link" data-toc-link>Memristor-based Reservoir Computing (MRC)</a></li><li class="article-toc__item"><a href="#system-implementation-and-performance" class="article-toc__link" data-toc-link>System Implementation and Performance</a></li><li class="article-toc__item"><a href="#discussion-and-conclusion" class="article-toc__link" data-toc-link>Discussion and Conclusion</a></li><li class="article-toc__item"><a href="#references" class="article-toc__link" data-toc-link>References</a></li></ul></nav></aside><script type="module">function c(){const o=document.querySelectorAll("[data-toc-link]"),i=[...document.querySelectorAll(".article-body h2[id], .article-body h3[id]")];if(!o.length||!i.length)return;const r=t=>{o.forEach(e=>{e.classList.toggle("is-active",e.getAttribute("href")===`#${t}`)})},s=new IntersectionObserver(t=>{const e=t.filter(n=>n.isIntersecting).sort((n,l)=>n.boundingClientRect.top-l.boundingClientRect.top);e.length>0&&r(e[0].target.id)},{rootMargin:"-88px 0px -70% 0px",threshold:0});i.forEach(t=>s.observe(t)),r(i[0].id)}c();document.addEventListener("astro:page-load",c);</script> <div class="min-w-0"> <details class="article-toc article-toc--mobile lg:hidden mb-8 border-2 border-ink bg-paper rounded-small"><summary class="cursor-pointer px-4 py-3 font-ui text-sm font-bold text-ink">目录</summary><nav class="border-t-2 border-ink px-3 py-3" aria-label="目录"><ul class="article-toc__list"><li class="article-toc__item"><a href="#abstract" class="article-toc__link" data-toc-link>Abstract</a></li><li class="article-toc__item"><a href="#introduction" class="article-toc__link" data-toc-link>Introduction</a></li><li class="article-toc__item"><a href="#reservoir-computing" class="article-toc__link" data-toc-link>Reservoir Computing</a></li><li class="article-toc__item"><a href="#memristor-based-reservoir-computing-mrc" class="article-toc__link" data-toc-link>Memristor-based Reservoir Computing (MRC)</a></li><li class="article-toc__item"><a href="#system-implementation-and-performance" class="article-toc__link" data-toc-link>System Implementation and Performance</a></li><li class="article-toc__item"><a href="#discussion-and-conclusion" class="article-toc__link" data-toc-link>Discussion and Conclusion</a></li><li class="article-toc__item"><a href="#references" class="article-toc__link" data-toc-link>References</a></li></ul></nav></details> <div class="article-body prose min-w-0"> <h2 id="abstract">Abstract</h2>
+<p>Reservoir Computing (RC) has emerged as a robust computational paradigm,
+particularly effective for processing temporal or sequential
+data [1].
+Leveraging the dynamics of recurrent neural networks, RC simplifies the
+learning process, making it suitable for edge computing
+[2] and real-time
+applications for various material systems
+[3]
+[4]
+[5]
+[6]. Recent
+advancements have seen the integration of memristor technology into RC,
+with Ionic Memristor-based Reservoir Computing (Ionic MRC) standing out
+due to its unique properties in biocompatibility. This review delves
+into the fundamentals of RC, the evolution and advantages of
+memristor-based RC, and the significant potential of Ionic MRC in
+various applications.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Neuromorphic devices, inspired by the architecture and functionality of
+the human brain, represent a significant shift from traditional von
+Neumann computing architectures. In von Neumann systems, data storage
+and processing occur separately, leading to inefficiencies in real-time
+processing, especially for large datasets. Neuromorphic systems, in
+contrast, offer real-time processing capabilities, low power
+consumption, and the ability to handle large data sizes efficiently.</p>
+<p>Neuromorphic devices encompass a diverse range of hardware platforms,
+such as organoids
+[7],
+memcapacitors [8]
+, photonic modules
+[9]
+[10]
+[11] ,
+silicon-based hardware
+[12] and emerging
+memory devices
+[13]
+[14]
+[15]. Organoids,
+formed from stem cells, replicate essential features of brain
+architecture and function. These miniaturized brain-like structures
+facilitate the creation of “Brainoware,” which performs computation by
+mimicking neuronal network dynamics through the organization of neurons
+and synaptic connections
+[7].
+Memcapacitors integrate memory and capacitance properties, enabling the
+emulation of synaptic plasticity and the storage of information through
+dynamic electrical characteristics
+[8]. Photonic
+modules utilize light for computation, offering high-speed data
+processing capabilities with low power consumption, exploiting the
+parallelism and bandwidth of optical signals for complex tasks
+[9]
+[10]
+[11].
+Silicon-based hardware, compatible with complementary
+metal–oxide–semiconductor (CMOS) technology, requires complex designs
+involving multiple devices to emulate neuronal functions, resulting in
+increased design complexity and energy consumption
+[12]. In
+contrast, emerging memory devices like memristors offer a more efficient
+alternative by allowing information storage and processing within a
+single device
+[16]
+[17]. This
+capability enables the simulation of complex neural processes like
+multi-level responses, dendritic integration, and event-based data
+processing, mimicking the dynamic characteristics of biological synapses
+[18].</p>
+<p>Ionic neuromorphic devices are particularly promising for mimicking the
+sensory and computational systems of living organisms, which rely on ion
+activity [16].
+Ionic neuromorphic devices leverage ionic transport mechanisms to
+perform functions similar to synapses and neurons. Ionic devices can be
+classified into two main types: two-terminal devices, such as ion
+memristors, and three-terminal devices like electrolyte-gated
+transistors (EGTs)
+[19]. Ion
+memristors, for instance, utilize redox processes to modulate
+resistance, enabling them to mimic synaptic plasticity. In these
+devices, the migration of metal ions under an electric field can create
+or dissolve conductive filaments, altering the device’s resistance state
+[20]. This
+characteristic allows them to emulate both short-term and long-term
+plasticity found in biological systems. Three-terminal devices, like
+EGTs, offer more precise control over conductivity modulation through an
+external gate terminal
+[20]. These
+devices can form highly interconnected neural networks, crucial for
+implementing complex neuromorphic systems. Moreover, the separation of
+input and output paths in these devices reduces interference, enhancing
+the design of multi-input systems.</p>
+<p>A significant aspect of neuromorphic computing, including the use of
+ionic neuromorphic devices, is the adoption of Reservoir Computing (RC).
+RC is a powerful computational paradigm that simplifies the learning
+process by utilizing a dynamic reservoir to transform inputs into
+high-dimensional representations. This method is especially advantageous
+in addressing challenges like catastrophic forgetting, where new data
+interferes with previously learned information in traditional neural
+networks [21].
+RC’s architecture, which leverages a fixed, randomly interconnected
+network (the reservoir), is particularly well-suited for physical
+implementations, including memristor and ionic-based devices.</p>
+<p>For ionic neuromorphic devices, the RC approach is not only well-matched
+but also one of the most feasible methods to implement. The non-linear
+and memory-retentive properties of ionic devices make them ideal
+candidates for creating reservoirs that can efficiently handle temporal
+data and complex signal processing tasks. This synergy enhances the
+potential of ionic memristor-based RC systems to revolutionize
+neuromorphic computing, offering new pathways for the development of
+efficient, adaptive, and scalable computational architectures. Ionic
+memristor-based RC has become a valuable tool to handle temporal signal
+processing [8]
+[14], motion
+recognition [8]
+[22] and
+analyzing nonlinear dynamics or chaotic systems
+[8,15].</p>
+<h2 id="reservoir-computing">Reservoir Computing</h2>
+<p>Reservoir Computing (RC) simplifies Recurrent Neural Networks (RNNs) by
+utilizing a fixed, randomly interconnected network, termed the
+reservoir. The reservoir acts as a dynamic processor for input signals,
+projecting them into a high-dimensional space where temporal patterns
+are easier to analyze. This approach simplifies training to adjusting
+the readout weights, which linearly transform the reservoir’s state into
+the desired output. RC has demonstrated substantial reductions in the
+computational cost of learning, making it a promising solution for
+developing edge devices for temporal pattern classification, prediction,
+and
+generation[23].</p>
+<p>RC is derived from the principles of Recurrent Neural Networks (RNNs),
+independently conceptualized through Echo State Networks (ESN) by Jaeger
+[1]
+[24] and Liquid
+State Machines (LSM) by Maass
+[25]. The Echo
+State Network (ESN), which represents a generalization of the RC
+framework to tree-structured data, is characterized by their ‘echo
+state’ property, which ensures that the network state is uniquely
+determined by past inputs, making them powerful tools for modeling
+memory in time series
+[24]. The Liquid
+State Machine (LSM), which employs spiking neurons to create a liquid or
+reservoir, is particularly adept at processing time-varying patterns,
+due to its ability to preserve the temporal structure of the inputs
+within the high-dimensional state space of the reservoir
+[25].</p>
+<p><img src="/assets/notes/ionic-memristor-rc/image1.png" alt="Principle of Reservoir Computing"></p>
+<p><em>Figure 1. Principle of Reservoir Computing [26]</em></p>
+<p>The foundational models utilize a non-linear, high-dimensional system
+and simplify the computational process to primarily train a simple
+readout layer to interpret the reservoir’s state for output generation.
+Here we take ESNs as an example.</p>
+<p>ESNs are a prominent implementation of RC, characterized by their
+ability to maintain the “echo” of input signals through their dynamic
+reservoir states. The architecture of an ESN comprises three main
+components. Input Layer receives external input signals and maps them
+into the reservoir. The input weight matrix ($W_{in}$)
+determines the influence of the input signals on the reservoir
+states. The reservoir layer is a high-dimensional, dynamic system of
+recurrently connected nodes. These nodes interact in a non-linear
+fashion, creating a rich set of dynamics that transform the input
+signals into a higher-dimensional space. The internal connections are
+defined by the recurrent weight matrix ($W$). The output layer
+produces the desired output by linearly combining the states of the
+reservoir nodes. The output weights ($W_{out}$) are the only
+parameters adjusted during training, simplifying the learning process.</p>
+<p>The state of the reservoir is updated at each time step according to the
+following state update equation:</p>
+<p>$$
+x(n + 1) = f(W_{in}u(n + 1) + Wx(n) + W_{back}y(n))
+$$</p>
+<p>where:</p>
+<ul>
+<li>$x(n)$ is the state vector of the reservoir at time step $n$.</li>
+<li>$u(n)$ is the input vector at time step $n$.</li>
+<li>$W_{in}$ is the input weight matrix.</li>
+<li>$W$ is the recurrent weight matrix of the reservoir.</li>
+<li>$W_{back}$ is the feedback weight matrix, if output feedback is used.</li>
+<li>$f$ is the activation function, typically a sigmoid or hyperbolic tangent.</li>
+</ul>
+<p>The output of the ESN is computed as:</p>
+<p>$$
+y(n + 1) = f_{out}(W_{out}[u(n + 1), x(n + 1), y(n)])
+$$</p>
+<p>where:</p>
+<ul>
+<li>$y(n + 1)$ is the output vector at time step $n + 1$.</li>
+<li>$W_{out}$is the output weight matrix.</li>
+<li>$f_{out}$ is the output activation function.</li>
+</ul>
+<p>The output layer uses the current input, the updated reservoir state,
+and optionally, the previous output to generate the new output.</p>
+<p>The echo state property ensures that the reservoir’s state is uniquely
+determined by the input history, meaning that the influence of initial
+conditions vanishes over time. Formally, for a network with no output
+feedback: $x(n) = E(u(n), u(n - 1), \ldots)$, where $E$ is a function
+mapping the input history to the reservoir state. This property is
+crucial for the stability and predictability of the ESN. Training an ESN
+involves adjusting only the output weights ($W_{out}$) through a
+linear regression task to minimize the error between the predicted
+outputs and the actual target outputs. The objective function for
+training is $\min_{W_{out}}\sum_n (y_{teach}(n) - y(n))^2$, where $y_{teach}(n)$ is the target output at time step $n$.</p>
+<p>The field of RC has evolved over time to include various forms such as
+3D-integrated multilayered physical reservoir array, Deep Reservoir
+Computing and Quantum Reservoir Computing. Deep Reservoir Computing
+extends the RC framework towards deep learning, drawing inspiration from
+the complex neural pathways found in the brain, enabling hierarchical
+processing of temporal data and exploring the role of layered
+composition in recurrent neural networks
+[27]
+[28]. On the
+other hand, Quantum Reservoir Computing leverages the nonlinear nature
+of quantum mechanical interactions to form reservoirs and represents an
+emerging field that combines machine learning with quantum devices,
+leading to new research in quantum neuromorphic computing
+[29].</p>
+<h2 id="memristor-based-reservoir-computing-mrc">Memristor-based Reservoir Computing (MRC)</h2>
+<p>Memristor-based reservoir computing (MRC) represents an innovative
+extension of the reservoir computing (RC) paradigm by incorporating
+memristors into the reservoir. Memristors, as two-terminal devices with
+resistance that varies based on the history of applied voltage and
+current, are particularly suited for mimicking the synaptic functions
+found in neural networks. This property, combined with their inherent
+non-linearity and memory retention capabilities, makes them ideal for
+constructing high-dimensional dynamic reservoirs crucial for various
+computing applications.</p>
+<p>One of the primary advantages of MRC is its low power consumption while
+maintaining high efficiency in temporal signal processing tasks
+[14]. Unlike
+traditional CMOS-based systems, MRC systems can operate with
+significantly reduced energy requirements, making them ideal for
+battery-powered and energy-efficient devices. For instance, dynamic
+memristors have demonstrated low energy consumption while maintaining
+high efficiency in temporal signal processing tasks
+[14]. In the
+context of increasing emphasis on energy efficiency, the deployment of
+memristors in RC systems offers a sustainable solution for various
+computing applications. Additionally, the non-volatility of some
+memristors allows them to retain their state without continuous power,
+reducing the energy needed for data storage. This feature not only
+conserves energy but also ensures data persistence during power outages
+[30]
+[31], which is
+particularly beneficial for applications requiring reliable long-term
+data retention, such as neuromorphic computing and storage systems
+[32]
+[2].</p>
+<p>Another strength of MRC is its scalability, which is particularly
+advantageous for the development of compact and efficient computing
+systems, which are crucial for modern applications in edge computing and
+the Internet of Things (IoT). These devices can be fabricated at a
+nanoscale, enabling high-density integration and 3D arrays
+[33]. The ability
+to integrate a large number of memristors into a small area without
+compromising functionality is a critical factor in advancing RC
+technologies
+[34].</p>
+<p>To ionic memristors, their biocompatibility and low Young’s modulus
+opens new avenues for integrating these devices into bio-compatible
+systems and medical applications. This feature is particularly promising
+for interfacing electronic devices with biological systems, potentially
+revolutionizing fields such as medical diagnostics and treatment. For
+example, future applications of ionic memristors could use sodium ions,
+potassium ions or calcium ions to contact soft tissues, like neurons or
+muscle cells, to record or control directly by ions but electrical
+stimulation.</p>
+<p>The enhanced dynamic capabilities of ionic memristors make MRC
+particularly suitable for tasks requiring temporal processing.</p>
+<p><strong>Speech Recognition.</strong> MRC systems can significantly improve the
+performance of RC in speech recognition tasks. By leveraging the complex
+dynamics of ionic transport mechanisms, these systems can more
+accurately model and interpret the temporal patterns in spoken language,
+leading to higher accuracy in speech recognition
+applications.[35]
+[6]
+[36]</p>
+<p><strong>Finger Motion Recognition and Handwritten Digit Recognition.</strong> The
+enhanced dynamic behavior of ionic memristors is particularly beneficial
+for recognizing complex finger motions or MNIST images
+[37]
+[37]. By
+accurately modeling the intricate temporal patterns associated with
+finger movements on hand, ionic MRC systems can provide following
+precise and responsive motion recognition, which is critical for
+applications in prosthetics and human-computer interaction
+[18]. The ability
+of Ionic MRC systems to process time-series data effectively also makes
+them suitable for tasks such as handwritten digit recognition. These
+systems can capture and interpret the dynamic patterns in handwritten
+inputs, providing robust and accurate recognition capabilities.</p>
+<p><strong>Biological Signal Monitoring.</strong> The use of ionic memristors in IMRC
+systems presents a promising solution for real-time biosignal monitoring
+and pattern recognition. This has been demonstrated by classifying four
+classes of arrhythmic heartbeats with an accuracy of 88%
+[38] and
+identification of epilepsy-related neural signals with an accuracy of
+93.46% [39]. The
+biocompatible nature of these systems allows for seamless integration
+with body fluids and biological tissues, paving the way for
+ultra-low-power consumption hardware-based artificial neural networks.
+This capability is crucial for early detection of malign patterns in
+patients’ biological signals, which can save millions of lives by
+enabling real-time clinical applications beyond offline evaluations.</p>
+<h2 id="system-implementation-and-performance">System Implementation and Performance</h2>
+<p><img src="/assets/notes/ionic-memristor-rc/image2.png" alt="Classification and implementation of memristor-based reservoir computing systems"></p>
+<p><em>Figure 2. Classification and Implementation of Memristor-based Reservoir Computing Systems. (a) Fully Digital RC Systems. (b) Hybrid RC systems: Sensor-reservoir integrated systems. (c) Hybrid RC systems: Reservoir systems. (d) Hybrid RC systems: Reservoir-output integrated systems. (e) Fully Analog RC Systems.</em></p>
+<p>Following the initial demonstration of memristor-based reservoir
+computing (RC) systems
+[34] various
+implementations of RC systems are broadly categorized into fully
+digital, hybrid, and fully analog designs due to differences in sensory,
+reservoir computational and read-out layers. Sensory and reservoir
+computational layers are able to be combined by ionic devices. Most
+read-out layers are digital processes which are more convenient to
+analyze and store.</p>
+<p>Fully digital RC systems utilize all digital components after
+analogue-to-digital converters, as Fig. 2a. In light of constraints
+associated with large-scale integration and device testing conditions,
+some research initiatives have capitalized on the distinctive response
+curves characteristic of various memristors to parameterize the
+reservoir. By employing simulation techniques, these studies aim to
+validate the capabilities of their devices. This approach is
+instrumental in navigating the limitations posed by physical
+experimentation, thereby offering a viable pathway to assess and
+optimize the performance of memristive components within computing
+systems. These systems are adept at minimizing noise interference, offer
+enhanced operability at input and output interfaces and also facilitate
+the integration with other algorithmic processing methods, thereby
+enabling a synergistic improvement in computational efficiency
+[40].</p>
+<p>Hybrid RC systems are differentiated into three subtypes:
+sensor-reservoir integrated systems, reservoir systems and
+reservoir-output integrated systems.</p>
+<p>Sensor-reservoir integrated systems, as Fig. 2b, according to the unique
+physical properties of the target system, explored the use of sensors
+with memristive properties, facilitating a direct connection between the
+sensor and the reservoir. This approach allows external physical
+(analog) signals to be input directly into the reservoir without
+undergoing the conventional processing and regeneration by sensors,
+thereby streamlining system operations and increasing efficiency
+[41] .</p>
+<p>Reservoir systems, as Fig. 2c, only utilize memristors as reservoir
+layers [14,42],
+providing a straightforward approach to leveraging memristor dynamics.</p>
+<p>In reservoir-output integrated systems, as Fig. 2d, reservoir lawyers and
+output lawyers are combined. Volatile memristors are utilized to
+construct the reservoir layer, capitalizing on their dynamic response to
+electrical stimuli for the real-time processing of signals. In contrast,
+non-volatile memristors are selected for the readout layer, leveraging
+their ability to retain information over time without power, which is
+pivotal for the stable output of processed
+signals[13].</p>
+<p>Fully analog RC systems represent a convergence of sensor, reservoir,
+and output in a singular, as Fig. 2d, unified system, facilitating direct
+signal transmission and processing across the network without the need
+for signal conversion or buffering. This design principle holds the
+promise of executing real-time spatiotemporal signal processing with
+lower power requirements and reduced hardware investment relative to
+digital or hybrid
+systems[43].</p>
+<h2 id="discussion-and-conclusion">Discussion and Conclusion</h2>
+<p>Reservoir computing, originally developed to mitigate the constraints of
+early computational systems, remains a cornerstone in neuromorphic
+computing, particularly when utilizing memristor-based devices. The
+primary appeal of memristor-based Reservoir Computing (MRC) lies in its
+ability to use memristors’ inherent properties—such as non-linearity and
+memory retention—to simulate synaptic functions. However, the
+computational power of these systems is still limited, necessitating the
+use of reservoir computing to manage their capabilities. The readout
+layer, which outputs digital signals, remains a critical area for
+improvement, with advancements in precision largely dependent on the
+development of sophisticated algorithms.</p>
+<p>The unique properties of memristors, including their ability to mimic
+synaptic plasticity, make them valuable for short-term memory functions.
+However, they are not yet capable of complex information processing akin
+to that found in biological systems. The operational characteristics of
+memristors are largely dictated by the materials used, rather than being
+designed by researchers, posing challenges in achieving precise and
+dynamic regulation of the reservoir’s internal nodes.</p>
+<p>Ionic MRC takes this technology a step further by employing ionic
+transport mechanisms. This approach not only enhances dynamic behavior
+but also offers biocompatibility, making it suitable for integration
+into bio-compatible devices and medical applications. However, the
+practical application of ionic signals as direct mediators in biological
+interactions remains limited. The primary issue is the finite number of
+ions, which constrains device longevity and consistency in signal
+interactions. While ionic memristors can control the release of larger
+drug molecules, this function is more regulatory than communicative,
+limiting their application scope.</p>
+<p>Despite these challenges, Ionic MRC presents numerous advantages, such
+as the ability to process sophisticated temporal patterns, making it
+highly effective in applications like speech recognition, predictive
+modeling, and complex signal processing. The simplified fabrication
+process, due to the non-requirement of extensive training for reservoir
+nodes, further enhances its commercial viability.</p>
+<p>In conclusion, ionic MRC represents a significant breakthrough in the
+field of neuromorphic computing. The unique attributes of ionic
+memristors, including biocompatibility and enhanced dynamic responses,
+position them as promising components in a wide range of innovative
+applications. The potential for these systems to revolutionize fields
+such as medical technology and artificial intelligence is substantial,
+as they offer more efficient, adaptable, and integrated computing
+solutions.</p>
+<p>Future research directions will likely focus on addressing current
+challenges, such as ensuring the long-term stability and reliability of
+ionic memristors, managing variability in their electrical properties,
+and developing scalable manufacturing processes. Additionally, exploring
+new material systems and device architectures could further enhance the
+performance of Ionic MRC systems. The biocompatibility of these devices
+opens up new avenues for hybrid bio-electronic systems, potentially
+enabling direct interfacing with living tissues for responsive and
+adaptive medical devices. Moreover, MRC systems show significant
+potential in future applications, including advanced communication
+networks, optical networks, IoT, green data centers, intelligent
+robotics, and AI-driven simulations
+[26].</p>
+<p>Overall, while the technology is still in its developmental stages, the
+potential impact of Ionic MRC on various industries is immense.
+Interdisciplinary collaboration and continued innovation will be crucial
+in overcoming existing limitations and fully realizing the
+transformative potential of this emerging technology.</p>
+<h2 id="references">References</h2>
+<ol>
+<li>
+<p>Jaeger, H.; Haas, H.Harnessing Nonlinearity: Predicting Chaotic Systems and Saving Energy in Wireless Communication. <em>Science</em> <strong>2004</strong>, <em>304</em> (5667), 78–80. <a href="https://doi.org/10.1126/science.1091277">https://doi.org/10.1126/science.1091277</a>.</p>
+</li>
+<li>
+<p>Hossain, M. R.; Najem, J. S.; Rahman, T.; Hasan, M. S. Reservoir Computing System Using Biomolecular Memristor. In <em>2021 IEEE 21st International Conference on Nanotechnology (NANO)</em>; 2021; pp 116–119. <a href="https://doi.org/10.1109/NANO51122.2021.9514305">https://doi.org/10.1109/NANO51122.2021.9514305</a>.</p>
+</li>
+<li>
+<p>Ding, G.; Chen, R.-S.; Xie, P.; Yang, B.; Shang, G.; Liu, Y.; Gao, L.; Mo, W.-A.; Zhou, K.; Han, S.-T.; Zhou, Y. Filament Engineering of Two-Dimensional h-BN for a Self-Power Mechano-Nociceptor System. <em>Small</em> <strong>2022</strong>, <em>18</em> (16), 2200185. <a href="https://doi.org/10.1002/smll.202200185">https://doi.org/10.1002/smll.202200185</a>.</p>
+</li>
+<li>
+<p>Lao, J.; Yan, M.; Tian, B.; Jiang, C.; Luo, C.; Xie, Z.; Zhu, Q.; Bao, Z.; Zhong, N.; Tang, X.; Sun, L.; Wu, G.; Wang, J.; Peng, H.; Chu, J.; Duan, C. Ultralow-Power Machine Vision with Self-Powered Sensor Reservoir. <em>Adv. Sci.</em> <strong>2022</strong>, <em>9</em> (15), 2106092. <a href="https://doi.org/10.1002/advs.202106092">https://doi.org/10.1002/advs.202106092</a>.</p>
+</li>
+<li>
+<p>Sun, L.; Wang, Z.; Jiang, J.; Kim, Y.; Joo, B.; Zheng, S.; Lee, S.; Yu, W. J.; Kong, B.-S.; Yang, H. In-Sensor Reservoir Computing for Language Learning via Two-Dimensional Memristors. <em>Sci. Adv.</em> <strong>2021</strong>, <em>7</em> (20), eabg1455. <a href="https://doi.org/10.1126/sciadv.abg1455">https://doi.org/10.1126/sciadv.abg1455</a>.</p>
+</li>
+<li>
+<p>Moon, J.; Ma, W.; Shin, J. H.; Cai, F.; Du, C.; Lee, S. H.; Lu, W. D. Temporal Data Classification and Forecasting Using a Memristor-Based Reservoir Computing System. <em>Nat. Electron.</em> <strong>2019</strong>, <em>2</em> (10), 480–487. <a href="https://doi.org/10.1038/s41928-019-0313-3">https://doi.org/10.1038/s41928-019-0313-3</a>.</p>
+</li>
+<li>
+<p>Cai, H.; Ao, Z.; Tian, C.; Wu, Z.; Liu, H.; Tchieu, J.; Gu, M.; Mackie, K.; Guo, F. Brain Organoid Reservoir Computing for Artificial Intelligence. <em>Nat. Electron.</em> <strong>2023</strong>, <em>6</em> (12), 1032–1039. <a href="https://doi.org/10.1038/s41928-023-01069-w">https://doi.org/10.1038/s41928-023-01069-w</a>.</p>
+</li>
+<li>
+<p>Pei, M.; Zhu, Y.; Liu, S.; Cui, H.; Li, Y.; Yan, Y.; Li, Y.; Wan, C.; Wan, Q. Power-Efficient Multisensory Reservoir Computing Based on Zr-Doped HfO2 Memcapacitive Synapse Arrays. <em>Adv. Mater. n/a</em> (n/a), 2305609. <a href="https://doi.org/10.1002/adma.202305609">https://doi.org/10.1002/adma.202305609</a>.</p>
+</li>
+<li>
+<p>Duport, F.; Schneider, B.; Smerieri, A.; Haelterman, M.; Massar, S. All-Optical Reservoir Computing. <em>Opt. Express</em> <strong>2012</strong>, <em>20</em> (20), 22783–22795. <a href="https://doi.org/10.1364/OE.20.022783">https://doi.org/10.1364/OE.20.022783</a>.</p>
+</li>
+<li>
+<p>Vandoorne, K.; Mechet, P.; Van Vaerenbergh, T.; Fiers, M.; Morthier, G.; Verstraeten, D.; Schrauwen, B.; Dambre, J.; Bienstman, P. Experimental Demonstration of Reservoir Computing on a Silicon Photonics Chip. <em>Nat. Commun.</em> <strong>2014</strong>, <em>5</em> (1), 3541. <a href="https://doi.org/10.1038/ncomms4541">https://doi.org/10.1038/ncomms4541</a>.</p>
+</li>
+<li>
+<p>Sande, G. V. der; Brunner, D.; Soriano, M. C. Advances in Photonic Reservoir Computing. <em>Nanophotonics</em> <strong>2017</strong>, <em>6</em> (3), 561–576. <a href="https://doi.org/10.1515/nanoph-2016-0132">https://doi.org/10.1515/nanoph-2016-0132</a>.</p>
+</li>
+<li>
+<p>Müller, J.; Ballini, M.; Livi, P.; Chen, Y.; Radivojevic, M.; Shadmani, A.; Viswam, V.; Jones, I. L.; Fiscella, M.; Diggelmann, R.; Stettler, A.; Frey, U.; Bakkum, D. J.; Hierlemann, A. High-Resolution CMOS MEA Platform to Study Neurons at Subcellular, Cellular, and Network Levels. <em>Lab. Chip</em> <strong>2015</strong>, <em>15</em> (13), 2767–2780. <a href="https://doi.org/10.1039/C5LC00133A">https://doi.org/10.1039/C5LC00133A</a>.</p>
+</li>
+<li>
+<p>Zhong, Y.; Tang, J.; Li, X.; Liang, X.; Liu, Z.; Li, Y.; Xi, Y.; Yao, P.; Hao, Z.; Gao, B.; Qian, H.; Wu, H. A Memristor-Based Analogue Reservoir Computing System for Real-Time and Power-Efficient Signal Processing. <em>Nat. Electron.</em> <strong>2022</strong>, <em>5</em> (10), 672–681. <a href="https://doi.org/10.1038/s41928-022-00838-3">https://doi.org/10.1038/s41928-022-00838-3</a>.</p>
+</li>
+<li>
+<p>Zhong, Y.; Tang, J.; Li, X.; Gao, B.; Qian, H.; Wu, H. Dynamic Memristor-Based Reservoir Computing for High-Efficiency Temporal Signal Processing. <em>Nat. Commun.</em> <strong>2021</strong>, <em>12</em> (1), 408. <a href="https://doi.org/10.1038/s41467-020-20692-1">https://doi.org/10.1038/s41467-020-20692-1</a>.</p>
+</li>
+<li>
+<p>Schaetti, N.; Salomon, M.; Couturier, R. Echo State Networks-Based Reservoir Computing for MNIST Handwritten Digits Recognition. In <em>2016 IEEE Intl Conference on Computational Science and Engineering (CSE) and IEEE Intl Conference on Embedded and Ubiquitous Computing (EUC) and 15th Intl Symposium on Distributed Computing and Applications for Business Engineering (DCABES)</em>; 2016; pp 484–491. <a href="https://doi.org/10.1109/CSE-EUC-DCABES.2016.229">https://doi.org/10.1109/CSE-EUC-DCABES.2016.229</a>.</p>
+</li>
+<li>
+<p>Matrone, G. M.; van Doremaele, E. R. W.; Surendran, A.; Laswick, Z.; Griggs, S.; Ye, G.; McCulloch, I.; Santoro, F.; Rivnay, J.; van de Burgt, Y. A Modular Organic Neuromorphic Spiking Circuit for Retina-Inspired Sensory Coding and Neurotransmitter-Mediated Neural Pathways. <em>Nat. Commun.</em> <strong>2024</strong>, <em>15</em> (1), 2868. <a href="https://doi.org/10.1038/s41467-024-47226-3">https://doi.org/10.1038/s41467-024-47226-3</a>.</p>
+</li>
+<li>
+<p>Laswick, Z.; Wu, X.; Surendran, A.; Zhou, Z.; Ji, X.; Matrone, G. M.; Leong, W. L.; Rivnay, J. Tunable Anti-Ambipolar Vertical Bilayer Organic Electrochemical Transistor Enable Neuromorphic Retinal Pathway. <em>Nat. Commun.</em> <strong>2024</strong>, <em>15</em> (1), 6309. <a href="https://doi.org/10.1038/s41467-024-50496-6">https://doi.org/10.1038/s41467-024-50496-6</a>.</p>
+</li>
+<li>
+<p>Cho, H.; Lee, I.; Jang, J.; Kim, J.-H.; Lee, H.; Park, S.; Wang, G. Real-Time Finger Motion Recognition Using Skin-Conformable Electronics. <em>Nat. Electron.</em> <strong>2023</strong>. <a href="https://doi.org/10.1038/s41928-023-01012-z">https://doi.org/10.1038/s41928-023-01012-z</a>.</p>
+</li>
+<li>
+<p>Shao L.; Zhao Y.; Liu Y. Organic Synaptic Transistors: The Evolutionary Path from Memory Cells to the Application of Artificial Neural Networks. <a href="https://doi.org/10.1002/adfm.202101951">https://doi.org/10.1002/adfm.202101951</a>.</p>
+</li>
+<li>
+<p>Dai, S.; Liu, X.; Liu, Y.; Xu, Y.; Zhang, J.; Wu, Y.; Cheng, P.; Xiong, L.; Huang, J. Emerging Iontronic Neural Devices for Neuromorphic Sensory Computing. <em>Adv. Mater.</em> <strong>2023</strong>, <em>35</em> (39), 2300329. <a href="https://doi.org/10.1002/adma.202300329">https://doi.org/10.1002/adma.202300329</a>.</p>
+</li>
+<li>
+<p>Zhang, H.-T.; Park, T. J.; Islam, A. N. M. N.; Tran, D. S. J.; Manna, S.; Wang, Q.; Mondal, S.; Yu, H.; Banik, S.; Cheng, S.; Zhou, H.; Gamage, S.; Mahapatra, S.; Zhu, Y.; Abate, Y.; Jiang, N.; Sankaranarayanan, S. K. R. S.; Sengupta, A.; Teuscher, C.; Ramanathan, S. Reconfigurable Perovskite Nickelate Electronics for Artificial Intelligence. <em>Science</em> <strong>2022</strong>, <em>375</em> (6580), 533–539. <a href="https://doi.org/10.1126/science.abj7943">https://doi.org/10.1126/science.abj7943</a>.</p>
+</li>
+<li>
+<p>Zhong, Y.; Tang, J.; Li, X.; Liang, X.; Liu, Z.; Li, Y.; Xi, Y.; Yao, P.; Hao, Z.; Gao, B.; Qian, H.; Wu, H. A Memristor-Based Analogue Reservoir Computing System for Real-Time and Power-Efficient Signal Processing. <em>Nat. Electron.</em> <strong>2022</strong>, <em>5</em> (10), 672–681. <a href="https://doi.org/10.1038/s41928-022-00838-3">https://doi.org/10.1038/s41928-022-00838-3</a>.</p>
+</li>
+<li>
+<p>Tanaka, G.; Yamane, T.; Héroux, J. B.; Nakane, R.; Kanazawa, N.; Takeda, S.; Numata, H.; Nakano, D.; Hirose, A. Recent Advances in Physical Reservoir Computing: A Review. <em>Neural Netw.</em> <strong>2019</strong>, <em>115</em>, 100–123. <a href="https://doi.org/10.1016/j.neunet.2019.03.005">https://doi.org/10.1016/j.neunet.2019.03.005</a>.</p>
+</li>
+<li>
+<p>Jaeger, H. The “Echo State” Approach to Analysing and Training Recurrent Neural Networks-with an Erratum Note. <em>Bonn Ger. Ger. Natl. Res. Cent. Inf. Technol. GMD Tech. Rep.</em> <strong>2001</strong>, <em>148</em> (34), 13.</p>
+</li>
+<li>
+<p>Maass, W.; Natschläger, T.; Markram, H. Real-Time Computing Without Stable States: A New Framework for Neural Computation Based on Perturbations. <em>Neural Comput.</em> <strong>2002</strong>, <em>14</em> (11), 2531–2560. <a href="https://doi.org/10.1162/089976602760407955">https://doi.org/10.1162/089976602760407955</a>.</p>
+</li>
+<li>
+<p>Yan, M.; Huang, C.; Bienstman, P.; Tino, P.; Lin, W.; Sun, J. Emerging Opportunities and Challenges for the Future of Reservoir Computing. <em>Nat. Commun.</em> <strong>2024</strong>, <em>15</em> (1), 2056. <a href="https://doi.org/10.1038/s41467-024-45187-1">https://doi.org/10.1038/s41467-024-45187-1</a>.</p>
+</li>
+<li>
+<p>Canaday, D.; Pomerance, A.; Gauthier, D. J. Model-Free Control of Dynamical Systems with Deep Reservoir Computing. <em>J. Phys. Complex.</em> <strong>2021</strong>, <em>2</em> (3), 035025. <a href="https://doi.org/10.1088/2632-072X/ac24f3">https://doi.org/10.1088/2632-072X/ac24f3</a>.</p>
+</li>
+<li>
+<p>Gallicchio, C.; Micheli, A. Deep Reservoir Computing. In <em>Reservoir Computing: Theory, Physical Implementations, and Applications</em>; Nakajima, K., Fischer, I., Eds.; Natural Computing Series; Springer: Singapore, 2021; pp 77–95. <a href="https://doi.org/10.1007/978-981-13-1687-6_4">https://doi.org/10.1007/978-981-13-1687-6_4</a>.</p>
+</li>
+<li>
+<p>Ghosh, S.; Opala, A.; Matuszewski, M.; Paterek, T.; Liew, T. C. H. Quantum Reservoir Processing. <em>Npj Quantum Inf.</em> <strong>2019</strong>, <em>5</em> (1), 1–6. <a href="https://doi.org/10.1038/s41534-019-0149-8">https://doi.org/10.1038/s41534-019-0149-8</a>.</p>
+</li>
+<li>
+<p>Chang, M.-F.; Chiu, P. Energy Efficient Systems Using Resistive Memory Devices. <strong>2014</strong>, 79–115. <a href="https://doi.org/10.1007/978-1-4419-9551-3_4">https://doi.org/10.1007/978-1-4419-9551-3_4</a>.</p>
+</li>
+<li>
+<p>Pal, S.; Ranjan, N. S. Design of Non-Volatile SRAM Cell Using Memristor. In <em>Information Systems Design and Intelligent Applications</em>; Satapathy, S. C., Mandal, J. K., Udgata, S. K., Bhateja, V., Eds.; Springer India: New Delhi, 2016; pp 175–183. <a href="https://doi.org/10.1007/978-81-322-2757-1_19">https://doi.org/10.1007/978-81-322-2757-1_19</a>.</p>
+</li>
+<li>
+<p>Cao, J.; Zhang, X.; Cheng, H.; Qiu, J.; Liu, X.; Wang, M.; Liu, Q. Emerging Dynamic Memristors for Neuromorphic Reservoir Computing. <em>Nanoscale</em> <strong>2022</strong>, <em>14</em> (2), 289–298. <a href="https://doi.org/10.1039/D1NR06680C">https://doi.org/10.1039/D1NR06680C</a>.</p>
+</li>
+<li>
+<p><em>3D Reservoir Computing with High Area Efficiency (5.12 TOPS/mm2) Implemented by 3D Dynamic Memristor Array for Temporal Signal Processing | IEEE Conference Publication | IEEE Xplore</em>. <a href="https://ieeexplore.ieee.org/document/9830310">https://ieeexplore.ieee.org/document/9830310</a> (accessed 2024-07-23).</p>
+</li>
+<li>
+<p>Kulkarni, M. S.; Teuscher, C. Memristor-Based Reservoir Computing. In <em>Proceedings of the 2012 IEEE/ACM International Symposium on Nanoscale Architectures</em>; NANOARCH ’12; Association for Computing Machinery: New York, NY, USA, 2012; pp 226–232. <a href="https://doi.org/10.1145/2765491.2765531">https://doi.org/10.1145/2765491.2765531</a>.</p>
+</li>
+<li>
+<p>Lilak, S.; Woods, W.; Scharnhorst, K.; Dunham, C.; Teuscher, C.; Stieg, A. Z.; Gimzewski, J. K. Spoken Digit Classification by In-Materio Reservoir Computing With Neuromorphic Atomic Switch Networks. <em>Front. Nanotechnol.</em> <strong>2021</strong>, <em>3</em>. <a href="https://doi.org/10.3389/fnano.2021.675792">https://doi.org/10.3389/fnano.2021.675792</a>.</p>
+</li>
+<li>
+<p>Usami, Y.; van de Ven, B.; Mathew, D. G.; Chen, T.; Kotooka, T.; Kawashima, Y.; Tanaka, Y.; Otsuka, Y.; Ohoyama, H.; Tamukoh, H.; Tanaka, H.; van der Wiel, W. G.; Matsumoto, T. In-Materio Reservoir Computing in a Sulfonated Polyaniline Network. <em>Adv. Mater.</em> <strong>2021</strong>, <em>33</em> (48), 2102688. <a href="https://doi.org/10.1002/adma.202102688">https://doi.org/10.1002/adma.202102688</a>.</p>
+</li>
+<li>
+<p>Yao, P.; Wu, H.; Gao, B.; Tang, J.; Zhang, Q.; Zhang, W.; Yang, J. J.; Qian, H. Fully Hardware-Implemented Memristor Convolutional Neural Network. <em>Nature</em> <strong>2020</strong>, <em>577</em> (7792), 641–646. <a href="https://doi.org/10.1038/s41586-020-1942-4">https://doi.org/10.1038/s41586-020-1942-4</a>.</p>
+</li>
+<li>
+<p>Cucchi, M.; Gruener, C.; Petrauskas, L.; Steiner, P.; Tseng, H.; Fischer, A.; Penkovsky, B.; Matthus, C.; Birkholz, P.; Kleemann, H.; Leo, K. Reservoir Computing with Biocompatible Organic Electrochemical Networks for Brain-Inspired Biosignal Classification. <em>Sci. Adv.</em> <strong>2021</strong>.</p>
+</li>
+<li>
+<p>Liu, Z.; Tang, J.; Gao, B.; Yao, P.; Li, X.; Liu, D.; Zhou, Y.; Qian, H.; Hong, B.; Wu, H. Neural Signal Analysis with Memristor Arrays towards High-Efficiency Brain-Machine Interfaces. <em>Nat. Commun.</em> <strong>2020</strong>, <em>11</em> (1), 4234. <a href="https://doi.org/10.1038/s41467-020-18105-4">https://doi.org/10.1038/s41467-020-18105-4</a>.</p>
+</li>
+<li>
+<p>Köster, F.; Patel, D.; Wikner, A.; Jaurigue, L.; Lüdge, K. Data-Informed Reservoir Computing for Efficient Time-Series Prediction. <em>Chaos Interdiscip. J. Nonlinear Sci.</em> <strong>2023</strong>, <em>33</em> (7), 073109. <a href="https://doi.org/10.1063/5.0152311">https://doi.org/10.1063/5.0152311</a>.</p>
+</li>
+<li>
+<p>Liu, K.; Zhang, T.; Dang, B.; Bao, L.; Xu, L.; Cheng, C.; Yang, Z.; Huang, R.; Yang, Y. An Optoelectronic Synapse Based on α-In2Se3 with Controllable Temporal Dynamics for Multimode and Multiscale Reservoir Computing. <em>Nat. Electron.</em> <strong>2022</strong>, <em>5</em> (11), 761–773. <a href="https://doi.org/10.1038/s41928-022-00847-2">https://doi.org/10.1038/s41928-022-00847-2</a>.</p>
+</li>
+<li>
+<p>Hassan, A. M.; Li, H. H.; Chen, Y. Hardware Implementation of Echo State Networks Using Memristor Double Crossbar Arrays. In <em>2017 International Joint Conference on Neural Networks (IJCNN)</em>; 2017; pp 2171–2177. <a href="https://doi.org/10.1109/IJCNN.2017.7966118">https://doi.org/10.1109/IJCNN.2017.7966118</a>.</p>
+</li>
+<li>
+<p>Zhang, Z.; Zhao, X.; Zhang, X.; Hou, X.; Ma, X.; Tang, S.; Zhang, Y.; Xu, G.; Liu, Q.; Long, S. In-Sensor Reservoir Computing System for Latent Fingerprint Recognition with Deep Ultraviolet Photo-Synapses and Memristor Array. <em>Nat. Commun.</em> <strong>2022</strong>, <em>13</em> (1), 6590. <a href="https://doi.org/10.1038/s41467-022-34230-8">https://doi.org/10.1038/s41467-022-34230-8</a>.</p>
+</li>
+</ol> </div> </div> <aside class="hidden lg:block pt-2" data-assemble data-delay="3"> <p class="font-ui text-[11px] uppercase tracking-wider font-bold text-ink mb-3">标签</p> <div class="flex flex-col gap-2"> <a href="/notes/tags/research/" class="inline-flex items-center px-2.5 py-1 font-ui text-xs font-semibold border-2 rounded-full transition-transform hover:-translate-y-0.5 bg-brick/20 text-brick border-brick">
+#research </a><a href="/notes/tags/neuromorphic/" class="inline-flex items-center px-2.5 py-1 font-ui text-xs font-semibold border-2 rounded-full transition-transform hover:-translate-y-0.5 bg-moss/20 text-moss border-moss">
+#neuromorphic </a> </div> </aside> </div> <div class="max-w-article mx-auto mt-12"> <div class="flex flex-wrap gap-2 mb-6 lg:hidden"> <a href="/notes/tags/research/" class="inline-flex items-center px-2.5 py-1 font-ui text-xs font-semibold border-2 rounded-full transition-transform hover:-translate-y-0.5 bg-brick/20 text-brick border-brick">
+#research </a><a href="/notes/tags/neuromorphic/" class="inline-flex items-center px-2.5 py-1 font-ui text-xs font-semibold border-2 rounded-full transition-transform hover:-translate-y-0.5 bg-moss/20 text-moss border-moss">
+#neuromorphic </a> </div> <nav class="grid sm:grid-cols-2 gap-4 my-10" aria-label="上一篇"> <a href="/notes/2023-11-15-bci-depression-treatment-ethics/" class="sign-btn sign-btn--teal justify-start" style="clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0 50%);"> <span class="btn-arrow" aria-hidden="true">◀</span> <span class="text-left min-w-0"> <span class="block text-[10px] uppercase tracking-wider opacity-80">上一篇</span> <span class="line-clamp-1">脑机接口治疗抑郁症的伦理问题</span> </span> </a> <a href="/notes/2024-06-04-ion-memristor-reservoir-computing-notes/" class="sign-btn justify-between sm:justify-self-end"> <span class="text-right min-w-0"> <span class="block text-[10px] uppercase tracking-wider opacity-80">下一篇</span> <span class="line-clamp-1">Reservoir Computing Networks in Ion Memristor Devices</span> </span> <span class="btn-arrow" aria-hidden="true">▶</span> </a> </nav> <section class="my-12" data-assemble><h2 class="heading-md mb-4">相关文章</h2><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start"><article class="card-irregular card-irregular--wood overflow-hidden flex flex-col" data-assemble> <a href="/notes/2024-06-04-ion-memristor-reservoir-computing-notes/" class="flex flex-col flex-1 p-4 md:p-5 group min-h-0"> <div class="flex items-start justify-between gap-2 mb-3 shrink-0"> <span class="inline-flex items-center font-ui font-semibold border-2 border-ink rounded-small text-[11px] px-2 py-0.5 bg-brick text-white">research</span> <span class="staple-mark shrink-0" aria-hidden="true"></span> </div> <div class="mb-3 overflow-hidden border-2 border-ink/80 rounded-small bg-board shrink-0"> <img src="/images/covers/2024-06-04-ion-memristor-reservoir-computing-notes.jpg" alt="" class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] aspect-[4/3]" loading="lazy"> </div> <h3 class="font-display font-semibold leading-snug mb-2 group-hover:hand-underline line-clamp-2 shrink-0 text-lg"> Reservoir Computing Networks in Ion Memristor Devices </h3> <p class="text-sm leading-relaxed mb-4 flex-1 line-clamp-3 min-h-0 text-ink-muted"> Outline of ion memristor reservoir computing—RC basics, hardware implementation, and outlook. </p> <div class="flex flex-wrap items-center gap-2 mt-auto shrink-0"> <span class="metal-plate">2024.06.04</span>  <span class="font-ui text-xs text-ink-muted">1 分钟阅读</span> </div> </a> </article><article class="card-irregular card-irregular--sign overflow-hidden flex flex-col" data-assemble> <a href="/notes/2025-06-01-crizotinib-precision-targeted-drug-development/" class="flex flex-col flex-1 p-4 md:p-5 group min-h-0"> <div class="flex items-start justify-between gap-2 mb-3 shrink-0"> <span class="inline-flex items-center font-ui font-semibold border-2 border-ink rounded-small text-[11px] px-2 py-0.5 bg-brick text-white">research</span> <span class="staple-mark shrink-0" aria-hidden="true"></span> </div> <div class="mb-3 overflow-hidden border-2 border-ink/80 rounded-small bg-board shrink-0"> <img src="/images/covers/2025-06-01-crizotinib-precision-targeted-drug-development.jpg" alt="" class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] aspect-[4/3]" loading="lazy"> </div> <h3 class="font-display font-semibold leading-snug mb-2 group-hover:hand-underline line-clamp-2 shrink-0 text-lg text-white"> 克唑替尼：小分子靶向药物研发范式的革新 </h3> <p class="text-sm leading-relaxed mb-4 flex-1 line-clamp-3 min-h-0 text-white/85"> 从 ALK 靶点发现到伴随诊断同步审批，梳理克唑替尼代表的精准靶向药研发范式。 </p> <div class="flex flex-wrap items-center gap-2 mt-auto shrink-0"> <span class="metal-plate">2025.06.01</span>  <span class="font-ui text-xs text-ink-muted">1 分钟阅读</span> </div> </a> </article><article class="card-irregular card-irregular--paper overflow-hidden flex flex-col" data-assemble> <a href="/notes/2025-06-01-group13-esports-wrist-biomechanics-proposal/" class="flex flex-col flex-1 p-4 md:p-5 group min-h-0"> <div class="flex items-start justify-between gap-2 mb-3 shrink-0"> <span class="inline-flex items-center font-ui font-semibold border-2 border-ink rounded-small text-[11px] px-2 py-0.5 bg-brick text-white">research</span> <span class="staple-mark shrink-0" aria-hidden="true"></span> </div> <div class="mb-3 overflow-hidden border-2 border-ink/80 rounded-small bg-board shrink-0"> <img src="/images/covers/2025-06-01-group13-esports-wrist-biomechanics-proposal.jpg" alt="" class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] aspect-[4/3]" loading="lazy"> </div> <h3 class="font-display font-semibold leading-snug mb-2 group-hover:hand-underline line-clamp-2 shrink-0 text-lg"> Biomechanical Assessment of Wrist Load During Esports Mouse Use </h3> <p class="text-sm leading-relaxed mb-4 flex-1 line-clamp-3 min-h-0 text-ink-muted"> Group 13 proposal on esports mouse use, wrist kinematics, and OpenSim load simulation. </p> <div class="flex flex-wrap items-center gap-2 mt-auto shrink-0"> <span class="metal-plate">2025.06.01</span>  <span class="font-ui text-xs text-ink-muted">1 分钟阅读</span> </div> </a> </article></div></section> <p class="mt-8"> <a href="/notes/" class="sign-btn sign-btn--teal inline-flex">
+← 返回全部笔记 </a> </p> </div> </div> </article>  </main> <footer class="mt-auto bg-forest text-paper relative overflow-hidden"> <div class="container-page relative section-pad grid gap-10 md:grid-cols-3"> <div data-assemble> <p class="font-display text-2xl mb-3">Zerong&#39; Notes</p> <p class="text-paper/80 text-[0.95rem] leading-relaxed max-w-sm">Stay curious — 科学、旅行、美食与日常记录。</p> <p class="meta-text text-paper/50 mt-4">
+© 2022–2026 Zerong Sun </p> </div> <div data-assemble data-delay="2"> <p class="heading-sub text-mustard mb-3">联系</p> <ul class="space-y-2 font-ui text-sm"> <li> <a class="hover:text-mustard transition-colors" href="mailto:Zero.de.sun@outlook.com"> Zero.de.sun@outlook.com </a> </li> <li> <a class="hover:text-teal transition-colors" href="https://github.com/zerong-sun" target="_blank" rel="noopener">
+GitHub
+</a> </li> <li> <a class="hover:text-sky transition-colors" href="/notes/"> 全部笔记 →
+</a> </li> <li> <a class="hover:text-paper/70 transition-colors" href="/archive/"> 旧版站点存档 →
+</a> </li> </ul> </div> <div class="flex flex-col items-start md:items-end gap-4" data-assemble data-delay="3"> <a href="#top" class="sign-btn sign-btn--mustard" style="clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0 50%);"> <span class="btn-arrow" aria-hidden="true">▲</span> 回到顶部 </a> </div> </div> </footer> <script type="module">document.addEventListener("click",t=>{t.target?.closest('a[href="#top"]')&&(t.preventDefault(),window.scrollTo({top:0,behavior:"smooth"}))});</script> <script type="module">function L(e){return!!(e.classList.contains("article-body")||e.classList.contains("prose")||e.scrollHeight>window.innerHeight*.85)}function p(e){const n=e.getBoundingClientRect();return n.bottom>0&&n.top<window.innerHeight}function v(){const e=window.matchMedia("(prefers-reduced-motion: reduce)").matches,n=document.querySelectorAll("[data-assemble]"),a=document.querySelectorAll(".route-draw"),c=document.querySelectorAll(".timeline-node");if(e){n.forEach(t=>t.classList.add("is-in")),a.forEach(t=>t.classList.add("is-in")),c.forEach(t=>t.classList.add("is-in"));return}const r=new IntersectionObserver(t=>{for(const i of t){if(!i.isIntersecting)continue;const o=i.target;o.classList.add("is-in"),o.hasAttribute("data-stagger")&&[...o.children].forEach((d,l)=>{window.setTimeout(()=>d.classList.add("is-in"),l*60)}),r.unobserve(o)}},{rootMargin:"0px 0px -5% 0px",threshold:0});n.forEach(t=>{if(L(t)||p(t)){t.classList.add("is-in");return}r.observe(t)}),a.forEach(t=>r.observe(t)),c.forEach(t=>r.observe(t))}function w(){document.querySelectorAll("[data-photo-strip]").forEach(e=>{let n=!1,a=0,c=0,r=0,t=0,i=0,o=0;const d=()=>{o&&cancelAnimationFrame(o),o=0},l=()=>{if(Math.abs(r)<.2){d();return}e.scrollLeft-=r,r*=.92,o=requestAnimationFrame(l)};e.addEventListener("pointerdown",s=>{s.pointerType!=="touch"&&(n=!0,d(),e.classList.add("is-dragging"),a=s.pageX-e.offsetLeft,c=e.scrollLeft,t=s.pageX,i=performance.now(),e.setPointerCapture(s.pointerId))}),e.addEventListener("pointermove",s=>{if(!n)return;s.preventDefault();const g=s.pageX-e.offsetLeft;e.scrollLeft=c-(g-a)*1.15;const u=performance.now(),h=u-i||1;r=(s.pageX-t)/h*14,t=s.pageX,i=u});const f=()=>{n&&(n=!1,e.classList.remove("is-dragging"),o=requestAnimationFrame(l))};e.addEventListener("pointerup",f),e.addEventListener("pointercancel",f),e.addEventListener("pointerleave",f)})}function m(){v(),w()}m();document.addEventListener("astro:page-load",m);</script> </body> </html>
