@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" fill="none">
-  <rect width="480" height="600" fill="#F3EFE3"/>
-  <rect x="40" y="40" width="400" height="520" fill="#72B5BC" stroke="#202A20" stroke-width="5"/>
-  <circle cx="240" cy="220" r="90" fill="#D99A88" stroke="#202A20" stroke-width="4"/>
-  <rect x="140" y="340" width="200" height="160" rx="20" fill="#687748" stroke="#202A20" stroke-width="4"/>
-  <text x="120" y="560" font-family="Georgia,serif" font-size="24" fill="#202A20">SHAUN · DESK</text>
-</svg>

@@ -7,3 +7,9 @@ dist/
 .astro/
 .env
 .env.local
+
+# 嵌套独立仓库与备份目录,各自独立管理,不纳入根仓库
+blog-standalone/
+blue-engraving-blog/
+original-blog/
+content-archive/
